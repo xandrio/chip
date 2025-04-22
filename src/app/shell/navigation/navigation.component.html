@@ -1,4 +1,4 @@
-<nav class="bg-sky-800">
+<nav class="bg-sky-800 sticky top-0 z-50">
     <div class="mx-auto max-w-6xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -65,22 +65,30 @@
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <!-- Current: "bg-sky-900 text-white", Default: "text-gray-300 hover:bg-sky-700 hover:text-white" -->
-                <a  [routerLink]="['/']" 
+                <a  href="#home" 
                     [routerLinkActiveOptions]="{exact: true}" 
                     [routerLinkActive]="'text-white bg-sky-900 text-white hover:text-white hover:bg-sky-900'" 
                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
                     Home
                 </a>
-                <a  [routerLink]="['/contacts']" 
+                <a  href="#contacts"
                     [routerLinkActive]="'text-white bg-sky-900 text-white hover:bg-sky-900'" 
                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
                     How to reach us
                 </a>
-                <a  [routerLink]="['/status']" 
+                
+                <a  href="#faq"
+                    [routerLinkActive]="'text-white bg-sky-900 text-white hover:bg-sky-900'" 
+                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
+                    FAQ
+                </a>
+
+                <a  routerLink="/status" fragment="status"
                     [routerLinkActive]="'text-white bg-sky-900 text-white hover:bg-sky-900'" 
                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
                     Order status
                 </a>
+
             </div>
           </div>
         </div>
