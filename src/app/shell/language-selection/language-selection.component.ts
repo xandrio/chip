@@ -12,9 +12,10 @@ export class LanguageSelectionComponent {
 
   languages = [
     { code: 'es', label: 'Español', flag: 'https://flagcdn.com/es.svg' },
+    { code: 'vl', label: 'Valenciano', flag: '/flags/valencia.png' },
     { code: 'en', label: 'English', flag: 'https://flagcdn.com/gb.svg' },
     { code: 'ru', label: 'Русский', flag: 'https://flagcdn.com/ru.svg' },
-    { code: 'uk', label: 'Українська', flag: 'https://flagcdn.com/ua.svg' }
+    { code: 'uk', label: 'Українська', flag: 'https://flagcdn.com/ua.svg' },
   ];
 
   constructor() {
