@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageSelectionComponent } from '../language-selection/language-selection.component';
 
 @Component({
@@ -10,4 +10,10 @@ import { LanguageSelectionComponent } from '../language-selection/language-selec
 })
 export class NavigationComponent {
   protected showMenu: boolean = false;
+  protected fragmentExact: IsActiveMatchOptions = {
+    matrixParams: 'exact', 
+    queryParams: 'exact', 
+    paths: 'exact',
+    fragment: 'exact'
+  };
 }

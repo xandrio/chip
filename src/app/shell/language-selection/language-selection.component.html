@@ -1,11 +1,11 @@
 <div class="relative inline-block text-left" (clickOutside)="open = false">
     <button
-      class="inline-flex items-center justify-center w-full px-4 py-2 bg-sky-800 border border-gray-300 rounded shadow-sm text-sm font-medium text-white hover:bg-sky-700 cursor-pointer focus:outline-none"
+      class="inline-flex items-center justify-center w-full px-2 py-2 bg-sky-800 border border-gray-300 rounded shadow-sm text-sm font-medium text-white hover:bg-sky-700 cursor-pointer focus:outline-none"
       (click)="open = !open"
       type="button"
     >
-      <img [src]="getFlag(currentLang)" alt="flag" class="w-5 h-5 mr-2 rounded-full" />
-      {{ getLabel(currentLang) }}
+      <img [src]="getFlag(currentLang)" alt="flag" class="w-5 h-5 rounded-full" />
+      <!-- {{ getLabel(currentLang) }} -->
       <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
       </svg>
@@ -16,7 +16,7 @@
             @for (lang of languages; track $index) {
                 <button
                     (click)="changeLang(lang.code)"
-                    class="flex items-center w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-sky-800 hover:text-white cursor-pointer">
+                    class="flex items-center w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-sky-700 hover:text-white cursor-pointer">
                     <img [src]="lang.flag" alt="flag" class="w-5 h-5 mr-2 rounded-full border border-gray-500" />
                     {{ lang.label }}
                 </button>

@@ -1,6 +1,6 @@
-import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,12 +11,16 @@ import { RouterModule, ActivatedRoute } from '@angular/router';
   styleUrl: './status.component.scss'
 })
 export class StatusComponent {
-  private platformId = inject(PLATFORM_ID);
   statusForm: FormGroup;
   order: any = null;
   notFound = false;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) {
+  constructor(
+    private fb: FormBuilder, 
+    private route: ActivatedRoute, 
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private scroller: ViewportScroller
+  ) {
     this.statusForm = this.fb.group({
       orderId: ['', Validators.required],
       pin: ['', [Validators.required, Validators.minLength(4)]]
@@ -26,9 +30,21 @@ export class StatusComponent {
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       console.log('ngAfterViewInit called', this.route);
-      this.route.fragment.subscribe((fragment) => {
-        console.log('Fragment:', fragment);
-      });
+        this.route.fragment.subscribe((fragment) => {
+          console.log('Fragment:', fragment);
+          if(fragment) {
+            const container = document.getElementById('mainContent');
+            const target = document.getElementById(fragment);
+            
+            if (container && target) {
+              const top = target.offsetTop - 64; // учёт внутреннего отступа
+              container.scrollTo({ top, behavior: 'smooth' });
+            }
+          }
+        });
+      
+    } else {
+      console.log('ngAfterViewInit called on server', this.route);
     }
     
   }
