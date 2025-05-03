@@ -1,5 +1,7 @@
-<app-navigation></app-navigation>
-<div ngbScrollSpy="main" id="mainContent" class="overflow-y-auto h-[calc(100vh-64px)] scroll-smooth">
-  <router-outlet />
-  <app-footer></app-footer>
+<div ngbScrollSpy="main">
+  <app-navigation></app-navigation>
+  <div id="mainContent" class="overflow-y-auto h-[calc(100vh-64px)] scroll-smooth">
+    <router-outlet />
+    <app-footer></app-footer>
+  </div>
 </div>

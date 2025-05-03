@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
+import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 
 @Component({
   selector: 'app-faq',
-  imports: [],
+  imports: [ NgbScrollSpyModule, ScrollspyDirective ],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss'
 })

@@ -1,66 +1,44 @@
-import { afterNextRender, Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { afterNextRender, Directive, ElementRef, Inject, Input, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { ScrollSpyService } from '../services/scrollspy/scrollSpy.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   standalone: true,
   selector: '[appScrollSpy]',
 })
 export class ScrollspyDirective {
-  @Input('appScrollSpy') appScrollSpy: string | null = null;
-  private observer?: IntersectionObserver;
+  @Input('appScrollSpy') id!: string;
+  private observer!: IntersectionObserver;
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private router: Router) {}
+  constructor(
+    private el: ElementRef, 
+    private spy: ScrollSpyService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  ngOnInit(): void {
-    this.observeTarget();
+  ngOnInit() {
+    console.log('ScrollspyDirective initialized with id:', this.id);
+    if (isPlatformBrowser(this.platformId)) {
+      this.observer = new IntersectionObserver(
+        ([entry]) => {
+          console.log('IntersectionObserver entry:', entry);
+          if (entry.isIntersecting) {
+            console.log('Element is in view:', this.id);
+            this.spy.setActive(this.id);
+          }
+        },
+        { threshold: 0.6 }
+      );
 
-    this.router.events
-      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        const hash = event.urlAfterRedirects.split('#')[1];
-        
-        // Если фрагмент есть и соответствует — всё ок
-        if (hash === this.appScrollSpy) return;
-
-        // Иначе снимаем активность
-        this.removeActiveClasses();
-
-        // При переходе на ту же страницу — обновляем Observer
-        const target = document.getElementById(this.appScrollSpy!);
-        if (target && this.observer) {
-          this.observer.disconnect();
-          this.observeTarget();
-        }
-      });
+      this.observer.observe(this.el.nativeElement);
+    }
   }
 
-  observeTarget(): void {
-    const target = document.getElementById(this.appScrollSpy!);
-    if (!target) return;
-
-    this.observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          this.renderer.addClass(this.el.nativeElement, 'bg-sky-900');
-          this.renderer.addClass(this.el.nativeElement, 'text-white');
-        } else {
-          this.removeActiveClasses();
-        }
-      },
-      { threshold: 0.6 }
-    );
-
-    this.observer.observe(target);
-  }
-
-  removeActiveClasses() {
-    this.renderer.removeClass(this.el.nativeElement, 'bg-sky-900');
-    this.renderer.removeClass(this.el.nativeElement, 'text-white');
-  }
-
-  ngOnDestroy(): void {
-    this.observer?.disconnect();
-    this.removeActiveClasses();
+  ngOnDestroy() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.observer?.disconnect();
+    }
   }
 }

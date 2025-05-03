@@ -65,33 +65,24 @@
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <!-- Current: "bg-sky-900 text-white", Default: "text-gray-300 hover:bg-sky-700 hover:text-white" -->
-                <a  routerLink="/"
+                <a routerLink="/"
                     fragment="home"
-                    ngbScrollSpyItem="home"
-                    ngbScrollSpyItemTarget="main"
+                    [class.active]="(active$ | async) === 'home'"
                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
                     Home
                 </a>
-                <a  routerLink="/"
+                <a routerLink="/"
                     fragment="contacts"
-                    ngbScrollSpyItem="contacts"
-                    ngbScrollSpyItemTarget="main"
+                    [class.active]="(active$ | async) === 'contacts'"
                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
                     How to reach us
                 </a>
                 
-                <a  routerLink="/"
-                    fragment="faq"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
-                    FAQ
-                </a>
-
-                <a  routerLink="/status"
-                    [routerLinkActiveOptions]="{exact: true}" 
-                    fragment="status"
-                    [routerLinkActive]="'text-white bg-sky-900 text-white hover:bg-sky-900'" 
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
-                    Order status
+                <a routerLink="/"
+                   fragment="faq"
+                   [class.active]="(active$ | async) === 'faq'"
+                   class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
+                   FAQ
                 </a>
 
             </div>
@@ -100,7 +91,17 @@
 
         <!-- Language selector -->
         <div class="absolute right-0 top-0 bottom-0 flex items-center pr-4">
-            <app-language-selection></app-language-selection>
+          <div class="flex space-x-4">
+            <a  routerLink="/status"
+                [routerLinkActiveOptions]="{exact: true}" 
+                fragment="status"
+                [routerLinkActive]="'text-white bg-sky-900 text-white hover:bg-sky-900'" 
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-sky-700 hover:text-white">
+                Order status
+            </a>
+          <app-language-selection></app-language-selection>
+          </div>
+          
         </div>
 
       </div>

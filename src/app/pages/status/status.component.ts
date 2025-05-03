@@ -29,7 +29,7 @@ export class StatusComponent {
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      console.log('ngAfterViewInit called', this.route);
+
         this.route.fragment.subscribe((fragment) => {
           console.log('Fragment:', fragment);
           if(fragment) {
@@ -43,8 +43,6 @@ export class StatusComponent {
           }
         });
       
-    } else {
-      console.log('ngAfterViewInit called on server', this.route);
     }
     
   }

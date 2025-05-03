@@ -4,10 +4,11 @@ import { ContactsComponent } from "../contacts/contacts.component";
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { NgbScrollSpyModule, NgbScrollSpyService } from '@ng-bootstrap/ng-bootstrap';
+import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [FaqComponent, ContactsComponent, NgbScrollSpyModule],
+  imports: [FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -19,7 +20,6 @@ export class HomeComponent {
     private scroller: ViewportScroller,
     
   ) {
-    
 
   }
 
@@ -37,8 +37,6 @@ export class HomeComponent {
           }
         });
       
-    } else {
-      console.log('ngAfterViewInit called on server', this.route);
     }
     
   }
