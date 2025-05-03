@@ -5,10 +5,11 @@ import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { NgbScrollSpyModule, NgbScrollSpyService } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
-  imports: [FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective],
+  imports: [FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
