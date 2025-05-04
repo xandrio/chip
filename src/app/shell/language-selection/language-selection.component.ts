@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-selection',
@@ -18,14 +21,24 @@ export class LanguageSelectionComponent {
     { code: 'uk', label: 'Українська', flag: 'https://flagcdn.com/ua.svg' },
   ];
 
-  constructor() {
-    // this.currentLang = this.translate.currentLang || this.translate.getDefaultLang();
+  constructor(private translate: TranslateService, private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.translate.onLangChange.subscribe((event) => {
+      this.currentLang = event.lang;
+    });
   }
 
   changeLang(lang: string) {
-    // this.translate.use(lang);
-    this.currentLang = lang;
-    this.open = false;
+      this.translate.use(lang);
+      // this.currentLang = lang;
+    
+      if (isPlatformBrowser(this.platformId)) {
+        localStorage.setItem('lang', lang); // ✅ сохраняем язык
+      }
+    
+      const currentUrl = this.router.url;
+      const cleaned = currentUrl.replace(/^\/[a-z]{2}/, '');
+      this.open = false;
+      this.router.navigate([`/${lang}${cleaned}`]);
   }
 
   getLabel(code: string): string {

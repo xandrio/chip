@@ -1,16 +1,16 @@
 <section [appScrollSpy]="'home'" id="home"  class="bg-gray-50 text-gray-800">
     <div class="max-w-6xl mx-auto px-4 py-16">
-      <h1 class="text-4xl font-bold mb-6 text-center">Сервисный центр «Chip» {{ 'HOME.TITLE' | translate}}</h1>
+      <h1 class="text-4xl font-bold mb-6 text-center">{{ 'HOME.TITLE' | translate}}</h1>
       <p class="text-lg text-center mb-10 max-w-3xl mx-auto">
-        Профессиональный ремонт мобильных телефонов, ноутбуков и компьютеров. Установка программ, чистка от пыли, замена термопасты и многое другое.
+        {{ 'HOME.DESCRIPTION' | translate}}
       </p>
   
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <!-- Card 1 -->
         <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center text-center">
-          <img src="/images/mob-r.png" alt="ремонт телефонов" class="mb-4 rounded-lg">
-          <h3 class="text-xl font-semibold mb-2">Ремонт телефонов</h3>
-          <p>Замена экранов, батарей, разъёмов, прошивка и восстановление ПО.</p>
+          <img src="/images/mob-r.png" [attr.alt]="'HOME.PHONE_REP_TITLE' | translate" class="mb-4 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">{{'HOME.PHONE_REP_TITLE' | translate}}</h3>
+          <p>{{'HOME.PHONE_REP_DESC' | translate}}</p>
         </div>
   
         <!-- Card 2 -->

@@ -14,7 +14,7 @@ import {
 } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/i18n/', '.json');
+  return new TranslateHttpLoader(http, './i18n/', '.json');
 }
 
 export const appConfig: ApplicationConfig = {
@@ -24,7 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptorsFromDi()),
     provideClientHydration(withEventReplay()),
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
+      defaultLanguage: 'ru',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
