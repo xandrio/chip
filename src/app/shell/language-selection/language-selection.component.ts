@@ -22,6 +22,7 @@ export class LanguageSelectionComponent {
   ];
 
   constructor(private translate: TranslateService, private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.currentLang = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event) => {
       this.currentLang = event.lang;
     });

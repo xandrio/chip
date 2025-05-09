@@ -7,10 +7,11 @@ import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { Helper } from '../../shared/helper';
 import { combineLatest, filter, map, merge, Observable } from 'rxjs';
 import { ScrollSpyService } from '../../shared/services/scrollspy/scrollSpy.service';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation',
-  imports: [ RouterLink, RouterLinkActive, LanguageSelectionComponent, NgbScrollSpyModule, AsyncPipe ],
+  imports: [ RouterLink, RouterLinkActive, LanguageSelectionComponent, NgbScrollSpyModule, AsyncPipe, TranslatePipe ],
   standalone: true,
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
@@ -18,6 +19,7 @@ import { ScrollSpyService } from '../../shared/services/scrollspy/scrollSpy.serv
 export class NavigationComponent {
   protected showMenu: boolean = false;
   public active$: Observable<string | null> | null = null;
+  public currentLang: string = 'en'; // Default language
 
   protected fragmentExact: IsActiveMatchOptions = {
     matrixParams: 'exact', 
@@ -30,8 +32,13 @@ export class NavigationComponent {
     private route: ActivatedRoute,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    private spy: ScrollSpyService
+    private spy: ScrollSpyService,
+    private translate: TranslateService
   ) {
+    this.currentLang = this.translate.currentLang;
+    this.translate.onLangChange.subscribe((event) => {
+      this.currentLang = event.lang;
+    });
   }
 
   ngAfterViewInit() {

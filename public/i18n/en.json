@@ -3,6 +3,12 @@
       "TITLE": "Welcome to our repair service",
       "DESCRIPTION": "We fix phones and laptops fast and reliably."
     },
+    "NAVIGATION": {
+      "HOME": "Home",
+      "CONTACTS": "How to find us",
+      "FAQ": "FAQ",
+      "STATUS": "Order status"
+    },
     "CONTACTS": {
       "TITLE": "Contact us"
     }

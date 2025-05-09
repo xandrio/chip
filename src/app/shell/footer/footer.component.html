@@ -4,42 +4,51 @@
       
       <!-- Блок 1: Название и описание -->
       <div>
-        <h3 class="text-2xl font-bold mb-2">Chip</h3>
+        <h3 class="text-2xl font-bold mb-2">{{ 'FOOTER.DESCRIPTION_TITLE' | translate }}</h3>
         <p class="text-gray-400">
-          Сервисный центр по ремонту телефонов, ноутбуков и компьютеров. Быстро, надёжно, с гарантией.
+          {{ 'FOOTER.DESCRIPTION_TEXT' | translate }}
         </p>
       </div>
   
       <!-- Блок 2: Контакты -->
       <div>
-        <h4 class="text-xl font-semibold mb-2">Контакты</h4>
+        <h4 class="text-xl font-semibold mb-2">{{ 'FOOTER.CONTACTS_TITLE'}}</h4>
         <ul class="text-gray-300 space-y-1">
           <li>📍 <a
               href="https://www.google.com/maps/dir/?api=1&destination=Reparacion+de+portatiles+CHIP+Carrer+de+Jes%C3%BAs,+83,+46007+Val%C3%A8ncia"
               target="_blank">
-                Carrer de Jesús, 83, 46007 València, Valencia
+              {{ 'FOOTER.ADDRESS' | translate }}
             </a>
           </li>
           <li>📞 <a href="tel:+34616200058" class="text-white hover:underline">+34 616 200 058</a></li>
           <li>✉️ <a href="mailto:chipvalencia@gmail.com" class="text-white hover:underline"> {{'chipvalencia@gmail.com'}}</a></li>
-          <li>🕒 Пн–Пт: 10:00–19:00, Сб: 10:00–14:00</li>
+          <li>🕒 {{ 'FOOTER.WORKING_HOURS' | translate }}</li>
         </ul>
       </div>
   
       <!-- Блок 3: Соцсети -->
       <div>
-        <h4 class="text-xl font-semibold mb-2">Мы в соцсетях</h4>
+        <h4 class="text-xl font-semibold mb-2">
+          {{ 'FOOTER.SOCIAL_MEDIA_TITLE' | translate }}
+        </h4>
         <div class="flex space-x-4 mt-2">
-          <a href="#" class="hover:text-blue-400 transition">Facebook</a>
-          <a href="#" class="hover:text-blue-400 transition">Instagram</a>
-          <a href="#" class="hover:text-blue-400 transition">Telegram</a>
+          <a href="#" class="hover:text-blue-400 transition">
+            {{ 'FOOTER.SOCIAL_MEDIA_FB' | translate }}
+          </a>
+          <a href="#" class="hover:text-blue-400 transition">
+            {{ 'FOOTER.SOCIAL_MEDIA_IGM' | translate }}
+          </a>
+          <a href="#" class="hover:text-blue-400 transition">
+            {{ 'FOOTER.SOCIAL_MEDIA_TG' | translate }}
+          </a>
         </div>
       </div>
   
     </div>
   
     <div class="border-t border-gray-700 text-center text-gray-500 text-sm py-4">
-      © 2025 Chip. Все права защищены.
+      <p>{{ 'FOOTER.COPYRIGHT' | translate }}</p>
+      <!-- © 2025 Chip. Все права защищены. -->
     </div>
   </footer>
   
