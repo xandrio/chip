@@ -4,7 +4,7 @@ import { provideRouter, withRouterConfig } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { features } from 'process';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpBackend, HttpClient, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import {
   TranslateLoader,
   TranslateModule
@@ -21,14 +21,14 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes), 
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptorsFromDi(), withFetch()),
     provideClientHydration(withEventReplay()),
     TranslateModule.forRoot({
       defaultLanguage: 'ru',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [HttpClient, HttpBackend]
       }
     }).providers!
   ]
