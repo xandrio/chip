@@ -1,11 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, DOCUMENT } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavigationComponent } from './shell/navigation/navigation.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
-import { DOCUMENT } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
