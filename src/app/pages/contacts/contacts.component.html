@@ -1,13 +1,13 @@
-<section id="contacts" [appScrollSpy]="'contacts'" class="bg-gray-50 py-16 text-gray-800">
+<section id="contacts" [appScrollSpy]="'contacts'" class=" py-16 text-white">
     <div class="max-w-6xl mx-auto px-4">
       <h1 class="text-3xl font-bold text-center mb-8">{{'CONTACTS.PAGE_TITLE' | translate}}</h1>
   
-      <div class="text-gray-700 text-base space-y-4">
+      <div class="text-white text-base space-y-4">
         <h2 class="text-xl font-semibold">{{'CONTACTS.ADDRESS' | translate}}</h2>
         <ul class="space-y-2">
           <li><strong>📍 {{'CONTACTS.ADDRESS_LABEL' | translate}}: </strong> {{'CONTACTS.ADDRESS_VALUE' | translate}}</li>
-          <li><strong>📞 {{'CONTACTS.PHONE_LABEL' | translate}}: </strong> <a href="tel:+34616200058" class="text-blue-600 hover:underline">{{'CONTACTS.PHONE_VALUE' | translate}}</a></li>
-          <li><strong>✉️ {{'CONTACTS.EMAIL_LABEL' | translate}}: </strong> <a href="mailto:chipvalencia@gmail.com" class="text-blue-600 hover:underline"> {{'chipvalencia@gmail.com'}}</a></li>
+          <li><strong>📞 {{'CONTACTS.PHONE_LABEL' | translate}}: </strong> <a href="tel:+34616200058" class="text-[#7a77db] hover:underline">{{'CONTACTS.PHONE_VALUE' | translate}}</a></li>
+          <li><strong>✉️ {{'CONTACTS.EMAIL_LABEL' | translate}}: </strong> <a href="mailto:chipvalencia@gmail.com" class="text-[#7a77db] hover:underline"> {{'chipvalencia@gmail.com'}}</a></li>
           <li><strong>🕒 {{'CONTACTS.WORKING_HOURS_LABEL' | translate}}: </strong> {{'CONTACTS.WORKING_HOURS_VALUE' | translate}}</li>
         </ul>
         <p class="text-sm text-gray-500">
@@ -34,16 +34,17 @@
       <p class="text-sm text-gray-500">
         {{'CONTACTS.WELCOME_TEXT' | translate}}
       </p>
+
       <a
         href="https://www.google.com/maps/dir/?api=1&destination=Reparacion+de+portatiles+CHIP+Carrer+de+Jes%C3%BAs,+83,+46007+Val%C3%A8ncia"
         target="_blank"
-        class="flex items-center justify-center w-48 mx-auto my-4 px-5 py-2.5 bg-sky-600 text-white font-medium rounded shadow hover:bg-sky-700 transition">
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-footprints-icon lucide-footprints"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg>
-      </span>
-      <span>
-        {{'CONTACTS.GET_DIRECTIONS' | translate}}
-      </span>
+        class="inline-flex justify-center items-center max-w-[50%] border-solid border-2 border-yellow-600 mx-auto my-4 p-6 text-yellow-600 font-medium rounded shadow transition">
+        <span class="mr-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-footprints-icon lucide-footprints"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg>
+        </span>
+        <span class="text-3xl">
+          {{'CONTACTS.GET_DIRECTIONS' | translate}}
+        </span>
       </a>
     </div>
   </section>

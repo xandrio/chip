@@ -7,6 +7,10 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import compression from 'compression';
+
+// До app.use(...) или app.listen(...)
+
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -14,6 +18,7 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+app.use(compression());
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
@@ -159,7 +164,6 @@ app.use('/**', async (req, res, next) => {
     next(err);
   }
 });
-
 
 /**
  * Start the server if this module is the main entry point.

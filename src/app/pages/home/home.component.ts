@@ -15,6 +15,46 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
+cards = [
+  {
+    image: '/images/mob-r.webp',
+    alt: 'HOME.PHONE_REP_TITLE',
+    title: 'HOME.PHONE_REP_TITLE',
+    desc: 'HOME.PHONE_REP_DESC'
+  },
+  {
+    image: '/images/lap-r.webp',
+    alt: 'HOME.LAPTOP_REP_TITLE',
+    title: 'HOME.LAPTOP_REP_TITLE',
+    desc: 'HOME.LAPTOP_REP_DESC'
+  },
+  {
+    image: '/images/clean.webp',
+    alt: 'HOME.LAPTOP_CLEAN_TITLE',
+    title: 'HOME.LAPTOP_CLEAN_TITLE',
+    desc: 'HOME.LAPTOP_CLEAN_DESC'
+  },
+  {
+    image: '/images/win-i.webp',
+    alt: 'HOME.WIN_INSTALL_TITLE',
+    title: 'HOME.WIN_INSTALL_TITLE',
+    desc: 'HOME.WIN_INSTALL_DESC'
+  },
+  {
+    image: '/images/soft-i.webp',
+    alt: 'HOME.APP_INSTALL_TITLE',
+    title: 'HOME.APP_INSTALL_TITLE',
+    desc: 'HOME.APP_INSTALL_DESC'
+  },
+  {
+    image: '/images/pc-d.webp',
+    alt: 'HOME.DIAG_TITLE',
+    title: 'HOME.DIAG_TITLE',
+    desc: 'HOME.DIAG_DESC'
+  },
+];
+
   constructor(
     private route: ActivatedRoute, 
     @Inject(PLATFORM_ID) private platformId: Object,
