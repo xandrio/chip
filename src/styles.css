@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 a.active {
-    @apply bg-sky-900 text-white; /* если ты используешь Tailwind через PostCSS */
+    @apply bg-[#525086] text-white; /* если ты используешь Tailwind через PostCSS */
 }
 
 .dark-horizontal {
