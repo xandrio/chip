@@ -33,7 +33,7 @@ export class LanguageSelectionComponent {
       // this.currentLang = lang;
     
       if (isPlatformBrowser(this.platformId)) {
-        localStorage.setItem('lang', lang); // ✅ сохраняем язык
+        localStorage?.setItem('lang', lang); // ✅ сохраняем язык
       }
     
       const currentUrl = this.router.url;

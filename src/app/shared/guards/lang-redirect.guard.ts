@@ -1,14 +1,20 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export const langRedirectGuard: CanActivateFn = () => {
-  const router: Router = inject(Router);
-  let saved = null;
-  if(localStorage) {
-    saved = localStorage?.getItem('lang');
+  const router = inject(Router);
+  const platformId = inject(PLATFORM_ID);
+
+  let lang = 'en';
+
+  if (isPlatformBrowser(platformId)) {
+    const saved = localStorage.getItem('lang');
+    const browserLang = navigator.language?.split('-')[0];
+    lang = saved || browserLang || 'en';
   }
-  const browserLang = navigator.language?.split('-')[0];
-  const lang = saved || browserLang || 'en';
+
   router.navigateByUrl(`/${lang}`);
   return false;
 };

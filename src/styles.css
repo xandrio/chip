@@ -34,7 +34,3 @@ a.active {
   position: relative;
   z-index: 2;
 }
-
-.header-background {
-  background-image: url('https://cdn.pixabay.com/photo/2017/08/30/07/50/abstract-2695560_1280.jpg');
-}
