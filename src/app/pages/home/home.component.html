@@ -19,7 +19,7 @@
 
       <div class="space-y-12">
         @for (card of cards; track $index) {
-        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 min-h-[400px]">
 
           <div [class.lg:order-2]="$index % 2 !== 0">
             <!-- <span class="text-sm text-yellow-500 uppercase tracking-widest mb-2 block">{{ '0' + ($index + 1) }}</span> -->
