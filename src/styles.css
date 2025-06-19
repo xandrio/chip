@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
+
 a.active {
     @apply bg-[#525086] text-white; /* если ты используешь Tailwind через PostCSS */
 }
