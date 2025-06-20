@@ -42,6 +42,11 @@ app.use(
   }),
 );
 
+// Redirect root requests to the default language
+app.get(['/', '/index.html'], (_req, res) => {
+  res.redirect(302, '/es');
+});
+
 /**
  * Handle all other requests by rendering the Angular application.
  */
@@ -62,6 +67,13 @@ app.use('/**', async (req, res, next) => {
     let html = await response.text();
 
     const path = req.url.toLowerCase();
+    const defaultLang = 'es';
+
+    // If path has no language prefix, redirect to default language
+    if (!/^\/([a-z]{2})(\/|$)/.test(path)) {
+      res.redirect(302, `/${defaultLang}${path === '/' ? '' : path}`);
+      return;
+    }
     type LangCode = 'es' | 'vl' | 'en' | 'ru' | 'ua';
     type LangMeta = {
       lang: string;
@@ -103,7 +115,7 @@ app.use('/**', async (req, res, next) => {
     };
 
     // Определение языка из URL
-    const code = (Object.keys(langMap).find(code => path.startsWith(`/${code}`)) as LangCode) ?? 'en';
+    const code = (Object.keys(langMap).find(code => path.startsWith(`/${code}`)) as LangCode) ?? defaultLang as LangCode;
     const meta = langMap[code];
 
     // Заменяем атрибут <html lang="">
@@ -173,7 +185,7 @@ if (isMainModule(import.meta.url)) {
   const port = Number(process.env['PORT'] || 4000);
 
   app.listen(port, '0.0.0.0', () => {
-    console.log(`Node Express server listening on http://---:${port}`);
+    console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
 

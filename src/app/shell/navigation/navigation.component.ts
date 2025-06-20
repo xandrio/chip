@@ -19,7 +19,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 export class NavigationComponent {
   protected showMenu: boolean = false;
   public active$: Observable<string | null> | null = null;
-  public currentLang: string = 'en'; // Default language
+  public currentLang: string = 'es'; // Default language
 
   protected fragmentExact: IsActiveMatchOptions = {
     matrixParams: 'exact', 
