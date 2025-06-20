@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LanguageSelectionComponent {
   open = false;
-  currentLang: string = 'en'; // Default language
+  currentLang: string = 'es'; // Default language
 
   languages = [
     { code: 'es', label: 'Español', flag: 'https://flagcdn.com/es.svg' },
