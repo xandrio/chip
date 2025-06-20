@@ -19,5 +19,5 @@ export const routes: Routes = [
             },
         ]
     },
-    { path: '**', redirectTo: 'en', pathMatch: 'full' } // fallback
+    { path: '**', redirectTo: 'es', pathMatch: 'full' } // fallback
 ];

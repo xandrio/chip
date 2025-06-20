@@ -1,6 +1,6 @@
 import { ServerRoute, RenderMode } from '@angular/ssr';
 
-const languages = ['en', 'ru'];
+const languages = ['es', 'vl', 'en', 'ru', 'ua'];
 
 export const serverRoutes: ServerRoute[] = [
   {

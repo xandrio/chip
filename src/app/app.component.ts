@@ -23,7 +23,7 @@ export class AppComponent {
     @Inject(DOCUMENT) private document: Document
   ) {
     this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
-      const lang = this.route.snapshot.firstChild?.paramMap.get('lang') ?? 'en';
+      const lang = this.route.snapshot.firstChild?.paramMap.get('lang') ?? 'es';
       this.translate.use(lang);
     });
 
