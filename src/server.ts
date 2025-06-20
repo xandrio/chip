@@ -68,19 +68,6 @@ app.use('/**', async (req, res, next) => {
 
     const path = req.url.toLowerCase();
     const defaultLang = 'es';
-
-    // If path has no language prefix, redirect to default language
-    if (!/^\/([a-z]{2})(\/|$)/.test(path)) {
-      res.redirect(302, `/${defaultLang}${path === '/' ? '' : path}`);
-      return;
-    }
-    type LangCode = 'es' | 'vl' | 'en' | 'ru' | 'ua';
-    type LangMeta = {
-      lang: string;
-      title: string;
-      description: string;
-      ogImage: string;
-    };
     const langMap: Record<LangCode, LangMeta> = {
       es: {
         lang: 'es',
@@ -113,6 +100,21 @@ app.use('/**', async (req, res, next) => {
         ogImage: '/assets/og/ua.jpg',
       },
     };
+
+    // If path has no language prefix, redirect to default language
+    // if (!Object.keys(langMap).some(code => path.startsWith(`/${code}`))) {
+    //   res.redirect(302, `/${defaultLang}${path}`);
+    //   return;
+    // }
+
+    type LangCode = 'es' | 'vl' | 'en' | 'ru' | 'ua';
+    type LangMeta = {
+      lang: string;
+      title: string;
+      description: string;
+      ogImage: string;
+    };
+    
 
     // Определение языка из URL
     const code = (Object.keys(langMap).find(code => path.startsWith(`/${code}`)) as LangCode) ?? defaultLang as LangCode;
