@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
-html {
-    scroll-behavior: smooth;
-}
 
 a.active {
-    @apply bg-[#525086] text-white; /* если ты используешь Tailwind через PostCSS */
+    @apply bg-[#7773bc] text-white; /* если ты используешь Tailwind через PostCSS */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .dark-horizontal {

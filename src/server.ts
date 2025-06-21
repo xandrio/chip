@@ -44,7 +44,18 @@ app.use(
 
 // Redirect root requests to the default language
 app.get(['/', '/index.html'], (_req, res) => {
-  res.redirect(302, '/es');
+      // Define supported languages
+      const defaultLanguage = 'es';
+      const SUPPORTED_LANGUAGES = ['es', 'vl', 'en', 'ru', 'ua'];
+      const preferredLanguage = _req.headers['accept-language']
+      ?.split(',')?.[0]
+      ?.substring(0, 2);
+   
+      if(preferredLanguage && SUPPORTED_LANGUAGES.includes(preferredLanguage)) {
+        res.redirect(302, `/${preferredLanguage}`);
+      } else {
+        res.redirect(302, `/${defaultLanguage}`);
+      }
 });
 
 /**
