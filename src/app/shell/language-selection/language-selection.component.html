@@ -1,7 +1,7 @@
-<div class="relative inline-block text-left" (clickOutside)="open = false">
+<div class="relative inline-block text-left">
     <button
       class="lang-selector inline-flex items-center justify-center w-full px-2 py-2 border border-gray-300 rounded text-sm font-medium text-white cursor-pointer focus:outline-none"
-      (click)="open = !open"
+      (click)="toggle()"
       type="button"
     >
       <img [src]="getFlag(currentLang)" alt="flag" class="w-5 h-5 rounded-full" />
@@ -11,17 +11,18 @@
       </svg>
     </button>
   @if (open) {
-      <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-grey ring-opacity-5 focus:outline-none z-50">
-        <div class="p-1">
-            @for (lang of languages; track $index) {
-                <button
-                    (click)="changeLang(lang.code)"
-                    class="flex items-center w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-[#525086] hover:text-white cursor-pointer">
-                    <img [src]="lang.flag" alt="flag" class="w-5 h-5 mr-2 rounded-full border border-gray-500" />
-                    {{ lang.label }}
-                </button>
-            }
-        </div>
+    <div class="fixed inset-0 bg-black/50 z-40" (click)="open = false"></div>
+    <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-grey ring-opacity-5 focus:outline-none z-50" (click)="$event.stopPropagation()">
+      <div class="p-1">
+        @for (lang of languages; track $index) {
+          <button
+            (click)="changeLang(lang.code)"
+            class="flex items-center w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-[#525086] hover:text-white cursor-pointer">
+            <img [src]="lang.flag" alt="flag" class="w-5 h-5 mr-2 rounded-full border border-gray-500" />
+            {{ lang.label }}
+          </button>
+        }
       </div>
+    </div>
   }
   </div>
