@@ -29,17 +29,20 @@ export class LanguageSelectionComponent {
   }
 
   changeLang(lang: string) {
-      this.translate.use(lang);
-      // this.currentLang = lang;
-    
-      if (isPlatformBrowser(this.platformId)) {
-        localStorage?.setItem('lang', lang); // ✅ сохраняем язык
-      }
-    
-      const currentUrl = this.router.url;
-      const cleaned = currentUrl.replace(/^\/[a-z]{2}/, '');
-      this.open = false;
-      this.router.navigate([`/${lang}${cleaned}`]);
+    this.translate.use(lang);
+
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage?.setItem('lang', lang); // ✅ сохраняем язык
+    }
+
+    const tree = this.router.parseUrl(this.router.url);
+    const segments = tree.root.children['primary']?.segments ?? [];
+    const pathSegments = segments.slice(1).map(s => s.path); // remove current lang
+
+    this.open = false;
+    this.router.navigate(['/', lang, ...pathSegments], {
+      fragment: tree.fragment ?? undefined
+    });
   }
 
   getLabel(code: string): string {
