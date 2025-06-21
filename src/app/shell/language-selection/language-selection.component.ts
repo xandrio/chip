@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -21,11 +21,34 @@ export class LanguageSelectionComponent {
     { code: 'ua', label: 'Українська', flag: 'https://flagcdn.com/ua.svg' },
   ];
 
-  constructor(private translate: TranslateService, private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(
+    private translate: TranslateService,
+    private router: Router,
+    private el: ElementRef<HTMLElement>,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
     this.currentLang = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event) => {
       this.currentLang = event.lang;
     });
+  }
+
+  toggle(): void {
+    this.open = !this.open;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (this.open && !this.el.nativeElement.contains(event.target as Node)) {
+      this.open = false;
+    }
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscape(): void {
+    if (this.open) {
+      this.open = false;
+    }
   }
 
   changeLang(lang: string) {
