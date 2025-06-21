@@ -2,7 +2,7 @@
 
 
 a.active {
-    @apply bg-[#7773bc] text-white; /* если ты используешь Tailwind через PostCSS */
+    @apply bg-[#3b3966] text-white; /* если ты используешь Tailwind через PostCSS */
 }
 
 html {
