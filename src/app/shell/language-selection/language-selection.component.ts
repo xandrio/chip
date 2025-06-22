@@ -1,11 +1,11 @@
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, UpperCasePipe } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-selection',
-  imports: [],
+  imports: [ UpperCasePipe ],
   templateUrl: './language-selection.component.html',
   styleUrl: './language-selection.component.scss'
 })
@@ -14,11 +14,11 @@ export class LanguageSelectionComponent {
   currentLang: string = 'es'; // Default language
 
   languages = [
-    { code: 'es', label: 'Español', flag: 'https://flagcdn.com/es.svg' },
-    { code: 'vl', label: 'Valenciano', flag: '/flags/valencia.png' },
-    { code: 'en', label: 'English', flag: 'https://flagcdn.com/gb.svg' },
-    { code: 'ru', label: 'Русский', flag: 'https://flagcdn.com/ru.svg' },
-    { code: 'ua', label: 'Українська', flag: 'https://flagcdn.com/ua.svg' },
+    { code: 'es', label: 'Español' },
+    { code: 'vl', label: 'Valenciano' },
+    { code: 'en', label: 'English' },
+    { code: 'ru', label: 'Русский' },
+    { code: 'ua', label: 'Українська' },
   ];
 
   constructor(
@@ -70,9 +70,5 @@ export class LanguageSelectionComponent {
 
   getLabel(code: string): string {
     return this.languages.find(lang => lang.code === code)?.label || '';
-  }
-
-  getFlag(code: string): string {
-    return this.languages.find(lang => lang.code === code)?.flag || '';
   }
 }
