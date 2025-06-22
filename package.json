@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:chip": "node dist/chip/server/server.mjs"
+    "serve:ssr:chip": "node dist/chip/server/server.mjs",
+    "postbuild:ssr": "copy ecosystem.config.js dist\\chip\\server\\"
   },
   "private": true,
   "dependencies": {
