@@ -19,11 +19,9 @@ export class ScrollspyDirective {
   ) {}
 
   ngOnInit() {
-    console.log('ScrollspyDirective initialized with id:', this.id);
     if (isPlatformBrowser(this.platformId)) {
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          console.log('IntersectionObserver entry:', entry);
           if (entry.isIntersecting) {
             console.log('Element is in view:', this.id);
             this.spy.setActive(this.id);
