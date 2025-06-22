@@ -35,10 +35,23 @@ export class NavigationComponent {
     private spy: ScrollSpyService,
     private translate: TranslateService
   ) {
-    this.currentLang = this.translate.currentLang;
+    const routeLang = this.route.snapshot.firstChild?.paramMap.get('lang');
+    this.currentLang = routeLang ?? this.translate.currentLang;
+
     this.translate.onLangChange.subscribe((event) => {
       this.currentLang = event.lang;
+      this.cdr.markForCheck();
     });
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const lang = this.route.snapshot.firstChild?.paramMap.get('lang');
+        if (lang) {
+          this.currentLang = lang;
+          this.cdr.markForCheck();
+        }
+      });
   }
 
   ngAfterViewInit() {
