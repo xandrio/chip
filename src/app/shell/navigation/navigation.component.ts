@@ -68,4 +68,8 @@ export class NavigationComponent {
     }
 
   }
+
+  public getRouterLink(section: string): (string | undefined)[] {
+    return ['/', this.currentLangSubject.value, section];
+  }
 }
