@@ -1,11 +1,11 @@
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, UpperCasePipe } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-selection',
-  imports: [],
+  imports: [ UpperCasePipe ],
   templateUrl: './language-selection.component.html',
   styleUrl: './language-selection.component.scss'
 })
