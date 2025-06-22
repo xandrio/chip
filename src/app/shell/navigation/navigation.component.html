@@ -1,11 +1,11 @@
-<nav class="bg-[#525086] sticky top-0 z-50">
+<nav class="bg-[#126B98] sticky top-0 z-50">
     <div class="mx-auto max-w-6xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-21 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 
             <!-- Mobile menu button-->
           <button type="button" 
-            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#7773bc] hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset" 
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#8E898C] hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
             aria-controls="mobile-menu"
             (click)="showMenu = !showMenu"
             [attr.aria-expanded]="showMenu ? 'true' : 'false'">
@@ -67,20 +67,20 @@
                 <a [routerLink]="getRouterLink('home')"
                     fragment="home"
                     [class.active]="(active$ | async) === 'home'"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white">
+                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white">
                     {{ 'NAVIGATION.HOME' | translate }}
                 </a>
                 <a [routerLink]="getRouterLink('contacts')"
                     fragment="contacts"
                     [class.active]="(active$ | async) === 'contacts'"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white">
+                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white">
                     {{ 'NAVIGATION.CONTACTS' | translate }}
                 </a>
 
                 <a [routerLink]="getRouterLink('faq')"
                    fragment="faq"
                    [class.active]="(active$ | async) === 'faq'"
-                   class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white">
+                   class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white">
                    {{ 'NAVIGATION.FAQ' | translate }}
                 </a>
 
@@ -94,8 +94,8 @@
             <a  [routerLink]="getRouterLink('status')"
                 [routerLinkActiveOptions]="{exact: true}"
                 fragment="status"
-                [routerLinkActive]="'text-white bg-[#7773bc] text-white hover:bg-[#7773bc]'"
-                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white hidden sm:block">
+                [routerLinkActive]="'text-[#DEDDDC] bg-[#126B98] hover:bg-[#126B98]'"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white hidden sm:block">
                 {{ 'NAVIGATION.STATUS' | translate }}
             </a>
             <app-language-selection></app-language-selection>
@@ -115,14 +115,14 @@
                     fragment="home"
                     (click)="showMenu = false"
                     [class.active]="(active$ | async) === 'home'"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white">
                     {{ 'NAVIGATION.HOME' | translate }}
                 </a>
                 <a [routerLink]="getRouterLink('contacts')"
                     fragment="contacts"
                     (click)="showMenu = false"
                     [class.active]="(active$ | async) === 'contacts'"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white">
                     {{ 'NAVIGATION.CONTACTS' | translate }}
                 </a>
 
@@ -130,15 +130,15 @@
                    fragment="faq"
                    (click)="showMenu = false"
                    [class.active]="(active$ | async) === 'faq'"
-                   class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
+                   class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white">
                    {{ 'NAVIGATION.FAQ' | translate }}
                 </a>
                 <a  [routerLink]="getRouterLink('status')"
                     [routerLinkActiveOptions]="{exact: true}"
                     fragment="status"
                     (click)="showMenu = false"
-                    [routerLinkActive]="'text-white bg-violet-900 text-white hover:bg-violet-900'"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
+                    [routerLinkActive]="'text-[#DEDDDC] bg-[#126B98] hover:bg-[#126B98]'"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-[#8E898C] hover:text-white">
                     {{ 'NAVIGATION.STATUS' | translate }}
                 </a>
             </div>

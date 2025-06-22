@@ -1,6 +1,6 @@
 <div class="relative inline-block text-left">
     <button
-      class="lang-selector inline-flex items-center justify-center w-full px-2 py-2 border border-gray-300 rounded text-sm font-medium text-white cursor-pointer focus:outline-none"
+      class="lang-selector inline-flex items-center justify-center w-full px-2 py-2 border border-gray-300 rounded text-sm font-medium text-[#DEDDDC] cursor-pointer focus:outline-none"
       (click)="toggle()"
       type="button"
     >
@@ -17,7 +17,7 @@
         @for (lang of languages; track $index) {
           <button
             (click)="changeLang(lang.code)"
-            class="flex items-center w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-[#525086] hover:text-white cursor-pointer">
+            class="flex items-center w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-[#8E898C] hover:text-[#DEDDDC] cursor-pointer">
             <span class="w-5 h-5 mr-2 flex items-center justify-center rounded-full bg-gray-800 text-white text-[10px] font-semibold">{{ lang.code | uppercase }}</span>
             {{ lang.label }}
           </button>
