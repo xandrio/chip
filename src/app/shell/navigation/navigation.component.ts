@@ -5,7 +5,7 @@ import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive'
 import { NgbScrollSpyModule, NgbScrollSpyService } from '@ng-bootstrap/ng-bootstrap';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { Helper } from '../../shared/helper';
-import { combineLatest, filter, map, merge, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, filter, map, Observable } from 'rxjs';
 import { ScrollSpyService } from '../../shared/services/scrollspy/scrollSpy.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
@@ -19,7 +19,8 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 export class NavigationComponent {
   protected showMenu: boolean = false;
   public active$: Observable<string | null> | null = null;
-  public currentLang: string = 'es'; // Default language
+  private currentLangSubject = new BehaviorSubject<string>('es');
+  public currentLang$ = this.currentLangSubject.asObservable();
 
   protected fragmentExact: IsActiveMatchOptions = {
     matrixParams: 'exact', 
@@ -36,10 +37,10 @@ export class NavigationComponent {
     private translate: TranslateService
   ) {
     const routeLang = this.route.snapshot.firstChild?.paramMap.get('lang');
-    this.currentLang = routeLang ?? this.translate.currentLang;
+    this.currentLangSubject.next(routeLang ?? this.translate.currentLang);
 
     this.translate.onLangChange.subscribe((event) => {
-      this.currentLang = event.lang;
+      this.currentLangSubject.next(event.lang);
       this.cdr.markForCheck();
     });
 
@@ -48,7 +49,7 @@ export class NavigationComponent {
       .subscribe(() => {
         const lang = this.route.snapshot.firstChild?.paramMap.get('lang');
         if (lang) {
-          this.currentLang = lang;
+          this.currentLangSubject.next(lang);
           this.cdr.markForCheck();
         }
       });

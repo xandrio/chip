@@ -64,20 +64,20 @@
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-                <a [routerLink]="['/', currentLang, 'home']"
+                <a [routerLink]="['/', currentLang$ | async, 'home']"
                     fragment="home"
                     [class.active]="(active$ | async) === 'home'"
                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white">
                     {{ 'NAVIGATION.HOME' | translate }}
                 </a>
-                <a [routerLink]="['/', currentLang, 'contacts']"
+                <a [routerLink]="['/', currentLang$ | async, 'contacts']"
                     fragment="contacts"
                     [class.active]="(active$ | async) === 'contacts'"
                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white">
                     {{ 'NAVIGATION.CONTACTS' | translate }}
                 </a>
                 
-                <a [routerLink]="['/', currentLang, 'faq']"
+                <a [routerLink]="['/', currentLang$ | async, 'faq']"
                    fragment="faq"
                    [class.active]="(active$ | async) === 'faq'"
                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white">
@@ -91,7 +91,7 @@
         <!-- Language selector -->
         <div class="absolute right-0 top-0 bottom-0 flex items-center pr-4">
           <div class="flex space-x-4">
-            <a  [routerLink]="['/', currentLang, 'status']"
+            <a  [routerLink]="['/', currentLang$ | async, 'status']"
                 [routerLinkActiveOptions]="{exact: true}" 
                 fragment="status"
                 [routerLinkActive]="'text-white bg-[#7773bc] text-white hover:bg-[#7773bc]'" 
@@ -111,14 +111,14 @@
         <div class="sm:hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pt-2 pb-3">
 
-              <a    [routerLink]="['/', currentLang, 'home']"
+              <a    [routerLink]="['/', currentLang$ | async, 'home']"
                     fragment="home"
                     (click)="showMenu = false"
                     [class.active]="(active$ | async) === 'home'"
                     class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
                     {{ 'NAVIGATION.HOME' | translate }}
                 </a>
-                <a [routerLink]="['/', currentLang, 'contacts']"
+                <a [routerLink]="['/', currentLang$ | async, 'contacts']"
                     fragment="contacts"
                     (click)="showMenu = false"
                     [class.active]="(active$ | async) === 'contacts'"
@@ -126,14 +126,14 @@
                     {{ 'NAVIGATION.CONTACTS' | translate }}
                 </a>
                 
-                <a [routerLink]="['/', currentLang, 'faq']"
+                <a [routerLink]="['/', currentLang$ | async, 'faq']"
                    fragment="faq"
                    (click)="showMenu = false"
                    [class.active]="(active$ | async) === 'faq'"
                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
                    {{ 'NAVIGATION.FAQ' | translate }}
                 </a>
-                <a  [routerLink]="['/', currentLang, 'status']"
+                <a  [routerLink]="['/', currentLang$ | async, 'status']"
                     [routerLinkActiveOptions]="{exact: true}" 
                     fragment="status"
                     (click)="showMenu = false"
