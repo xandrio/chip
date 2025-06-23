@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subject, takeUntil } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-faq',
-  imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslateModule ],
+  imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslatePipe ],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss'
 })
@@ -15,38 +15,31 @@ export class FaqComponent {
   openedIndex: number | null = null;
   private destroy$ = new Subject<void>();
 
-  constructor(private translate: TranslateService) {
+  constructor() {
       this.loadFaqs();
-
-    // Подписка на смену языка
-    this.translate.onLangChange
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(() => {
-        this.loadFaqs();
-      });
   }
 
   loadFaqs() {
     this.faqs = [];
     this.faqs.push({
-      question: this.translate.instant('FAQ.REPAIR_TIME_Q'),
-      answer: this.translate.instant('FAQ.REPAIR_TIME_A')
+      question: 'FAQ.REPAIR_TIME_Q',
+      answer: 'FAQ.REPAIR_TIME_A'
     });
     this.faqs.push({
-      question: this.translate.instant('FAQ.RECORD_Q'),
-      answer: this.translate.instant('FAQ.RECORD_A')
+      question: 'FAQ.RECORD_Q',
+      answer: 'FAQ.RECORD_A'
     });
     this.faqs.push({
-      question: this.translate.instant('FAQ.WARRANTY_Q'),
-      answer: this.translate.instant('FAQ.WARRANTY_A')
+      question: 'FAQ.WARRANTY_Q',
+      answer: 'FAQ.WARRANTY_A'
     });
     this.faqs.push({
-      question: this.translate.instant('FAQ.DIAGNOSTICS_Q'),
-      answer: this.translate.instant('FAQ.DIAGNOSTICS_A')
+      question: 'FAQ.DIAGNOSTICS_Q',
+      answer: 'FAQ.DIAGNOSTICS_A'
     });
     this.faqs.push({
-      question: this.translate.instant('FAQ.LEGAL_ENTITIES_Q'),
-      answer: this.translate.instant('FAQ.LEGAL_ENTITIES_A')
+      question: 'FAQ.LEGAL_ENTITIES_Q',
+      answer: 'FAQ.LEGAL_ENTITIES_A'
     });
   }
 

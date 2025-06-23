@@ -10,7 +10,7 @@
         >
           <div class="flex items-center space-x-2">
             <span class="text-blue-500 text-xl">❓</span>
-            <span>{{ faq.question }}</span>
+            <span>{{ faq.question | translate }}</span>
           </div>
           <svg
             class="w-5 h-5 transform transition-transform"
@@ -31,7 +31,7 @@
             itemprop="acceptedAnswer"
             itemtype="https://schema.org/Answer"
           >
-            <p itemprop="text">{{ faq.answer }}</p>
+            <p itemprop="text">{{ faq.answer | translate }}</p>
           </div>
         }
       </div>
