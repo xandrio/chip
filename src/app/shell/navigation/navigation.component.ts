@@ -44,13 +44,14 @@ export class NavigationComponent {
     private translate: TranslateService
   ) {
     // const routeLang = this.route.snapshot.firstChild?.paramMap.get('lang');
-    this.currentLangSubject.next(this.translate.currentLang);
+    // this.currentLangSubject.next(this.translate.currentLang);
+    this.currentLangSubject.next('ru');
 
-    this.translate.onLangChange.subscribe((event) => {
-      // console.log('Language changed to 4444444444:', event.lang);
-      this.currentLangSubject.next(event.lang);
-      this.cdr.markForCheck();
-    });
+    // this.translate.onLangChange.subscribe((event) => {
+    //   // console.log('Language changed to 4444444444:', event.lang);
+    //   this.currentLangSubject.next(event.lang);
+    //   this.cdr.markForCheck();
+    // });
 
     // this.router.events
     //   .pipe(filter(event => event instanceof NavigationEnd))
