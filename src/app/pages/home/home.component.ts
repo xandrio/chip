@@ -1,5 +1,5 @@
 import { afterNextRender, Component, Inject, PLATFORM_ID } from '@angular/core';
-import { FaqComponent } from '../../shell/faq/faq.component';
+import { FaqComponent } from '../faq/faq.component';
 import { ContactsComponent } from "../contacts/contacts.component";
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
