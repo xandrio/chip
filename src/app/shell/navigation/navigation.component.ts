@@ -36,23 +36,34 @@ export class NavigationComponent {
     private spy: ScrollSpyService,
     private translate: TranslateService
   ) {
-    const routeLang = this.route.snapshot.firstChild?.paramMap.get('lang');
-    this.currentLangSubject.next(routeLang ?? this.translate.currentLang);
+    // const routeLang = this.route.snapshot.firstChild?.paramMap.get('lang');
+    this.currentLangSubject.next(this.translate.currentLang);
 
     this.translate.onLangChange.subscribe((event) => {
+      // console.log('Language changed to 4444444444:', event.lang);
       this.currentLangSubject.next(event.lang);
       this.cdr.markForCheck();
     });
 
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const lang = this.route.snapshot.firstChild?.paramMap.get('lang');
-        if (lang) {
-          this.currentLangSubject.next(lang);
-          this.cdr.markForCheck();
-        }
-      });
+    // this.router.events
+    //   .pipe(filter(event => event instanceof NavigationEnd))
+    //   .subscribe(() => {
+    //     const lang = this.route.snapshot.firstChild?.paramMap.get('lang');
+    //     if (lang) {
+    //       this.currentLangSubject.next(lang);
+    //       console.log('Language changed to:', lang);
+    //       this.cdr.markForCheck();
+    //     }
+    //   });
+
+    // this.route.paramMap.subscribe(params => {
+    //   const lang = params.get('lang');
+    //   if (lang) {
+    //     this.currentLangSubject.next(lang);
+    //     console.log('Language changed to >>>>>> :', lang);
+    //     this.cdr.markForCheck();
+    //   }
+    // });
   }
 
   ngAfterViewInit() {
@@ -69,7 +80,7 @@ export class NavigationComponent {
 
   }
 
-  public getRouterLink(section: string): (string | undefined)[] {
-    return ['/', this.currentLangSubject.value, section];
+  public getRouterLink(section: string): string | undefined {
+    return `/${this.currentLangSubject.value}/${section}`;
   }
 }

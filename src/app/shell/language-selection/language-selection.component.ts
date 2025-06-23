@@ -55,6 +55,7 @@ export class LanguageSelectionComponent {
     this.translate.use(lang);
 
     if (isPlatformBrowser(this.platformId)) {
+      // console.log('Saving language to localStorage:', lang);
       localStorage?.setItem('lang', lang); // ✅ сохраняем язык
     }
 

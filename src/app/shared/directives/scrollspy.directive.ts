@@ -23,7 +23,7 @@ export class ScrollspyDirective {
       this.observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            console.log('Element is in view:', this.id);
+            // console.log('Element is in view:', this.id);
             this.spy.setActive(this.id);
           }
         },

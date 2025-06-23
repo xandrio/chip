@@ -31,7 +31,7 @@ export class StatusComponent {
     if (isPlatformBrowser(this.platformId)) {
 
         this.route.fragment.subscribe((fragment) => {
-          console.log('Fragment:', fragment);
+          // console.log('Fragment:', fragment);
           if(fragment) {
             const container = document.getElementById('mainContent');
             const target = document.getElementById(fragment);
