@@ -1,8 +1,7 @@
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
-  isMainModule,
-  writeResponseToNodeResponse,
+  isMainModule
 } from '@angular/ssr/node';
 import express from 'express';
 import { dirname, resolve } from 'node:path';
@@ -58,18 +57,6 @@ app.get(['/', '/index.html'], (_req, res) => {
       }
 });
 
-/**
- * Handle all other requests by rendering the Angular application.
- */
-// app.use('/**', (req, res, next) => {
-//   angularApp
-//     .handle(req)
-//     .then((response) =>
-//       response ? writeResponseToNodeResponse(response, res) : next(),
-//     )
-//     .catch(next);
-// });
-
 app.use('/**', async (req, res, next) => {
   try {
     const response = await angularApp.handle(req);
@@ -77,7 +64,7 @@ app.use('/**', async (req, res, next) => {
 
     let html = await response.text();
 
-    const path = req.url.toLowerCase();
+    const path = req.baseUrl.toLowerCase();
     const defaultLang = 'es';
     const langMap: Record<LangCode, LangMeta> = {
       es: {
@@ -164,15 +151,15 @@ app.use('/**', async (req, res, next) => {
       "name": "Chip Valencia",
       "image": "https://chip-valencia.es/assets/logo.png",
       "url": "https://chip-valencia.es",
-      "telephone": "+34 644 18 82 18",
+      "telephone": "+34 647 80 48 67",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "C/ de l'Enginyer Rafael Janini, 8",
+        "streetAddress": " C/ de la Dama d'Elx, 16, Camins al Grau, 46023 València, Valencia",
         "addressLocality": "València",
-        "postalCode": "46022",
+        "postalCode": "46023",
         "addressCountry": "ES"
       },
-      "openingHours": "Mo-Sa 10:00-20:00",
+      "openingHours": "Mo-Sa 11:00-19:00",
       "priceRange": "€",
       "sameAs": [
         "https://www.google.com/maps/place/Reparación+de+portátiles+CHIP"
@@ -180,7 +167,6 @@ app.use('/**', async (req, res, next) => {
     };
 
     html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(structuredData)}</script></head>`);
-
     res
       .status(response.status)
       .set(Object.fromEntries(response.headers.entries()))
