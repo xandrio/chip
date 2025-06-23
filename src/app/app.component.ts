@@ -5,6 +5,7 @@ import { FooterComponent } from './shell/footer/footer.component';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, Subject, takeUntil } from 'rxjs';
+import { NgcCookieConsentService } from 'ngx-cookieconsent';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class AppComponent implements OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private translate: TranslateService,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private ccService: NgcCookieConsentService
   ) {
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd),
