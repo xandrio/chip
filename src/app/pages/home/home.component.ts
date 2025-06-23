@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnDestroy, AfterViewInit } from '@angular/core';
 import { FaqComponent } from '../faq/faq.component';
 import { ContactsComponent } from "../contacts/contacts.component";
 import { isPlatformBrowser } from '@angular/common';
@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 import { TranslateModule } from '@ngx-translate/core';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit, OnDestroy {
 
 cards = [
   {
@@ -56,15 +57,17 @@ cards = [
 ];
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
 
   }
 
+  private destroy$ = new Subject<void>();
+
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-        this.route.fragment.subscribe((fragment) => {
+        this.route.fragment.pipe(takeUntil(this.destroy$)).subscribe((fragment) => {
           if(fragment) {
             const container = document.getElementById('mainContent');
             const target = document.getElementById(fragment);
@@ -75,8 +78,13 @@ cards = [
             }
           }
         });
-      
+
     }
-    
+
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
