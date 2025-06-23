@@ -1,4 +1,5 @@
-import { Component, Inject, DOCUMENT, OnDestroy } from '@angular/core';
+import { Component, Inject, DOCUMENT, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavigationComponent } from './shell/navigation/navigation.component';
 import { FooterComponent } from './shell/footer/footer.component';
@@ -15,7 +16,7 @@ import { NgcCookieConsentService } from 'ngx-cookieconsent';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'chip';
   private destroy$ = new Subject<void>();
   constructor(
@@ -23,7 +24,8 @@ export class AppComponent implements OnDestroy {
     private router: Router,
     private translate: TranslateService,
     @Inject(DOCUMENT) private document: Document,
-    private ccService: NgcCookieConsentService
+    private ccService: NgcCookieConsentService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd),
@@ -35,7 +37,41 @@ export class AppComponent implements OnDestroy {
 
     this.translate.onLangChange.pipe(takeUntil(this.destroy$)).subscribe(e => {
       this.document.documentElement.lang = e.lang;
+      this.updateCookieConsentContent();
     });
+  }
+
+  ngOnInit(): void {
+    this.updateCookieConsentContent();
+  }
+
+  private updateCookieConsentContent(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    this.translate
+      .get([
+        'COOKIE.HEADER',
+        'COOKIE.MESSAGE',
+        'COOKIE.DISMISS',
+        'COOKIE.ALLOW',
+        'COOKIE.DENY',
+        'COOKIE.LINK',
+        'COOKIE.POLICY'
+      ])
+      .subscribe(data => {
+        const config = this.ccService.getConfig();
+        config.content = config.content || {};
+        config.content.header = data['COOKIE.HEADER'];
+        config.content.message = data['COOKIE.MESSAGE'];
+        config.content.dismiss = data['COOKIE.DISMISS'];
+        config.content.allow = data['COOKIE.ALLOW'];
+        config.content.deny = data['COOKIE.DENY'];
+        config.content.link = data['COOKIE.LINK'];
+        config.content.policy = data['COOKIE.POLICY'];
+        this.ccService.destroy();
+        this.ccService.init(config);
+      });
   }
 
   ngOnDestroy(): void {
