@@ -89,6 +89,9 @@ export class NavigationComponent {
   }
 
   public getRouterLink(section: string): string | undefined {
-    return `/${this.currentLangSubject.value}/${section}`;
+    if(section === 'status') {
+      return `/${this.currentLangSubject.value}/status`;
+    }
+    return `/${this.currentLangSubject.value}/home`;
   }
 }
