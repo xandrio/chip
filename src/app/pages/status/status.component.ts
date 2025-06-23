@@ -1,7 +1,8 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnDestroy, AfterViewInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule, isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-status',
@@ -10,14 +11,14 @@ import { RouterModule, ActivatedRoute } from '@angular/router';
   templateUrl: './status.component.html',
   styleUrl: './status.component.scss'
 })
-export class StatusComponent {
+export class StatusComponent implements AfterViewInit, OnDestroy {
   statusForm: FormGroup;
   order: any = null;
   notFound = false;
 
   constructor(
-    private fb: FormBuilder, 
-    private route: ActivatedRoute, 
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object,
     private scroller: ViewportScroller
   ) {
@@ -27,10 +28,12 @@ export class StatusComponent {
     });
   }
 
+  private destroy$ = new Subject<void>();
+
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
 
-        this.route.fragment.subscribe((fragment) => {
+        this.route.fragment.pipe(takeUntil(this.destroy$)).subscribe((fragment) => {
           // console.log('Fragment:', fragment);
           if(fragment) {
             const container = document.getElementById('mainContent');
@@ -42,9 +45,9 @@ export class StatusComponent {
             }
           }
         });
-      
+
     }
-    
+
   }
 
   checkStatus() {
@@ -65,4 +68,8 @@ export class StatusComponent {
     }
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
