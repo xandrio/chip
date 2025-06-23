@@ -22,6 +22,13 @@ export class NavigationComponent {
   private currentLangSubject = new BehaviorSubject<string>('es');
   public currentLang$ = this.currentLangSubject.asObservable();
 
+  public navButtons = [
+    { section: 'home', key: 'NAVIGATION.HOME' },
+    { section: 'contacts', key: 'NAVIGATION.CONTACTS' },
+    { section: 'faq', key: 'NAVIGATION.FAQ' },
+    { section: 'status', key: 'NAVIGATION.STATUS' }
+  ];
+
   protected fragmentExact: IsActiveMatchOptions = {
     matrixParams: 'exact', 
     queryParams: 'exact', 
