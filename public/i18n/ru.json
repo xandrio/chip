@@ -45,7 +45,7 @@
     "PHONE_VALUE": "+34 647 80 48 67",
     "EMAIL_LABEL": "Email",
     "WORKING_HOURS_LABEL": "График",
-    "WORKING_HOURS_VALUE": "Пн–Пт: 10:00–19:00, Сб: 10:00–14:00",
+    "WORKING_HOURS_VALUE": "Пн–Пт: 11:00–19:00, Сб: 11:00–17:00",
     "ADDRESS_PARKING_DESCRIPTION": "Мы находимся в центре Валенсии, рядом с удобной парковкой и остановками транспорта.",
     "WELCOME_TEXT": "Мы всегда рады помочь вам с любыми вопросами и проблемами. Не стесняйтесь обращаться к нам!",
     "GET_DIRECTIONS": "Проложить маршрут"
@@ -74,7 +74,7 @@
 
     "CONTACTS_TITLE": "Контакты",
     "ADDRESS": "C/ de la Dama d'Elx, 16, Camins al Grau, 46023 València, Valencia",
-    "WORKING_HOURS": "Пн–Пт: 10:00–19:00, Сб: 10:00–14:00",
+    "WORKING_HOURS": "Пн–Пт: 11:00–19:00, Сб: 11:00–17:00",
 
     "SOCIAL_MEDIA_TITLE": "Мы в соцсетях",
     "SOCIAL_MEDIA_FB": "Facebook",
