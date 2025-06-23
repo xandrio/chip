@@ -1,6 +1,4 @@
-import { afterNextRender, Directive, ElementRef, Inject, Input, PLATFORM_ID, Renderer2 } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { Directive, ElementRef, Inject, Input, PLATFORM_ID } from '@angular/core';
 import { ScrollSpyService } from '../services/scrollspy/scrollSpy.service';
 import { isPlatformBrowser } from '@angular/common';
 

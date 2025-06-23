@@ -8,7 +8,8 @@ import { Subject } from 'rxjs';
   selector: 'app-faq',
   imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslatePipe ],
   templateUrl: './faq.component.html',
-  styleUrl: './faq.component.scss'
+  styleUrl: './faq.component.scss',
+  standalone: true
 })
 export class FaqComponent {
   faqs: {question: string, answer: string}[] = [];

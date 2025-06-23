@@ -7,7 +7,8 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-contacts',
   imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslateModule ],
   templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.scss'
+  styleUrl: './contacts.component.scss',
+  standalone: true
 })
 export class ContactsComponent {
 

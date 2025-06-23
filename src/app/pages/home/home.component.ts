@@ -1,15 +1,15 @@
-import { afterNextRender, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FaqComponent } from '../faq/faq.component';
 import { ContactsComponent } from "../contacts/contacts.component";
-import { isPlatformBrowser, ViewportScroller } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { NgbScrollSpyModule, NgbScrollSpyService } from '@ng-bootstrap/ng-bootstrap';
+import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
-  imports: [FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule],
+  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -58,8 +58,6 @@ cards = [
   constructor(
     private route: ActivatedRoute, 
     @Inject(PLATFORM_ID) private platformId: Object,
-    private scroller: ViewportScroller,
-    
   ) {
 
   }
