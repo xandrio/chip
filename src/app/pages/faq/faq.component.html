@@ -24,16 +24,15 @@
           </svg>
         </button>
 
-        @if (openedIndex === i) {
-            <div
-            class="mt-3 text-white"
-            itemscope
-            itemprop="acceptedAnswer"
-            itemtype="https://schema.org/Answer"
-          >
-            <p itemprop="text">{{ faq.answer | translate }}</p>
-          </div>
-        }
+        <div
+          class="mt-3 text-white"
+          itemscope
+          itemprop="acceptedAnswer"
+          itemtype="https://schema.org/Answer"
+          [style.display]="openedIndex === i ? 'block' : 'none'"
+        >
+          <p itemprop="text">{{ faq.answer | translate }}</p>
+        </div>
       </div>
     }
 
