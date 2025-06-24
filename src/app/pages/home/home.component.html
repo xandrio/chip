@@ -1,6 +1,6 @@
 <section [appScrollSpy]="'home'" id="home" class="relative text-white">
-  <video #heroVideo muted loop playsinline autoplay class="absolute inset-0 w-full h-full object-cover">
-    <source src="/video/hero-loop.mp4" type="video/mp4" />
+  <video fetchpriority="high" preload="auto" #heroVideo muted loop playsinline autoplay class="absolute inset-0 w-full h-full object-cover">
+    <source fetchpriority="high" src="/video/hero-loop.mp4" type="video/mp4" />
   </video>
   <div class="bg-black/60 flex flex-col items-center justify-center py-70 px-4 text-center relative">
     <h1 class="text-5xl font-bold mb-4">{{ 'HOME.HERO_TITLE' | translate }}</h1>
