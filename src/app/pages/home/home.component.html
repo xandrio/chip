@@ -28,7 +28,7 @@
           </div>
 
           <div [class.lg:order-1]="$index % 2 !== 0">
-            <img [src]="card.image" [attr.alt]="card.alt | translate" style="aspect-ratio: 16 / 9;"
+            <img loading="lazy" [src]="card.image" [attr.alt]="card.alt | translate" style="aspect-ratio: 16 / 9;"
               class="rounded-xl shadow-lg w-full object-cover max-h-[400px]" />
           </div>
 
