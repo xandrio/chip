@@ -69,8 +69,15 @@
                   <a [routerLink]="getRouterLink(btn.section)"
                      fragment="{{btn.section}}"
                      [class.active]="(active$ | async) === btn.section"
-                     class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white">
-                     {{ btn.key | translate }}
+                     class="relative rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-[#7773bc] hover:text-white flex items-center space-x-2">
+                     <span class="w-4 inline-block text-center" aria-hidden="true">
+                        @if ((active$ | async) === btn.section) {
+                          <svg class="inline size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 5l7 7-7 7"/>
+                          </svg>
+                        }
+                     </span>
+                     <span>{{ btn.key | translate }}</span>
                   </a>
                 }
               }
@@ -106,8 +113,15 @@
                      fragment="{{btn.section}}"
                      (click)="showMenu = false"
                      [class.active]="(active$ | async) === btn.section"
-                     class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
-                     {{ btn.key | translate }}
+                     class="flex items-center space-x-2 rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-violet-700 hover:text-white">
+                     <span class="w-4 inline-block text-center" aria-hidden="true">
+                        @if ((active$ | async) === btn.section) {
+                          <svg class="inline size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 5l7 7-7 7"/>
+                          </svg>
+                        }
+                     </span>
+                     <span>{{ btn.key | translate }}</span>
                   </a>
                 }
               }
