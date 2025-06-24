@@ -71,30 +71,35 @@ app.use('/**', async (req, res, next) => {
         lang: 'es',
         title: 'Reparación de portátiles y móviles en Valencia | Chip',
         description: 'Servicio técnico profesional en Valencia: reparación de ordenadores, móviles, limpieza, instalación de Windows y programas.',
+        keywords: 'reparacion de moviles, reparacion de tabletas, reparacion de portatiles, reparacion de ordenadores, Valencia, cambio de pantalla, cambio de bateria, instalacion de Windows, limpieza de polvo',
         ogImage: '/assets/og/es.jpg',
       },
       vl: {
         lang: 'ca',
         title: 'Reparació de portàtils i mòbils a València | Chip',
         description: 'Servei tècnic de confiança a València. Reparació i manteniment de dispositius electrònics.',
+        keywords: 'reparació de mòbils, reparació de tauletes, reparació de portàtils, reparació d\'ordinadors, València, canvi de pantalla, canvi de bateria, instal·lació de Windows, neteja de pols',
         ogImage: '/assets/og/vl.jpg',
       },
       en: {
         lang: 'en',
         title: 'Laptop and Phone Repair in Valencia | Chip',
         description: 'Professional tech repair services in Valencia: laptops, phones, software installation, cleaning and diagnostics.',
+        keywords: 'phone repair, tablet repair, laptop repair, computer repair, Valencia, screen replacement, battery replacement, Windows installation, dust cleaning',
         ogImage: '/assets/og/en.jpg',
       },
       ru: {
         lang: 'ru',
         title: 'Ремонт ноутбуков и телефонов в Валенсии | Chip',
         description: 'Профессиональный ремонт техники: телефоны, ноутбуки, установка Windows, чистка от пыли. Быстро, качественно.',
+        keywords: 'ремонт телефонов, ремонт планшетов, ремонт ноутбуков, ремонт компьютеров, Валенсия, замена дисплея, замена батареи, установка Windows, чистка от пыли',
         ogImage: '/assets/og/ru.jpg',
       },
       ua: {
         lang: 'uk',
         title: 'Ремонт ноутбуків та телефонів у Валенсії | Chip',
         description: 'Професійний ремонт техніки у Валенсії: телефони, ноутбуки, встановлення Windows, чистка від пилу.',
+        keywords: 'ремонт телефонів, ремонт планшетів, ремонт ноутбуків, ремонт комп\'ютерів, Валенсія, заміна дисплея, заміна батареї, встановлення Windows, очищення від пилу',
         ogImage: '/assets/og/ua.jpg',
       },
     };
@@ -110,6 +115,7 @@ app.use('/**', async (req, res, next) => {
       lang: string;
       title: string;
       description: string;
+      keywords: string;
       ogImage: string;
     };
     
@@ -138,6 +144,7 @@ app.use('/**', async (req, res, next) => {
     html = html.replace(
       /(<meta name="description"[^>]*>)/,
       `$1
+  <meta name="keywords" content="${meta.keywords}">
   <meta property="og:title" content="${meta.title}">
   <meta property="og:description" content="${meta.description}">
   <meta property="og:type" content="website">
