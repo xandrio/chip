@@ -118,6 +118,12 @@ app.use('/**', async (req, res, next) => {
     const code = (Object.keys(langMap).find(code => path.startsWith(`/${code}`)) as LangCode) ?? defaultLang as LangCode;
     const meta = langMap[code];
 
+    // Обновляем canonical-ссылку в соответствии с текущим путём
+    html = html.replace(
+      /<link rel="canonical"[^>]*>/i,
+      `<link rel="canonical" href="https://chip-valencia.es${path}">`,
+    );
+
     // Заменяем атрибут <html lang="">
     html = html.replace('<html ', `<html lang="${meta.lang}" `);
 
