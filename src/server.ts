@@ -163,7 +163,7 @@ app.use('/**', async (req, res, next) => {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Chip Valencia",
-      "image": "https://chip-valencia.es/assets/logo.png",
+      "image": "https://chip-valencia.es/images/logo.png",
       "url": "https://chip-valencia.es",
       "telephone": "+34 647 80 48 67",
       "address": {
