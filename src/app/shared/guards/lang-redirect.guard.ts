@@ -9,11 +9,13 @@ export const langRedirectGuard: CanActivateFn = () => {
   const platformId = inject(PLATFORM_ID);
 
   let lang = 'es';
-
   if (isPlatformBrowser(platformId)) {
+    const htmlLang = document?.documentElement.lang;
     const saved = localStorage.getItem('lang');
     const browserLang = navigator.language?.split('-')[0];
-    lang = saved || browserLang || 'es';
+    lang = saved || browserLang || htmlLang || 'es';
+  } else {
+    lang = (globalThis as any)?.document?.documentElement?.lang || 'es';
   }
 
   router.navigateByUrl(`/${lang}`);
