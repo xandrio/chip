@@ -18,6 +18,9 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+const SUPPORTED_LANGUAGES = ['es', 'vl', 'en', 'ru', 'ua'] as const;
+type LangCode = (typeof SUPPORTED_LANGUAGES)[number];
+
 app.use(compression());
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -44,18 +47,16 @@ app.use(
 
 // Redirect root requests to the default language
 app.get(['/', '/index.html'], (_req, res) => {
-      // Define supported languages
-      const defaultLanguage = 'es';
-      const SUPPORTED_LANGUAGES = ['es', 'vl', 'en', 'ru', 'ua'];
-      const preferredLanguage = _req.headers['accept-language']
-      ?.split(',')?.[0]
-      ?.substring(0, 2);
-   
-      if(preferredLanguage && SUPPORTED_LANGUAGES.includes(preferredLanguage)) {
-        res.redirect(302, `/${preferredLanguage}`);
-      } else {
-        res.redirect(302, `/${defaultLanguage}`);
-      }
+  const defaultLanguage: LangCode = 'es';
+  const preferredLanguage = _req.headers['accept-language']
+    ?.split(',')?.[0]
+    ?.substring(0, 2);
+
+  if (preferredLanguage && SUPPORTED_LANGUAGES.includes(preferredLanguage as LangCode)) {
+    res.redirect(302, `/${preferredLanguage}`);
+  } else {
+    res.redirect(302, `/${defaultLanguage}`);
+  }
 });
 
 app.use('/**', async (req, res, next) => {
@@ -66,7 +67,7 @@ app.use('/**', async (req, res, next) => {
     let html = await response.text();
 
     const path = req.baseUrl.toLowerCase();
-    const defaultLang = 'es';
+    const defaultLang: LangCode = 'es';
     const langMap: Record<LangCode, LangMeta> = {
       es: {
         lang: 'es',
@@ -111,7 +112,6 @@ app.use('/**', async (req, res, next) => {
     //   return;
     // }
 
-    type LangCode = 'es' | 'vl' | 'en' | 'ru' | 'ua';
     type LangMeta = {
       lang: string;
       title: string;
@@ -122,13 +122,18 @@ app.use('/**', async (req, res, next) => {
     
 
     // Определение языка из URL
-    const code = (Object.keys(langMap).find(code => path.startsWith(`/${code}`)) as LangCode) ?? defaultLang as LangCode;
+    const code = (SUPPORTED_LANGUAGES.find(c => path.startsWith(`/${c}`)) as LangCode) ?? defaultLang;
     const meta = langMap[code];
 
     // Обновляем canonical-ссылку в соответствии с текущим путём
+    let canonicalPath = path;
+    const firstSegMatch = /^\/([^/]+)/.exec(path);
+    if (firstSegMatch && !SUPPORTED_LANGUAGES.includes(firstSegMatch[1] as LangCode)) {
+      canonicalPath = `/${defaultLang}${path.slice(firstSegMatch[0].length)}`;
+    }
     html = html.replace(
       /<link rel="canonical"[^>]*>/i,
-      `<link rel="canonical" href="https://chip-valencia.es${path}">`,
+      `<link rel="canonical" href="https://chip-valencia.es${canonicalPath}">`,
     );
 
     // Заменяем атрибут <html lang="">

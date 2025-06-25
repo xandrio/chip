@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { SUPPORTED_LANGUAGES, LangCode } from '../languages';
 
 export const langRedirectGuard: CanActivateFn = () => {
     // console.log('lang >>>>> >>>>>>> ############################################');
@@ -9,14 +10,21 @@ export const langRedirectGuard: CanActivateFn = () => {
   const platformId = inject(PLATFORM_ID);
   const doc = inject(DOCUMENT);
 
-  let lang = 'es';
+  let lang: LangCode = 'es';
   if (isPlatformBrowser(platformId)) {
     const htmlLang = doc?.documentElement.lang;
     const saved = localStorage.getItem('lang');
     const browserLang = navigator.language?.split('-')[0];
-    lang = saved || browserLang || htmlLang || 'es';
+
+    const candidate = [saved, browserLang, htmlLang].find(l =>
+      l && SUPPORTED_LANGUAGES.includes(l as LangCode)
+    );
+    lang = (candidate as LangCode) || 'es';
   } else {
-    lang = doc?.documentElement.lang || 'es';
+    const htmlLang = doc?.documentElement.lang;
+    if (htmlLang && SUPPORTED_LANGUAGES.includes(htmlLang as LangCode)) {
+      lang = htmlLang as LangCode;
+    }
   }
 
   router.navigateByUrl(`/${lang}`);

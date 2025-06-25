@@ -8,6 +8,7 @@ import { Helper } from '../../shared/helper';
 import { BehaviorSubject, combineLatest, filter, map, Observable } from 'rxjs';
 import { ScrollSpyService } from '../../shared/services/scrollspy/scrollSpy.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { SUPPORTED_LANGUAGES, LangCode } from '../../shared/languages';
 
 @Component({
   selector: 'app-navigation',
@@ -53,10 +54,12 @@ export class NavigationComponent {
 
     this.route.paramMap.subscribe(params => {
       const lang = params.get('lang');
-      if (lang) {
+      if (lang && SUPPORTED_LANGUAGES.includes(lang as LangCode)) {
         this.currentLangSubject.next(lang);
-        this.cdr.markForCheck();
+      } else {
+        this.currentLangSubject.next('es');
       }
+      this.cdr.markForCheck();
     });
   }
 
@@ -74,10 +77,13 @@ export class NavigationComponent {
 
   }
 
-  public getRouterLink(section: string): string | undefined {
-    if(section === 'status') {
-      return `/${this.currentLangSubject.value}/status`;
-    }
-    return `/${this.currentLangSubject.value}/home`;
+  public getRouterLink(section: string): string {
+    const lang = SUPPORTED_LANGUAGES.includes(this.currentLangSubject.value as LangCode)
+      ? this.currentLangSubject.value
+      : 'es';
+
+    return section === 'status'
+      ? `/${lang}/status`
+      : `/${lang}/home`;
   }
 }
