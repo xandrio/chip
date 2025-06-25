@@ -1,7 +1,7 @@
-import { ApplicationConfig, APP_INITIALIZER, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, APP_INITIALIZER, provideZoneChangeDetection } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { routes } from './app.routes';
-import { BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
+import { TransferState } from '@angular/platform-browser';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import {
@@ -39,7 +39,6 @@ export const appConfig: ApplicationConfig = {
         deps: [HttpClient, TransferState]
       }
     }).providers!,
-    importProvidersFrom(BrowserTransferStateModule),
     {
       provide: APP_INITIALIZER,
       useFactory: initTranslate,
