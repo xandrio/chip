@@ -11,14 +11,15 @@ import {
 } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
 import { TransferTranslateLoader } from './shared/transfer-translate-loader';
+import { DOCUMENT } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient, transferState: TransferState) {
   return new TransferTranslateLoader(http, transferState);
 }
 
-export function initTranslate(translate: TranslateService) {
+export function initTranslate(translate: TranslateService, doc: Document) {
   return () => {
-    const lang = document?.documentElement.lang || 'es';
+    const lang = doc.documentElement.lang || 'es';
     translate.setDefaultLang(lang);
     return firstValueFrom(translate.use(lang));
   };
@@ -42,7 +43,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_INITIALIZER,
       useFactory: initTranslate,
-      deps: [TranslateService],
+      deps: [TranslateService, DOCUMENT],
       multi: true
     }
   ]
