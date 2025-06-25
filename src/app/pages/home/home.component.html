@@ -87,7 +87,11 @@
     </div>
   </section>
 
-  <ng-template #contactsContainer></ng-template>
+  @defer (on viewport) {
+    <app-contacts></app-contacts>
+  }
 
-  <ng-template #faqContainer></ng-template>
+  @defer (on viewport) {
+    <app-faq></app-faq>
+  }
 </div>

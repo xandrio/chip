@@ -1,5 +1,6 @@
-import { Component, Inject, PLATFORM_ID, OnDestroy, AfterViewInit, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
-// Lazy loaded components are imported dynamically to keep the main bundle small
+import { Component, Inject, PLATFORM_ID, OnDestroy, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { FaqComponent } from '../faq/faq.component';
+import { ContactsComponent } from "../contacts/contacts.component";
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,7 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-home',
-  imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslateModule ],
+  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -17,9 +18,6 @@ import { Subject, takeUntil } from 'rxjs';
 export class HomeComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
-  // Containers for lazy-loaded components
-  @ViewChild('contactsContainer', { read: ViewContainerRef }) contactsContainer?: ViewContainerRef;
-  @ViewChild('faqContainer', { read: ViewContainerRef }) faqContainer?: ViewContainerRef;
 
   private playListener?: () => void;
 
@@ -83,20 +81,12 @@ cards = [
           if(fragment) {
             const container = document.getElementById('mainContent');
             const target = document.getElementById(fragment);
-
+            
             if (container && target) {
               const top = target.offsetTop - 64; // учёт внутреннего отступа
               container.scrollTo({ top, behavior: 'smooth' });
             }
           }
-        });
-
-        // Lazy load heavy components after the main content is ready
-        import('../contacts/contacts.component').then(m => {
-          this.contactsContainer?.createComponent(m.ContactsComponent);
-        });
-        import('../faq/faq.component').then(m => {
-          this.faqContainer?.createComponent(m.FaqComponent);
         });
 
     }
