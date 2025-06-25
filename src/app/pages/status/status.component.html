@@ -39,16 +39,18 @@
         </button>
       </form>
   
-      <div *ngIf="order" class="mt-6 p-4 border rounded-md bg-violet-100">
-        <h2 class="font-semibold mb-2">Информация о заказе</h2>
-        <p><strong>Номер:</strong> {{ order.id }}</p>
-        <p><strong>Устройство:</strong> {{ order.device }}</p>
-        <p><strong>Статус:</strong> {{ order.status }}</p>
-        <p><strong>Дата приёма:</strong> {{ order.date }}</p>
-      </div>
-  
-      <div *ngIf="notFound" class="mt-6 text-red-700 font-medium">
-        Заказ не найден. Проверьте данные и попробуйте снова.
+      <div class="mt-6 min-h-32">
+        <div *ngIf="order" class="p-4 border rounded-md bg-violet-100">
+          <h2 class="font-semibold mb-2">Информация о заказе</h2>
+          <p><strong>Номер:</strong> {{ order.id }}</p>
+          <p><strong>Устройство:</strong> {{ order.device }}</p>
+          <p><strong>Статус:</strong> {{ order.status }}</p>
+          <p><strong>Дата приёма:</strong> {{ order.date }}</p>
+        </div>
+
+        <div *ngIf="notFound" class="text-red-700 font-medium">
+          Заказ не найден. Проверьте данные и попробуйте снова.
+        </div>
       </div>
     </div>
   </section>
