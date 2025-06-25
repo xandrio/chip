@@ -1,18 +1,27 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, APP_INITIALIZER, provideZoneChangeDetection, TransferState } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { HttpBackend, HttpClient, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import {
   TranslateLoader,
-  TranslateModule
+  TranslateModule,
+  TranslateService
 } from '@ngx-translate/core';
-import {
-  TranslateHttpLoader
-} from '@ngx-translate/http-loader';
+import { firstValueFrom } from 'rxjs';
+import { TransferTranslateLoader } from './shared/transfer-translate-loader';
+import { DOCUMENT } from '@angular/common';
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './i18n/', '.json');
+export function HttpLoaderFactory(http: HttpClient, transferState: TransferState) {
+  return new TransferTranslateLoader(http, transferState);
+}
+
+export function initTranslate(translate: TranslateService, doc: Document) {
+  return () => {
+    const lang = doc.documentElement.lang || 'es';
+    translate.setDefaultLang(lang);
+    return firstValueFrom(translate.use(lang));
+  };
 }
 
 
@@ -27,8 +36,14 @@ export const appConfig: ApplicationConfig = {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient, HttpBackend]
+        deps: [HttpClient, TransferState]
       }
-    }).providers!
+    }).providers!,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initTranslate,
+      deps: [TranslateService, DOCUMENT],
+      multi: true
+    }
   ]
 };
