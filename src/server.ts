@@ -6,6 +6,7 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
 import compression from 'compression';
 
 // До app.use(...) или app.listen(...)
@@ -157,8 +158,8 @@ app.use('/**', async (req, res, next) => {
       `
     );
 
-    // Вставка structured data JSON-LD
-    const structuredData = {
+    // Вставка structured data JSON-LD для LocalBusiness
+    const businessStructuredData = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Chip Valencia",
@@ -179,7 +180,64 @@ app.use('/**', async (req, res, next) => {
       ]
     };
 
-    html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(structuredData)}</script></head>`);
+    html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(businessStructuredData)}</script></head>`);
+
+    // Добавляем FAQ structured data для домашней страницы
+    if (path.includes('/home')) {
+      try {
+        const faqContent = JSON.parse(readFileSync(resolve(browserDistFolder, `i18n/${code}.json`), 'utf-8')).FAQ;
+        const faqStructuredData = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": faqContent.REPAIR_TIME_Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faqContent.REPAIR_TIME_A
+              }
+            },
+            {
+              "@type": "Question",
+              "name": faqContent.RECORD_Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faqContent.RECORD_A
+              }
+            },
+            {
+              "@type": "Question",
+              "name": faqContent.WARRANTY_Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faqContent.WARRANTY_A
+              }
+            },
+            {
+              "@type": "Question",
+              "name": faqContent.DIAGNOSTICS_Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faqContent.DIAGNOSTICS_A
+              }
+            },
+            {
+              "@type": "Question",
+              "name": faqContent.LEGAL_ENTITIES_Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faqContent.LEGAL_ENTITIES_A
+              }
+            }
+          ]
+        };
+
+        html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(faqStructuredData)}</script></head>`);
+      } catch (faqErr) {
+        console.error('Failed to generate FAQ structured data', faqErr);
+      }
+    }
     res
       .status(response.status)
       .set(Object.fromEntries(response.headers.entries()))
