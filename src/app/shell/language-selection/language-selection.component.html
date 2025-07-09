@@ -1,11 +1,10 @@
 <div class="relative inline-block text-left">
     <button
-      class="lang-selector inline-flex items-center justify-center px-2 py-2 border-2 border-[#548EF8] rounded text-sm font-medium text-[#548EF8] bg-transparent cursor-pointer focus:outline-none"
+      class="lang-selector inline-flex items-center justify-center px-2 py-2 border-2 border-[#548EF8] rounded text-sm font-bold text-[#548EF8] bg-transparent cursor-pointer focus:outline-none"
       (click)="toggle()"
       type="button"
     >
-      <span class="w-5 h-5 flex items-center justify-center rounded-full bg-gray-800 text-white text-[10px] font-semibold">{{ currentLang | uppercase }}</span>
-      <!-- {{ getLabel(currentLang) }} -->
+      {{ currentLang | uppercase }}
       <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
       </svg>
@@ -17,8 +16,7 @@
         @for (lang of languages; track $index) {
           <button
             (click)="changeLang(lang.code)"
-            class="flex items-center w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-[#525086] hover:text-white cursor-pointer">
-            <span class="w-5 h-5 mr-2 flex items-center justify-center rounded-full bg-gray-800 text-white text-[10px] font-semibold">{{ lang.code | uppercase }}</span>
+            class="w-full px-4 py-2 text-sm text-gray-700 rounded-md hover:bg-[#525086] hover:text-white cursor-pointer">
             {{ lang.label }}
           </button>
         }
