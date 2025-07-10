@@ -27,8 +27,10 @@
     "WHY_US_LOCATION_DESC": "Estem al centre de València, amb fàcil accés i aparcament.",
     "WHY_US_CONSULT_BY_PHONE_TITLE": "Consulta telefònica",
     "WHY_US_CONSULT_BY_PHONE_DESC": "Truca’ns — t’informarem del preu i el temps estimat de reparació.",
-    "HERO_TITLE": "Et podem ajudar",
-    "HERO_SUBTITLE": "Reparació ràpida i de qualitat de qualsevol dispositiu"
+    "HERO_SOCIALS": "Segueix-nos a les nostres xarxes socials",
+    "HERO_TITLE": "Reparació de telèfons i portàtils a València — ràpida, de qualitat, amb garantia",
+    "HERO_SUBTITLE": "Diagnòstic gratuït.\nRecanvis originals.\nTècnic amb experiència.",
+    "HERO_BUTTON": "Enviar sol·licitud"
   },
   "NAVIGATION": {
     "HOME": "Inici",

@@ -17,10 +17,6 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
 
-  @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
-
-  private playListener?: () => void;
-
 cards = [
   {
     image: '/images/mob-r.jpg',
@@ -71,17 +67,11 @@ cards = [
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-        const videoEl = this.heroVideo?.nativeElement;
-        this.playListener = () => videoEl?.play().catch(() => {});
-        if (videoEl) {
-          videoEl.addEventListener('canplay', this.playListener);
-          setTimeout(this.playListener);
-        }
         this.route.fragment.pipe(takeUntil(this.destroy$)).subscribe((fragment) => {
           if(fragment) {
             const container = document.getElementById('mainContent');
             const target = document.getElementById(fragment);
-            
+
             if (container && target) {
               const top = target.offsetTop - 64; // учёт внутреннего отступа
               container.scrollTo({ top, behavior: 'smooth' });
@@ -94,12 +84,6 @@ cards = [
   }
 
   ngOnDestroy(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const videoEl = this.heroVideo?.nativeElement;
-      if (videoEl && this.playListener) {
-        videoEl.removeEventListener('canplay', this.playListener);
-      }
-    }
     this.destroy$.next();
     this.destroy$.complete();
   }
