@@ -1,5 +1,5 @@
 <section [appScrollSpy]="'home'" id="home" class="relative">
-  <div class="max-w-7xl px-2 sm:px-6 lg:px-8 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center pb-48 mt-12 hero-bg">
+  <div class="max-w-7xl px-2 sm:px-6 lg:px-8 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center pb-24 sm:pb-48 mt-12 hero-bg">
     <div class="space-y-4">
       <div class="flex flex-col bg-white sm:flex-row sm:items-center gap-2 text-[#548EF8]">
         <a href="https://www.instagram.com/chip.valencia" class="flex items-center gap-2 hover:underline">
@@ -21,7 +21,7 @@
 <section class="py-7 bg-white overflow-hidden">
   <div class="brand-carousel flex w-max items-center gap-60">
     @for (logo of logosRow; track $index) {
-      <img [src]="logo" alt="brand logo" class="h-4 w-auto" />
+      <img [src]="logo" alt="brand logo" class="h-4 sm:h-5 w-auto" />
     }
   </div>
 </section>

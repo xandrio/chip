@@ -5,8 +5,15 @@
 .hero-bg {
   background-image: url('/images/hero-new-bg.png');
   background-repeat: no-repeat;
-  background-position: center right;
-  background-size: contain;
+  background-position: left;
+  background-size: cover;
+}
+
+@media (min-width: 640px) {
+  .hero-bg {
+    background-position: center right;
+    background-size: contain;
+  }
 }
 
 @keyframes scroll {
