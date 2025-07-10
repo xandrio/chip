@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.hero-bg {
+  background-image: url('/images/hero-new-bg.png');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-carousel {
+  animation: scroll 20s linear infinite;
+}
