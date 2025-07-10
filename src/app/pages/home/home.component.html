@@ -1,5 +1,6 @@
 <section [appScrollSpy]="'home'" id="home" class="relative">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-4 py-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-4 pb-12 mt-12"
+    style="background-image: url('/images/hero-new-bg.png'); background-repeat: no-repeat; background-position: center right; background-size: contain;">
     <div class="space-y-4 max-w-[570px]">
       <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-[#548EF8]">
         <a href="https://www.instagram.com/chip.valencia" class="flex items-center gap-2 hover:underline">
@@ -15,9 +16,6 @@
       <h1 class="text-[40px] leading-[60px] font-semibold text-[#051937] whitespace-pre-line">{{ 'HOME.HERO_TITLE' | translate }}</h1>
       <p class="text-[#3C485B] text-[20px] leading-[32px] font-normal whitespace-pre-line">{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
       <a href="#contacts" class="inline-block bg-[#548EF8] text-[#EEEFEF] px-6 py-3">{{ 'HOME.HERO_BUTTON' | translate }}</a>
-    </div>
-    <div class="relative">
-      <img src="/images/hero-new-bg.png" class="w-full h-full object-cover" alt="" />
     </div>
   </div>
 </section>
