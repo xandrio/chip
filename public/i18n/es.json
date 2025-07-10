@@ -27,8 +27,10 @@
     "WHY_US_LOCATION_DESC": "Estamos en el centro de la ciudad con aparcamiento accesible.",
     "WHY_US_CONSULT_BY_PHONE_TITLE": "Consulta telefónica",
     "WHY_US_CONSULT_BY_PHONE_DESC": "Llámanos — te diremos el coste y tiempo estimado de la reparación.",
-    "HERO_TITLE": "Podemos ayudarte",
-    "HERO_SUBTITLE": "Reparación rápida y de calidad de cualquier dispositivo"
+    "HERO_SOCIALS": "Síguenos en nuestras redes sociales",
+    "HERO_TITLE": "Reparación de teléfonos y portátiles en Valencia — rápida, de calidad, con garantía",
+    "HERO_SUBTITLE": "Diagnóstico gratuito.\nRepuestos originales.\nTécnico experimentado.",
+    "HERO_BUTTON": "Enviar solicitud"
   },
   "NAVIGATION": {
     "HOME": "Inicio",

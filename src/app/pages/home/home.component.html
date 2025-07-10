@@ -1,10 +1,24 @@
-<section [appScrollSpy]="'home'" id="home" class="relative text-white">
-  <video #heroVideo width="1920" height="1080" muted loop playsinline autoplay class="absolute inset-0 w-full h-full object-cover">
-    <source src="/video/hero-loop-compressed.mp4" type="video/mp4" />
-  </video>
-  <div class="bg-black/60 flex flex-col items-center justify-center py-[280px] px-4 text-center relative">
-    <h1 class="text-5xl font-bold mb-4">{{ 'HOME.HERO_TITLE' | translate }}</h1>
-    <p class="text-xl">{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
+<section [appScrollSpy]="'home'" id="home" class="relative">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-4 py-12">
+    <div class="space-y-4 max-w-[570px]">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-[#548EF8]">
+        <a href="https://www.instagram.com/chip.valencia" class="flex items-center gap-2 hover:underline">
+          <img src="/images/svg/insta.svg" width="20" height="20" alt="Instagram" />
+          @chip.valencia
+        </a>
+        <a href="mailto:chip.service.valencia@gmail.com" title="chip.service.valencia@gmail.com" class="flex items-center gap-2 hover:underline">
+          <img src="/images/svg/mail.svg" width="20" height="20" alt="Email" />
+          @chip.service.valencia
+        </a>
+      </div>
+      <p class="text-[#3C485B]">{{ 'HOME.HERO_SOCIALS' | translate }}</p>
+      <h1 class="font-bold text-4xl sm:text-5xl text-[#051937] whitespace-pre-line">{{ 'HOME.HERO_TITLE' | translate }}</h1>
+      <p class="text-[#3C485B] whitespace-pre-line">{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
+      <a href="#contacts" class="inline-block bg-[#548EF8] text-[#EEEFEF] px-6 py-3 rounded-md">{{ 'HOME.HERO_BUTTON' | translate }}</a>
+    </div>
+    <div class="relative">
+      <img src="/images/hero-new-bg.png" class="w-full h-full object-cover" alt="" />
+    </div>
   </div>
 </section>
 <div class="dark-horizontal">

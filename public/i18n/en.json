@@ -27,8 +27,10 @@
     "WHY_US_LOCATION_DESC": "Located in the city center with easy parking access.",
     "WHY_US_CONSULT_BY_PHONE_TITLE": "Phone Consultation",
     "WHY_US_CONSULT_BY_PHONE_DESC": "Call us — we’ll tell you the repair cost and estimated time.",
-    "HERO_TITLE": "We Can Help You",
-    "HERO_SUBTITLE": "Fast and quality repair for any device"
+    "HERO_SOCIALS": "Follow us on our social media",
+    "HERO_TITLE": "Phone and laptop repair in Valencia — fast, high-quality, guaranteed",
+    "HERO_SUBTITLE": "Free diagnostics.\nOriginal parts.\nExperienced technician.",
+    "HERO_BUTTON": "Leave a request"
   },
   "NAVIGATION": {
     "HOME": "Home",
