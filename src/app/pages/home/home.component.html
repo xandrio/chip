@@ -1,6 +1,5 @@
 <section [appScrollSpy]="'home'" id="home" class="relative">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-4 pb-12 mt-12"
-    style="background-image: url('/images/hero-new-bg.png'); background-repeat: no-repeat; background-position: center right; background-size: contain;">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-4 pb-12 mt-12 hero-bg">
     <div class="space-y-4 max-w-[570px]">
       <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-[#548EF8]">
         <a href="https://www.instagram.com/chip.valencia" class="flex items-center gap-2 hover:underline">
@@ -17,6 +16,13 @@
       <p class="text-[#3C485B] text-[20px] leading-[32px] font-normal whitespace-pre-line">{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
       <a href="#contacts" class="inline-block bg-[#548EF8] text-[#EEEFEF] px-6 py-3">{{ 'HOME.HERO_BUTTON' | translate }}</a>
     </div>
+  </div>
+</section>
+<section class="py-7 bg-white overflow-hidden">
+  <div class="brand-carousel flex w-max items-center gap-8">
+    @for (logo of logosRow; track $index) {
+      <img [src]="logo" alt="brand logo" class="h-12 w-auto" />
+    }
   </div>
 </section>
 <div class="dark-horizontal">
@@ -43,8 +49,8 @@
           </div>
 
           <div [class.lg:order-1]="$index % 2 !== 0">
-            <img loading="lazy" [src]="card.image" [attr.alt]="card.alt | translate" width="516" height="258" style="aspect-ratio: 16 / 9;"
-              class="rounded-xl shadow-lg w-full object-cover max-h-[400px]" />
+          <img loading="lazy" [src]="card.image" [attr.alt]="card.alt | translate" width="516" height="258"
+            class="rounded-xl shadow-lg w-full object-cover max-h-[400px] aspect-video" />
           </div>
 
         </div>

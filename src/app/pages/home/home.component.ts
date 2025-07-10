@@ -56,6 +56,17 @@ cards = [
   },
 ];
 
+logos = [
+  '/images/svg/apple.svg',
+  '/images/svg/asus.svg',
+  '/images/svg/huawei.svg',
+  '/images/svg/oppo.svg',
+  '/images/svg/samsung.svg',
+  '/images/svg/xaomi.svg',
+];
+
+logosRow = [...this.logos, ...this.logos];
+
   constructor(
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object,
