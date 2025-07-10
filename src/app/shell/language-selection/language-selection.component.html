@@ -11,7 +11,7 @@
     </button>
   @if (open) {
     <div class="fixed inset-0 bg-black/50 z-40" (click)="open = false"></div>
-    <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-grey ring-opacity-5 focus:outline-none z-50" (click)="$event.stopPropagation()">
+    <div class="origin-top-right absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-grey ring-opacity-5 focus:outline-none z-50" (click)="$event.stopPropagation()">
       <div class="p-1">
         @for (lang of languages; track $index) {
           <button
