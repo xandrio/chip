@@ -18,9 +18,9 @@
     </div>
   </div>
 </section>
-<section class="py-7 bg-white overflow-hidden">
-  <div class="brand-carousel flex w-max items-center gap-60">
-    @for (logo of logosRow; track $index) {
+<section class="py-7 bg-white">
+  <div class="flex flex-wrap justify-center items-center gap-16">
+    @for (logo of logos; track $index) {
       <img [src]="logo" alt="brand logo" class="h-3 w-auto" />
     }
   </div>

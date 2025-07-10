@@ -65,8 +65,6 @@ logos = [
   '/images/svg/xaomi.svg',
 ];
 
-logosRow = [...this.logos, ...this.logos];
-
   constructor(
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object,
