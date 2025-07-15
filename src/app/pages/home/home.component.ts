@@ -19,40 +19,24 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
 cards = [
   {
-    image: '/images/mob-r.jpg',
-    alt: 'HOME.PHONE_REP_TITLE',
-    title: 'HOME.PHONE_REP_TITLE',
-    desc: 'HOME.PHONE_REP_DESC'
+    image: '/images/phone-repair-new.png',
+    alt: 'HOME.SERVICE_CARD_PHONE',
+    text: 'HOME.SERVICE_CARD_PHONE'
   },
   {
-    image: '/images/lap-r.jpg',
-    alt: 'HOME.LAPTOP_REP_TITLE',
-    title: 'HOME.LAPTOP_REP_TITLE',
-    desc: 'HOME.LAPTOP_REP_DESC'
+    image: '/images/laptop-repair-new.png',
+    alt: 'HOME.SERVICE_CARD_LAPTOP',
+    text: 'HOME.SERVICE_CARD_LAPTOP'
   },
   {
-    image: '/images/clean.jpg',
-    alt: 'HOME.LAPTOP_CLEAN_TITLE',
-    title: 'HOME.LAPTOP_CLEAN_TITLE',
-    desc: 'HOME.LAPTOP_CLEAN_DESC'
+    image: '/images/data-recovery-new.png',
+    alt: 'HOME.SERVICE_CARD_RECOVERY',
+    text: 'HOME.SERVICE_CARD_RECOVERY'
   },
   {
-    image: '/images/win-i.jpg',
-    alt: 'HOME.WIN_INSTALL_TITLE',
-    title: 'HOME.WIN_INSTALL_TITLE',
-    desc: 'HOME.WIN_INSTALL_DESC'
-  },
-  {
-    image: '/images/soft-i.jpg',
-    alt: 'HOME.APP_INSTALL_TITLE',
-    title: 'HOME.APP_INSTALL_TITLE',
-    desc: 'HOME.APP_INSTALL_DESC'
-  },
-  {
-    image: '/images/pc-d.jpg',
-    alt: 'HOME.DIAG_TITLE',
-    title: 'HOME.DIAG_TITLE',
-    desc: 'HOME.DIAG_DESC'
+    image: '/images/plug-replacement-new.png',
+    alt: 'HOME.SERVICE_CARD_PLUG',
+    text: 'HOME.SERVICE_CARD_PLUG'
   },
 ];
 

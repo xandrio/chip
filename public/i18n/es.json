@@ -1,7 +1,11 @@
 {
   "HOME": {
-    "TITLE": "Reparación de teléfonos y ordenadores",
-    "DESCRIPTION": "Servicio de reparación rápido y de calidad con garantía en tu ciudad.",
+    "TITLE": "Servicios de reparación de dispositivos",
+    "DESCRIPTION": "Reparamos profesionalmente smartphones, portátiles, tablets y otros equipos electrónicos",
+    "SERVICE_CARD_PHONE": "Reparación de teléfonos (cambio de pantalla, batería, software, etc.)",
+    "SERVICE_CARD_LAPTOP": "Reparación de portátiles (limpieza, cambio de teclado, SSD, puertos)",
+    "SERVICE_CARD_RECOVERY": "Recuperación de datos",
+    "SERVICE_CARD_PLUG": "Sustitución de conectores, botones, cámaras",
     "PHONE_REP_TITLE": "Reparación de teléfonos",
     "PHONE_REP_DESC": "Sustitución de pantallas, baterías, puertos de carga y más para todas las marcas.",
     "LAPTOP_REP_TITLE": "Reparación de portátiles",
