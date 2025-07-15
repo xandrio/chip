@@ -39,7 +39,12 @@
     "HERO_SOCIALS": "Segueix-nos a les nostres xarxes socials",
     "HERO_TITLE": "Reparació de telèfons i portàtils a València — ràpida, de qualitat, amb garantia",
     "HERO_SUBTITLE": "Diagnòstic gratuït.\nRecanvis originals.\nTècnic amb experiència.",
-    "HERO_BUTTON": "Enviar sol·licitud"
+    "HERO_BUTTON": "Enviar sol·licitud",
+    "STEPS_TITLE": "4 passos senzills fins a la teva tècnica en funcionament",
+    "STEPS_REQUEST": "<b>Sol·licitud</b> - deixa la teua sol·licitud al web o per telèfon",
+    "STEPS_DIAGNOSTICS": "<b>Diagnosi</b> - identifiquem ràpidament l'avaria",
+    "STEPS_REPAIR": "<b>Reparació</b> - acordem el preu i comencem",
+    "STEPS_FINISH": "<b>Fet</b> - rep el dispositiu amb garantia"
   },
   "NAVIGATION": {
     "HOME": "Inici",
