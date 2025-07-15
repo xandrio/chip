@@ -18,24 +18,24 @@
     </div>
   </div>
 </section>
-<section class="py-7 bg-white overflow-hidden">
+<section class="py-7 bg-white overflow-hidden my-24">
   <div class="brand-carousel flex w-max items-center gap-60">
     @for (logo of logosRow; track $index) {
       <img [src]="logo" alt="brand logo" class="h-4 sm:h-5 w-auto" />
     }
   </div>
 </section>
-<section class="max-w-7xl mx-auto px-4 py-16 bg-transparent">
-  <h2 class="text-[32px] leading-[32px] font-semibold text-[#051937] text-center mb-2">
+<section class="max-w-7xl mx-auto px-4 bg-transparent">
+  <h2 class="text-[32px] leading-[32px] font-semibold text-[#051937] mb-6">
     {{ 'HOME.TITLE' | translate }}
   </h2>
-  <p class="text-[20px] leading-[32px] font-normal text-[#3C485B] text-center mb-10">
+  <p class="text-[20px] leading-[32px] font-normal text-[#3C485B] mb-10">
     {{ 'HOME.DESCRIPTION' | translate }}
   </p>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     @for (card of cards; track $index) {
-      <div class="flex flex-col items-center text-center">
+      <div class="flex flex-col">
         <img loading="lazy" [src]="card.image" [attr.alt]="card.alt | translate" width="516" height="258" class="w-full object-cover" />
         <p class="mt-3 text-[16px] leading-[24px] font-normal text-[#3C485B]">{{ card.text | translate }}</p>
       </div>

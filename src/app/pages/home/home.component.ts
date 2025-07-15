@@ -41,12 +41,12 @@ cards = [
 ];
 
 logos = [
-  '/images/svg/apple.svg',
-  '/images/svg/asus.svg',
   '/images/svg/huawei.svg',
-  '/images/svg/oppo.svg',
+  '/images/svg/asus.svg',
+  '/images/svg/apple.svg',
   '/images/svg/samsung.svg',
   '/images/svg/xaomi.svg',
+  '/images/svg/oppo.svg',
 ];
 
 logosRow = [...this.logos, ...this.logos];
