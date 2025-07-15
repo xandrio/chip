@@ -39,7 +39,12 @@
     "HERO_SOCIALS": "Follow us on our social media",
     "HERO_TITLE": "Phone and laptop repair in Valencia — fast, high-quality, guaranteed",
     "HERO_SUBTITLE": "Free diagnostics.\nOriginal parts.\nExperienced technician.",
-    "HERO_BUTTON": "Leave a request"
+    "HERO_BUTTON": "Leave a request",
+    "STEPS_TITLE": "4 simple steps to working tech",
+    "STEPS_REQUEST": "<b>Request</b> - leave a request on the site or by phone",
+    "STEPS_DIAGNOSTICS": "<b>Diagnostics</b> - quickly determine the issue",
+    "STEPS_REPAIR": "<b>Repair</b> - agree on the price and start",
+    "STEPS_FINISH": "<b>Done</b> - receive your device with a warranty"
   },
   "NAVIGATION": {
     "HOME": "Home",

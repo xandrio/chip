@@ -49,7 +49,30 @@ logos = [
   '/images/svg/oppo.svg',
 ];
 
-logosRow = [...this.logos, ...this.logos];
+  logosRow = [...this.logos, ...this.logos];
+
+  steps = [
+    {
+      image: '/images/request.png',
+      number: '1',
+      text: 'HOME.STEPS_REQUEST'
+    },
+    {
+      image: '/images/diagnostics.png',
+      number: '2',
+      text: 'HOME.STEPS_DIAGNOSTICS'
+    },
+    {
+      image: '/images/repair.png',
+      number: '3',
+      text: 'HOME.STEPS_REPAIR'
+    },
+    {
+      image: '/images/finish.png',
+      number: '4',
+      text: 'HOME.STEPS_FINISH'
+    },
+  ];
 
   constructor(
     private route: ActivatedRoute,

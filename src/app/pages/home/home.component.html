@@ -67,6 +67,30 @@
   </div>
 </section>
 
+<section class="bg-[#548EF8] text-[#EEEFEF] py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-16">
+      <h3 class="text-[32px] leading-[48px] font-semibold">
+        {{ 'HOME.STEPS_TITLE' | translate }}
+      </h3>
+      <a href="#contacts" class="mt-4 sm:mt-0 inline-block bg-[#A8EB12] text-[#051937] px-6 py-3 font-semibold text-[16px] leading-[24px]">
+        {{ 'HOME.HERO_BUTTON' | translate }}
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (step of steps; track $index) {
+        <div class="flex flex-col">
+          <img loading="lazy" [src]="step.image" alt="step" class="mb-4 w-full object-contain" />
+          <div class="flex">
+            <span class="text-[60px] leading-[90px] font-semibold mr-4">{{ step.number }}</span>
+            <span class="text-[16px] leading-[24px] font-medium" [innerHTML]="step.text | translate"></span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
   <section class="text-white">
     <div class="max-w-6xl mx-auto px-4 py-16">
       <h2 class="text-3xl font-bold text-center mb-10">{{'HOME.WHY_US' | translate}}</h2>

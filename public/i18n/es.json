@@ -39,7 +39,12 @@
     "HERO_SOCIALS": "Síguenos en nuestras redes sociales",
     "HERO_TITLE": "Reparación de teléfonos y portátiles en Valencia — rápida, de calidad, con garantía",
     "HERO_SUBTITLE": "Diagnóstico gratuito.\nRepuestos originales.\nTécnico experimentado.",
-    "HERO_BUTTON": "Enviar solicitud"
+    "HERO_BUTTON": "Enviar solicitud",
+    "STEPS_TITLE": "4 pasos simples para un dispositivo funcionando",
+    "STEPS_REQUEST": "<b>Solicitud</b> - deje su solicitud en el sitio o por teléfono",
+    "STEPS_DIAGNOSTICS": "<b>Diagnóstico</b> - determinamos rápidamente la falla",
+    "STEPS_REPAIR": "<b>Reparación</b> - acordamos el costo y comenzamos",
+    "STEPS_FINISH": "<b>Listo</b> - reciba el dispositivo con garantía"
   },
   "NAVIGATION": {
     "HOME": "Inicio",
