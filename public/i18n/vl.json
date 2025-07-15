@@ -1,7 +1,11 @@
 {
   "HOME": {
-    "TITLE": "Reparació de telèfons i ordinadors",
-    "DESCRIPTION": "Servei de reparació ràpid i de qualitat amb garantia a la teua ciutat.",
+    "TITLE": "Serveis de reparació de dispositius",
+    "DESCRIPTION": "Reparem professionalment smartphones, portàtils, tauletes i altra electrònica",
+    "SERVICE_CARD_PHONE": "Reparació de telèfons (canvi de pantalla, bateria, firmware, etc.)",
+    "SERVICE_CARD_LAPTOP": "Reparació de portàtils (neteja, canvi de teclat, SSD, ports)",
+    "SERVICE_CARD_RECOVERY": "Recuperació de dades",
+    "SERVICE_CARD_PLUG": "Substitució de connectors, botons, càmeres",
     "PHONE_REP_TITLE": "Reparació de telèfons",
     "PHONE_REP_DESC": "Canvi de pantalles, bateries, ports de càrrega i altres components per a totes les marques.",
     "LAPTOP_REP_TITLE": "Reparació de portàtils",

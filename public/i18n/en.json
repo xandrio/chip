@@ -1,7 +1,11 @@
 {
   "HOME": {
-    "TITLE": "Phone and Computer Repair",
-    "DESCRIPTION": "High-quality and fast repair services with warranty in your city.",
+    "TITLE": "Repair Services",
+    "DESCRIPTION": "We professionally repair smartphones, laptops, tablets and other electronics",
+    "SERVICE_CARD_PHONE": "Phone repair (screen replacement, battery, firmware, etc.)",
+    "SERVICE_CARD_LAPTOP": "Laptop repair (cleaning, keyboard, SSD, ports replacement)",
+    "SERVICE_CARD_RECOVERY": "Data recovery",
+    "SERVICE_CARD_PLUG": "Connector, button, camera replacement",
     "PHONE_REP_TITLE": "Phone Repair",
     "PHONE_REP_DESC": "Screen, battery, charging port replacements and more for all phone brands.",
     "LAPTOP_REP_TITLE": "Laptop Repair",
