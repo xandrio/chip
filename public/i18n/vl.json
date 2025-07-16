@@ -44,7 +44,8 @@
     "STEPS_REQUEST": "<b>Sol·licitud</b> - deixa la teua sol·licitud al web o per telèfon",
     "STEPS_DIAGNOSTICS": "<b>Diagnosi</b> - identifiquem ràpidament l'avaria",
     "STEPS_REPAIR": "<b>Reparació</b> - acordem el preu i comencem",
-    "STEPS_FINISH": "<b>Fet</b> - rep el dispositiu amb garantia"
+    "STEPS_FINISH": "<b>Fet</b> - rep el dispositiu amb garantia",
+    "FEEDBACK_TITLE": "Opinions dels nostres clients"
   },
   "NAVIGATION": {
     "HOME": "Inici",

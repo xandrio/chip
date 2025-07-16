@@ -44,7 +44,8 @@
     "STEPS_REQUEST": "<b>Solicitud</b> - deje su solicitud en el sitio o por teléfono",
     "STEPS_DIAGNOSTICS": "<b>Diagnóstico</b> - determinamos rápidamente la falla",
     "STEPS_REPAIR": "<b>Reparación</b> - acordamos el costo y comenzamos",
-    "STEPS_FINISH": "<b>Listo</b> - reciba el dispositivo con garantía"
+    "STEPS_FINISH": "<b>Listo</b> - reciba el dispositivo con garantía",
+    "FEEDBACK_TITLE": "Opiniones de nuestros clientes"
   },
   "NAVIGATION": {
     "HOME": "Inicio",

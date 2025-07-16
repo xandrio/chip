@@ -1,0 +1,27 @@
+<section class="max-w-7xl mx-auto my-24 px-4">
+  <h2 class="text-[32px] leading-[48px] font-semibold text-[#051937] mb-8">
+    {{ 'HOME.FEEDBACK_TITLE' | translate }}
+  </h2>
+  <div class="relative">
+    <button type="button" (click)="prev()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white text-[#051937] p-2 rounded-full shadow z-10">&#8249;</button>
+    <button type="button" (click)="next()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white text-[#051937] p-2 rounded-full shadow z-10">&#8250;</button>
+    <div class="overflow-hidden">
+      <div class="flex transition-transform duration-300" [style.width.%]="25 * testimonials.length" [style.transform]="'translateX(-' + (index * 25) + '%)'">
+        <div *ngFor="let t of testimonials" class="box-border p-4" style="flex: 0 0 25%">
+          <div class="bg-white shadow-md p-4 h-full flex flex-col justify-between">
+            <div class="flex items-center mb-3">
+              <img src="/images/feedback-user-placeholder.jpg" alt="user" class="w-12 h-12 rounded-full mr-3" />
+              <div>
+                <div class="font-semibold text-[#051937]">{{ t.name }}</div>
+                <div class="flex">
+                  <img src="/images/svg/star.svg" alt="star" width="16" height="16" class="w-4 h-4 mr-1" *ngFor="let s of [1,2,3,4,5]" />
+                </div>
+              </div>
+            </div>
+            <p class="text-[#3C485B] text-sm">{{ t.text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

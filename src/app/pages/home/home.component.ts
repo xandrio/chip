@@ -1,6 +1,7 @@
 import { Component, Inject, PLATFORM_ID, OnDestroy, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { FaqComponent } from '../faq/faq.component';
 import { ContactsComponent } from "../contacts/contacts.component";
+import { FeedbackCarouselComponent } from './feedback-carousel/feedback-carousel.component';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
@@ -10,7 +11,7 @@ import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-home',
-  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule],
+  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule, FeedbackCarouselComponent],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

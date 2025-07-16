@@ -44,7 +44,8 @@
     "STEPS_REQUEST": "<b>Request</b> - leave a request on the site or by phone",
     "STEPS_DIAGNOSTICS": "<b>Diagnostics</b> - quickly determine the issue",
     "STEPS_REPAIR": "<b>Repair</b> - agree on the price and start",
-    "STEPS_FINISH": "<b>Done</b> - receive your device with a warranty"
+    "STEPS_FINISH": "<b>Done</b> - receive your device with a warranty",
+    "FEEDBACK_TITLE": "What our clients say"
   },
   "NAVIGATION": {
     "HOME": "Home",
