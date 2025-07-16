@@ -65,7 +65,14 @@
     "WORKING_HOURS_VALUE": "Mon–Fri: 11:00–19:00, Sat: 11:00–17:00",
     "ADDRESS_PARKING_DESCRIPTION": "We're located in the center of Valencia with convenient parking and transport access.",
     "WELCOME_TEXT": "We're always happy to help with any questions or issues. Don’t hesitate to contact us!",
-    "GET_DIRECTIONS": "Get Directions"
+    "GET_DIRECTIONS": "Get Directions",
+    "FORM_TITLE": "Request Form",
+    "NAME": "Name",
+    "PHONE": "Phone number",
+    "MODEL": "Device model",
+    "DESCRIPTION": "Brief problem description",
+    "SUBMIT": "Submit request",
+    "SORRY_TOOLTIP": "Sorry, this feature is not available right now"
   },
   "FAQ": {
     "PAGE_TITLE": "Frequently Asked Questions",

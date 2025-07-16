@@ -8,6 +8,10 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import compression from 'compression';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // До app.use(...) или app.listen(...)
 
@@ -19,6 +23,16 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 app.use(compression());
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT || 587),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
@@ -41,6 +55,22 @@ app.use(
     redirect: false,
   }),
 );
+
+app.post('/api/contact', express.json(), async (req, res) => {
+  const { name, phone, model, description } = req.body;
+  try {
+    await transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER,
+      subject: 'Contact request',
+      text: `Name: ${name}\nPhone: ${phone}\nModel: ${model}\nDescription: ${description}`,
+    });
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error('Failed to send mail', err);
+    res.status(500).json({ success: false });
+  }
+});
 
 // Redirect root requests to the default language
 app.get(['/', '/index.html'], (_req, res) => {

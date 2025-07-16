@@ -65,7 +65,14 @@
     "WORKING_HOURS_VALUE": "Dl–Dv: 11:00–19:00, Ds: 11:00–17:00",
     "ADDRESS_PARKING_DESCRIPTION": "Estem al centre de València, prop d'aparcaments i transport públic.",
     "WELCOME_TEXT": "Estarem encantats d’ajudar-te amb qualsevol dubte o problema. No dubtes a contactar-nos!",
-    "GET_DIRECTIONS": "Com arribar"
+    "GET_DIRECTIONS": "Com arribar",
+    "FORM_TITLE": "Formulari de sol·licitud",
+    "NAME": "Nom",
+    "PHONE": "Telèfon",
+    "MODEL": "Model del dispositiu",
+    "DESCRIPTION": "Breu descripció del problema",
+    "SUBMIT": "Enviar sol·licitud",
+    "SORRY_TOOLTIP": "Disculpeu, aquesta funció no està disponible ara"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntes freqüents",
