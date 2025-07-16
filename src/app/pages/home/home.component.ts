@@ -49,7 +49,7 @@ logos = [
   '/images/svg/oppo.svg',
 ];
 
-  logosRow = [...this.logos, ...this.logos];
+  logosRow = [...this.logos];
 
   steps = [
     {
