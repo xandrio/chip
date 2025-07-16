@@ -18,14 +18,14 @@
     </div>
   </div>
 </section>
-<section class="max-w-7xl mx-auto py-7 bg-white overflow-hidden my-24">
+<section class="max-w-7xl px-2 sm:px-6 lg:px-8 mx-auto py-7 bg-white overflow-hidden my-24">
   <div class="flex justify-between items-center">
     @for (logo of logosRow; track $index) {
       <img [src]="logo" alt="brand logo" class="h-3 sm:h-4 w-auto" />
     }
   </div>
 </section>
-<section class="max-w-7xl mx-auto my-24 px-4 bg-transparent">
+<section class="max-w-7xl mx-auto my-24 px-2 sm:px-6 lg:px-8 bg-transparent">
   <h2 class="text-[32px] leading-[32px] font-semibold text-[#051937] mb-6">
     {{ 'HOME.TITLE' | translate }}
   </h2>
@@ -43,7 +43,7 @@
   </div>
 </section>
 
-<section class="max-w-7xl mx-auto px-4 my-36">
+<section class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 my-36">
   <h2 class="text-[32px] leading-[48px] font-semibold text-[#051937] mb-8">
     {{ 'HOME.WHY_CLIENTS_TITLE' | translate }} <span class="text-[#548EF8]">Chip</span>?
   </h2>
@@ -68,7 +68,7 @@
 </section>
 
 <section class="bg-[#548EF8] text-[#EEEFEF] py-24">
-  <div class="max-w-7xl mx-auto px-4">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="flex flex-col sm:flex-row justify-between items-center mb-16">
       <h3 class="text-[32px] leading-[48px] font-semibold">
         {{ 'HOME.STEPS_TITLE' | translate }}
