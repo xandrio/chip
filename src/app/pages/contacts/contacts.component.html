@@ -1,50 +1,49 @@
-<section id="contacts" [appScrollSpy]="'contacts'" class=" py-16 text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-3xl font-bold text-center mb-8">{{'CONTACTS.PAGE_TITLE' | translate}}</h1>
-  
-      <div class="text-white text-base space-y-4">
-        <h2 class="text-xl font-semibold">{{'CONTACTS.ADDRESS' | translate}}</h2>
-        <ul class="space-y-2">
-          <li><strong>📍 {{'CONTACTS.ADDRESS_LABEL' | translate}}: </strong> {{'CONTACTS.ADDRESS_VALUE' | translate}}</li>
-          <li><strong>📞 {{'CONTACTS.PHONE_LABEL' | translate}}: </strong> <a href="tel:+34616200058" class="text-[#7a77db] hover:underline">{{'CONTACTS.PHONE_VALUE' | translate}}</a></li>
-          <li><strong>✉️ {{'CONTACTS.EMAIL_LABEL' | translate}}: </strong> <a href="mailto:chip.service.valencia@gmail.com" class="text-[#7a77db] hover:underline"> {{'chip.service.valencia@gmail.com'}}</a></li>
-          <li><strong>🕒 {{'CONTACTS.WORKING_HOURS_LABEL' | translate}}: </strong> {{'CONTACTS.WORKING_HOURS_VALUE' | translate}}</li>
-        </ul>
-        <p class="text-sm text-gray-500">
-          {{'CONTACTS.ADDRESS_PARKING_DESCRIPTION' | translate}}
-        </p>
-      </div>
-    </div>
-  
-    <!-- Карта -->
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5234.153735285058!2d-0.34592362275352834!3d39.46188101319837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fc449d80ab2ec23%3A0x6b9787ea4e1e8d13!2sCHIP%20VALENCIA!5e1!3m2!1sru!2ses!4v1750637011534!5m2!1sru!2ses"
-         title="Map of CHIP Valencia"
+<section id="contacts" [appScrollSpy]="'contacts'" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div>
+      <h2 class="text-[#051937] text-[32px] leading-[48px] font-semibold mb-2">Где нас найти?</h2>
+      <p class="text-[#3C485B] text-[20px] leading-[32px] font-semibold">Valencia</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia" target="_blank" class="block text-[#3C485B] text-[20px] leading-[32px] font-normal hover:underline">C/ de la Dama d'Elx, 16, Valencia 46023</a>
+      <a href="mailto:chip.service.valencia@gmail.com" class="block mt-4 text-[#3C485B] text-[20px] leading-[32px] font-semibold hover:underline">chip.service.valencia@gmail.com</a>
+      <a href="tel:+34647804867" class="block mt-2 text-[#3C485B] text-[20px] leading-[32px] font-normal hover:underline">+34 647 80 48 67</a>
+      <p class="mt-2 text-[#3C485B] text-[20px] leading-[32px] font-normal">Horarios:</p>
+      <p class="text-[#3C485B] text-[20px] leading-[32px] font-normal">Mon–Fri: 11:00–19:00, Sat: 11:00–17:00</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia" target="_blank" class="mt-6 inline-flex items-center text-[#3C485B] text-[20px] leading-[32px] font-semibold hover:underline">
+        Проложить маршрут
+        <img src="/images/svg/arrow-right.svg" alt="" class="ml-2" width="20" height="20" />
+      </a>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5234.153735285058!2d-0.34592362275352834!3d39.46188101319837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fc449d80ab2ec23%3A0x6b9787ea4e1e8d13!2sCHIP%20VALENCIA!5e1!3m2!1sru!2ses!4v1750637011534!5m2!1sru!2ses"
+        title="Map of CHIP Valencia"
         width="100%"
-        height="400"
+        height="320"
         style="border:0;"
         allowfullscreen="true"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        class="w-full"></iframe>
-
-    <div class="mt-8 text-center">
-      <p class="text-sm text-gray-500">
-        {{'CONTACTS.WELCOME_TEXT' | translate}}
-      </p>
-
-      <a
-        href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia"
-        target="_blank"
-        class="inline-flex justify-center items-center w-full sm:max-w-[50%] border-solid border-2 border-yellow-600 mx-auto my-4 px-6 py-4 text-yellow-600 font-medium rounded shadow transition">
-        <span class="mr-5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-footprints-icon lucide-footprints"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg>
-        </span>
-        <span class="text-3xl">
-          {{'CONTACTS.GET_DIRECTIONS' | translate}}
-        </span>
-      </a>
+        class="w-full mt-4"></iframe>
     </div>
-  </section>
-
-  
+    <div class="bg-[#548EF8] text-[#EEEFEF] p-6 flex flex-col">
+      <h3 class="text-[32px] leading-[48px] font-semibold mb-6">Форма заявки</h3>
+      <form [formGroup]="requestForm" (ngSubmit)="submitRequest()" class="space-y-4 flex-1">
+        <div>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Имя</label>
+          <input formControlName="name" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+        </div>
+        <div>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Номер телефона</label>
+          <input formControlName="phone" type="tel" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+        </div>
+        <div>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Модель устройства</label>
+          <input formControlName="model" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+        </div>
+        <div class="flex-1">
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Краткое описание проблемы</label>
+          <textarea formControlName="description" rows="4" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2"></textarea>
+        </div>
+        <button type="submit" class="mt-2 bg-[#A8EB12] text-[#051937] font-semibold text-[16px] leading-[24px] px-6 py-3">Оставить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
