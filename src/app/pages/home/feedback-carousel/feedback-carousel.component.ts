@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TestimonialsService } from '../../../shared/services/testimonials.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-feedback-carousel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './feedback-carousel.component.html',
   styleUrl: './feedback-carousel.component.scss'
 })
