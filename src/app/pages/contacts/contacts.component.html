@@ -1,15 +1,15 @@
 <section id="contacts" [appScrollSpy]="'contacts'" class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div>
-      <h2 class="text-[#051937] text-[32px] leading-[48px] font-semibold mb-2">Где нас найти?</h2>
+      <h2 class="text-[#051937] text-[32px] leading-[48px] font-semibold mb-2">{{ 'CONTACTS.PAGE_TITLE' | translate }}</h2>
       <p class="text-[#3C485B] text-[20px] leading-[32px] font-semibold">Valencia</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia" target="_blank" class="block text-[#3C485B] text-[20px] leading-[32px] font-normal hover:underline">C/ de la Dama d'Elx, 16, Valencia 46023</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia" target="_blank" class="block text-[#3C485B] text-[20px] leading-[32px] font-normal hover:underline">{{ 'CONTACTS.ADDRESS_VALUE' | translate }}</a>
       <a href="mailto:chip.service.valencia@gmail.com" class="block mt-4 text-[#3C485B] text-[20px] leading-[32px] font-semibold hover:underline">chip.service.valencia&#64;gmail.com</a>
-      <a href="tel:+34647804867" class="block mt-2 text-[#3C485B] text-[20px] leading-[32px] font-normal hover:underline">+34 647 80 48 67</a>
-      <p class="mt-2 text-[#3C485B] text-[20px] leading-[32px] font-normal">Horarios:</p>
-      <p class="text-[#3C485B] text-[20px] leading-[32px] font-normal">Mon–Fri: 11:00–19:00, Sat: 11:00–17:00</p>
+      <a href="tel:+34647804867" class="block mt-2 text-[#3C485B] text-[20px] leading-[32px] font-normal hover:underline">{{ 'CONTACTS.PHONE_VALUE' | translate }}</a>
+      <p class="mt-2 text-[#3C485B] text-[20px] leading-[32px] font-normal">{{ 'CONTACTS.WORKING_HOURS_LABEL' | translate }}:</p>
+      <p class="text-[#3C485B] text-[20px] leading-[32px] font-normal">{{ 'CONTACTS.WORKING_HOURS_VALUE' | translate }}</p>
       <a href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia" target="_blank" class="mt-6 inline-flex items-center text-[#3C485B] text-[20px] leading-[32px] font-semibold hover:underline">
-        Проложить маршрут
+        {{ 'CONTACTS.GET_DIRECTIONS' | translate }}
         <img src="/images/svg/arrow-right.svg" alt="" class="ml-2" width="20" height="20" />
       </a>
       <iframe
@@ -24,25 +24,31 @@
         class="w-full mt-4"></iframe>
     </div>
     <div class="bg-[#548EF8] text-[#EEEFEF] p-6 flex flex-col">
-      <h3 class="text-[32px] leading-[48px] font-semibold mb-6">Форма заявки</h3>
+      <h3 class="text-[32px] leading-[48px] font-semibold mb-6">{{ 'CONTACTS.FORM_TITLE' | translate }}</h3>
       <form [formGroup]="requestForm" (ngSubmit)="submitRequest()" class="space-y-4 flex-1">
         <div>
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Имя</label>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.NAME' | translate }}</label>
           <input formControlName="name" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+          @if (requestForm.get('name')?.touched && requestForm.get('name')?.invalid) {
+            <div class="text-red-200 text-sm">*</div>
+          }
         </div>
         <div>
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Номер телефона</label>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.PHONE' | translate }}</label>
           <input formControlName="phone" type="tel" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+          @if (requestForm.get('phone')?.touched && requestForm.get('phone')?.invalid) {
+            <div class="text-red-200 text-sm">*</div>
+          }
         </div>
         <div>
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Модель устройства</label>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.MODEL' | translate }}</label>
           <input formControlName="model" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
         </div>
         <div class="flex-1">
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">Краткое описание проблемы</label>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.DESCRIPTION' | translate }}</label>
           <textarea formControlName="description" rows="4" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2"></textarea>
         </div>
-        <button type="submit" class="mt-2 bg-[#A8EB12] text-[#051937] font-semibold text-[16px] leading-[24px] px-6 py-3">Оставить заявку</button>
+        <button type="submit" [title]="'CONTACTS.SORRY_TOOLTIP' | translate" class="mt-2 bg-[#A8EB12] hover:bg-gray-400 text-[#051937] font-semibold text-[16px] leading-[24px] px-6 py-3">{{ 'CONTACTS.SUBMIT' | translate }}</button>
       </form>
     </div>
   </div>

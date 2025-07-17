@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ContactsComponent } from './contacts.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ContactsComponent', () => {
   let component: ContactsComponent;
@@ -13,7 +14,8 @@ describe('ContactsComponent', () => {
       imports: [
         ContactsComponent,
         RouterTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

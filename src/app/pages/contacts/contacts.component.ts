@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 import { TranslateModule } from '@ngx-translate/core';
+import { ContactService } from '../../shared/services/contact.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,10 +15,10 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 export class ContactsComponent {
   requestForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private contact: ContactService) {
     this.requestForm = this.fb.group({
       name: ['', Validators.required],
-      phone: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9+ ()-]+$/)]],
       model: [''],
       description: ['']
     });
@@ -25,8 +26,10 @@ export class ContactsComponent {
 
   submitRequest() {
     if (this.requestForm.valid) {
-      console.log('Request data:', this.requestForm.value);
-      // TODO: integrate with backend
+      this.contact.sendRequest(this.requestForm.value).subscribe({
+        next: () => console.log('Request sent'),
+        error: err => console.error('Request failed', err)
+      });
     }
   }
 }

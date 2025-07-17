@@ -65,7 +65,14 @@
     "WORKING_HOURS_VALUE": "Lun–Vie: 11:00–19:00, Sáb: 11:00–17:00",
     "ADDRESS_PARKING_DESCRIPTION": "Estamos en el centro de Valencia, con aparcamiento y transporte accesibles.",
     "WELCOME_TEXT": "Siempre estamos encantados de ayudarte. ¡No dudes en contactarnos!",
-    "GET_DIRECTIONS": "Cómo llegar"
+    "GET_DIRECTIONS": "Cómo llegar",
+    "FORM_TITLE": "Formulario de solicitud",
+    "NAME": "Nombre",
+    "PHONE": "Teléfono",
+    "MODEL": "Modelo del dispositivo",
+    "DESCRIPTION": "Breve descripción del problema",
+    "SUBMIT": "Enviar solicitud",
+    "SORRY_TOOLTIP": "Lo sentimos, esta función no está disponible ahora"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntas frecuentes",
