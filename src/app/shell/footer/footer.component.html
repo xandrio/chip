@@ -1,68 +1,60 @@
-
-<footer class="bg-[#525086] text-white">
-    <div class="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      
-      <!-- Блок 1: Название и описание -->
-      <div>
-        <h3 class="text-2xl font-bold mb-2">{{ 'FOOTER.DESCRIPTION_TITLE' | translate }}</h3>
-        <p class="text-white">
-          {{ 'FOOTER.DESCRIPTION_TEXT' | translate }}
+<footer class="bg-[#051937] text-[#EEEFEF]">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-2">
+    <!-- Left block -->
+    <div>
+      <div class="flex items-center mb-4">
+        <img src="/images/svg/logo-chip.svg" alt="Chip logo" class="w-[40px] h-[36px]" />
+        <span class="ml-2 font-semibold text-[16px] leading-[16px]">Chip</span>
+      </div>
+      <div class="space-y-1">
+        <p class="font-medium text-[16px] leading-[24px] text-white">Valencia</p>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia" target="_blank" class="block font-medium text-[16px] leading-[24px] text-white hover:underline">
+          {{ 'CONTACTS.ADDRESS_VALUE' | translate }}
+        </a>
+        <a href="mailto:chip.service.valencia@gmail.com" class="block font-normal text-[16px] leading-[24px] text-[#EEEFEF] hover:underline">
+          chip.service.valencia&#64;gmail.com
+        </a>
+        <a href="tel:+34647804867" class="block font-normal text-[16px] leading-[24px] text-[#EEEFEF] hover:underline">
+          {{ 'CONTACTS.PHONE_VALUE' | translate }}
+        </a>
+        <p class="font-medium text-[16px] leading-[24px] text-white">
+          {{ 'CONTACTS.WORKING_HOURS_LABEL' | translate }}:
+        </p>
+        <p class="font-normal text-[16px] leading-[24px] text-[#EEEFEF]">
+          {{ 'CONTACTS.WORKING_HOURS_VALUE' | translate }}
         </p>
       </div>
-  
-      <!-- Блок 2: Контакты -->
-      <div>
-        <h4 class="text-xl font-semibold mb-2">{{ 'FOOTER.CONTACTS_TITLE' | translate }}</h4>
-        <ul class="text-white space-y-1">
-          <li>📍 <a
-              href="https://www.google.com/maps/dir/?api=1&destination=C%2F%20de%20la%20Dama%20d%27Elx%2C%2016%2C%20Camins%20al%20Grau%2C%2046023%20Val%C3%A8ncia%2C%20Valencia"
-              target="_blank">
-              {{ 'FOOTER.ADDRESS' | translate }}
-            </a>
-          </li>
-          <li>📞 <a href="tel:+34616200058" class="text-white hover:underline">+34 647 80 48 67</a></li>
-          <li>✉️ <a href="mailto:chip.service.valencia@gmail.com" class="text-white hover:underline"> {{'chip.service.valencia@gmail.com'}}</a></li>
-          <li>🕒 {{ 'FOOTER.WORKING_HOURS' | translate }}</li>
-        </ul>
-      </div>
-  
-      <!-- Блок 3: Соцсети -->
-      <div>
-        <h4 class="text-xl font-semibold mb-2">
-          {{ 'FOOTER.SOCIAL_MEDIA_TITLE' | translate }}
-        </h4>
-        <div class="flex items-center mt-2">
-          <a
-            target="_blank"
-            href="https://www.instagram.com/chip.valencia?utm_source=qr&amp;igsh=b2Uzb3VyMTU0Mmdo"
-            class="hover:text-blue-400 transition flex items-center"
-          >
-            <svg
-              class="mr-2 size-5"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-            {{ 'FOOTER.SOCIAL_MEDIA_IGM' | translate }}
-          </a>
+      <div class="mt-4 space-y-2">
+        <div class="flex items-center font-normal text-[16px] leading-[24px]">
+          <img src="/images/svg/insta.svg" alt="Instagram" class="w-5 h-5 mr-2" />
+          &#64;chip.valencia
+        </div>
+        <div class="flex items-center font-normal text-[16px] leading-[24px]">
+          <img src="/images/svg/mail.svg" alt="Email" class="w-5 h-5 mr-2" />
+          &#64;chip.valencia
         </div>
       </div>
-  
     </div>
-  
-    <div class="border-t border-gray-700 text-center text-white text-sm py-4">
-      <p>{{ 'FOOTER.COPYRIGHT' | translate }}</p>
-      <!-- © 2025 Chip. Все права защищены. -->
+    <!-- Right block -->
+    <div class="md:justify-self-end">
+      <nav class="flex flex-col space-y-2">
+        <a [routerLink]="getRouterLink('home')" fragment="home" class="font-semibold text-[20px] leading-[32px] hover:underline">
+          {{ 'NAVIGATION.HOME' | translate }}
+        </a>
+        <a [routerLink]="getRouterLink('home')" fragment="contacts" class="font-semibold text-[20px] leading-[32px] hover:underline">
+          {{ 'NAVIGATION.CONTACTS' | translate }}
+        </a>
+        <a [routerLink]="getRouterLink('home')" fragment="faq" class="font-semibold text-[20px] leading-[32px] hover:underline">
+          {{ 'NAVIGATION.FAQ' | translate }}
+        </a>
+        <a [routerLink]="getRouterLink('status')" class="font-semibold text-[20px] leading-[32px] hover:underline">
+          {{ 'NAVIGATION.STATUS' | translate }}
+        </a>
+      </nav>
     </div>
-  </footer>
-  
+  </div>
+
+  <div class="border-t border-gray-700 text-center text-[#EEEFEF] text-[16px] leading-[32px] py-4">
+    <p>{{ 'FOOTER.COPYRIGHT' | translate }}</p>
+  </div>
+</footer>
