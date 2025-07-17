@@ -6,7 +6,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-feedback-carousel',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule],
   templateUrl: './feedback-carousel.component.html',
   styleUrl: './feedback-carousel.component.scss'
 })

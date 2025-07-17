@@ -25,12 +25,12 @@ const angularApp = new AngularNodeAppEngine();
 app.use(compression());
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT || 587),
+  host: process.env['SMTP_HOST'],
+  port: Number(process.env['SMTP_PORT'] || 587),
   secure: false,
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
+    user: process.env['SMTP_USER'],
+    pass: process.env['SMTP_PASS'],
   },
 });
 /**
@@ -60,8 +60,8 @@ app.post('/api/contact', express.json(), async (req, res) => {
   const { name, phone, model, description } = req.body;
   try {
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER,
+      from: process.env['SMTP_USER'],
+      to: process.env['SMTP_USER'],
       subject: 'Contact request',
       text: `Name: ${name}\nPhone: ${phone}\nModel: ${model}\nDescription: ${description}`,
     });
