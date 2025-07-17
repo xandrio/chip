@@ -1,10 +1,10 @@
-<section id="faq"[appScrollSpy]="'faq'" class="py-16 text-[#051937]" itemscope itemtype="https://schema.org/FAQPage">
+<section id="faq"[appScrollSpy]="'faq'" class="py-16" itemscope itemtype="https://schema.org/FAQPage">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-10">{{ 'FAQ.PAGE_TITLE' | translate }}</h2>
+      <h2 class="text-[#051937] text-[32px] leading-[48px] font-semibold text-left mb-10">{{ 'FAQ.PAGE_TITLE' | translate }}</h2>
   @for (faq of faqs; track $index; let i = $index) {
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="border-b py-4">
         <button
-          class="w-full flex justify-between items-center text-left text-lg font-semibold focus:outline-none hover:text-[#051937] transition"
+          class="w-full flex justify-between items-center text-left text-[20px] leading-[32px] font-semibold text-[#051937] focus:outline-none hover:text-[#051937] transition"
           (click)="toggle(i)"
           itemprop="name"
         >
@@ -25,7 +25,7 @@
         </button>
 
         <div
-          class="mt-3 text-[#051937]"
+          class="mt-3 text-[#3C485B] text-[20px] leading-[32px]"
           itemscope
           itemprop="acceptedAnswer"
           itemtype="https://schema.org/Answer"
