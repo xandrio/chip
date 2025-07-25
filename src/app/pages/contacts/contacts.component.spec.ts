@@ -28,4 +28,17 @@ describe('ContactsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set captchaError when answer is wrong', () => {
+    component.requestForm.setValue({
+      name: 'Test',
+      phone: '123',
+      model: '',
+      description: '',
+      captcha: 0
+    });
+
+    component.submitRequest();
+    expect(component.captchaError).toBeTrue();
+  });
 });
