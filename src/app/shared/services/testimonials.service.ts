@@ -40,6 +40,7 @@ private testimonials: Testimonial[] = [
   },
   {
     name: 'Лариса Иванова',
+    image: 'images/feedback/larisa.jpg',
     text: 'Мастер на высоте! Починили ноутбук за один день. Теперь работает даже лучше, чем раньше.'
   },
   {
