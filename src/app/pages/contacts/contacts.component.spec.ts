@@ -4,6 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { ContactsComponent } from './contacts.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { of, throwError } from 'rxjs';
+import { ContactService } from '../../shared/services/contact.service';
 
 describe('ContactsComponent', () => {
   let component: ContactsComponent;
@@ -29,13 +31,25 @@ describe('ContactsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set captchaError when answer is wrong', () => {
+  it('should load captcha on init', () => {
+    const service = TestBed.inject(ContactService);
+    const spy = spyOn(service, 'getCaptcha').and.returnValue(of({ id: '1', image: 'data' }));
+    component.ngOnInit();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should set captchaError when server rejects captcha', () => {
+    const service = TestBed.inject(ContactService);
+    spyOn(service, 'getCaptcha').and.returnValue(of({ id: '1', image: 'data' }));
+    spyOn(service, 'sendRequest').and.returnValue(throwError(() => ({ status: 400 })));
+
+    component.ngOnInit();
     component.requestForm.setValue({
       name: 'Test',
       phone: '123',
       model: '',
       description: '',
-      captcha: 0
+      captcha: '0'
     });
 
     component.submitRequest();

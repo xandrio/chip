@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,10 +12,10 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
   styleUrl: './contacts.component.scss',
   standalone: true
 })
-export class ContactsComponent {
+export class ContactsComponent implements OnInit {
   requestForm: FormGroup;
-  captchaA = Math.floor(Math.random() * 10) + 1;
-  captchaB = Math.floor(Math.random() * 10) + 1;
+  captchaImage = '';
+  captchaId = '';
   captchaError = false;
 
   constructor(private fb: FormBuilder, private contact: ContactService) {
@@ -28,18 +28,35 @@ export class ContactsComponent {
     });
   }
 
+  ngOnInit() {
+    this.loadCaptcha();
+  }
+
+  loadCaptcha() {
+    this.contact.getCaptcha().subscribe(c => {
+      this.captchaImage = c.image;
+      this.captchaId = c.id;
+    });
+  }
+
   submitRequest() {
     if (this.requestForm.valid) {
-      const expected = this.captchaA + this.captchaB;
-      const provided = Number(this.requestForm.get('captcha')!.value);
-      if (provided !== expected) {
-        this.captchaError = true;
-        return;
-      }
-      this.captchaError = false;
-      this.contact.sendRequest(this.requestForm.value).subscribe({
-        next: () => console.log('Request sent'),
-        error: err => console.error('Request failed', err)
+      const payload = {
+        ...this.requestForm.value,
+        captchaId: this.captchaId,
+      };
+      this.contact.sendRequest(payload).subscribe({
+        next: () => {
+          this.captchaError = false;
+          console.log('Request sent');
+        },
+        error: err => {
+          if (err.status === 400) {
+            this.captchaError = true;
+            this.loadCaptcha();
+          }
+          console.error('Request failed', err);
+        }
       });
     }
   }
