@@ -37,17 +37,17 @@
     </div>
     <!-- Right block -->
     <div class="md:justify-self-end">
-      <nav class="flex flex-col space-y-2">
-        <a [routerLink]="getRouterLink('home')" fragment="home" class="font-semibold text-[20px] leading-[32px] hover:underline">
+      <nav class="flex space-y-2">
+        <a [routerLink]="getRouterLink('home')" fragment="home" class="font-semibold text-[20px] leading-[32px] mx-4 hover:underline">
           {{ 'NAVIGATION.HOME' | translate }}
         </a>
-        <a [routerLink]="getRouterLink('home')" fragment="contacts" class="font-semibold text-[20px] leading-[32px] hover:underline">
+        <a [routerLink]="getRouterLink('home')" fragment="contacts" class="font-semibold text-[20px] leading-[32px] mx-4 hover:underline">
           {{ 'NAVIGATION.CONTACTS' | translate }}
         </a>
-        <a [routerLink]="getRouterLink('home')" fragment="faq" class="font-semibold text-[20px] leading-[32px] hover:underline">
+        <a [routerLink]="getRouterLink('home')" fragment="faq" class="font-semibold text-[20px] leading-[32px] mx-4 hover:underline">
           {{ 'NAVIGATION.FAQ' | translate }}
         </a>
-        <a [routerLink]="getRouterLink('status')" class="font-semibold text-[20px] leading-[32px] hover:underline">
+        <a [routerLink]="getRouterLink('status')" class="font-semibold text-[20px] leading-[32px] mx-4 hover:underline">
           {{ 'NAVIGATION.STATUS' | translate }}
         </a>
       </nav>

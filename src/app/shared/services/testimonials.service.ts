@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 export interface Testimonial {
   name: string;
+  image?: string; // Optional image URL for testimonials with images
   text: string;
 }
 
@@ -13,20 +14,24 @@ private testimonials: Testimonial[] = [
   // Туристы
   {
     name: 'Emily Thompson (UK)',
+    image: 'images/feedback/vi.jpg',
     text: 'My phone died mid-vacation. These guys fixed it the same day — absolute lifesavers!'
   },
   {
     name: 'Антон Громов (Украина)',
+    image: 'images/feedback/xok.jpg',
     text: 'Во время отпуска в Валенсии сломался ноут. Всё починили за сутки и даже объяснили, как продлить срок службы. Очень выручили!'
   },
 
   // Местные жители
   {
     name: 'Juan Pérez',
+    image: 'images/feedback/arti.jpg',
     text: 'Excelente servicio. Me devolvieron el móvil como nuevo en solo unas horas. ¡Muy recomendables!'
   },
   {
-    name: 'Marie Dubois',
+    name: 'Catherine Martin',
+    image: 'images/feedback/ki.jpg',
     text: 'Service rapide et soigné. Le personnel est très gentil et à l’écoute. Merci beaucoup !'
   },
   {

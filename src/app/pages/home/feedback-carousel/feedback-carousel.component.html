@@ -7,7 +7,7 @@
           <div *ngFor="let t of testimonials" class="box-border p-4" [style.flex]="'0 0 ' + (100 / visible) + '%'">
           <div class="bg-white p-4 h-full flex flex-col">
             <div class="flex items-center mb-3">
-              <img src="/images/feedback-user-placeholder.jpg" alt="user" class="w-12 h-12 rounded-full mr-3" />
+              <img [src]="t.image || '/images/feedback-user-placeholder.jpg'" alt="user" class="w-12 h-12 rounded-full mr-3" />
               <div>
                 <div class="font-semibold text-[#051937]">{{ t.name }}</div>
                 <div class="flex">
