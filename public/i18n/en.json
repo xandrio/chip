@@ -72,7 +72,9 @@
     "MODEL": "Device model",
     "DESCRIPTION": "Brief problem description",
     "SUBMIT": "Submit request",
-    "SORRY_TOOLTIP": "Sorry, this feature is not available right now"
+    "SORRY_TOOLTIP": "Sorry, this feature is not available right now",
+    "CAPTCHA": "Verification question",
+    "CAPTCHA_ERROR": "Incorrect answer"
   },
   "FAQ": {
     "PAGE_TITLE": "Frequently Asked Questions",

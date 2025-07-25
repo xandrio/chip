@@ -48,6 +48,13 @@
           <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.DESCRIPTION' | translate }}</label>
           <textarea formControlName="description" rows="4" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2"></textarea>
         </div>
+        <div>
+          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.CAPTCHA' | translate }}: {{ captchaA }} + {{ captchaB }} = ?</label>
+          <input formControlName="captcha" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+          @if (captchaError) {
+            <div class="text-red-200 text-sm">{{ 'CONTACTS.CAPTCHA_ERROR' | translate }}</div>
+          }
+        </div>
         <button type="submit" [title]="'CONTACTS.SORRY_TOOLTIP' | translate" class="mt-2 bg-[#A8EB12] hover:bg-gray-400 text-[#051937] font-semibold text-[16px] leading-[24px] px-6 py-3">{{ 'CONTACTS.SUBMIT' | translate }}</button>
       </form>
     </div>

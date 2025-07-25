@@ -72,7 +72,9 @@
     "MODEL": "Model del dispositiu",
     "DESCRIPTION": "Breu descripció del problema",
     "SUBMIT": "Enviar sol·licitud",
-    "SORRY_TOOLTIP": "Disculpeu, aquesta funció no està disponible ara"
+    "SORRY_TOOLTIP": "Disculpeu, aquesta funció no està disponible ara",
+    "CAPTCHA": "Pregunta de verificació",
+    "CAPTCHA_ERROR": "Resposta incorrecta"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntes freqüents",
