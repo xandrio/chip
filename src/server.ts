@@ -83,10 +83,10 @@ app.post('/api/contact', express.json(), async (req, res) => {
       subject: 'Contact request',
       text: `Name: ${name}\nPhone: ${phone}\nModel: ${model}\nDescription: ${description}`,
     });
-    res.status(200).json({ success: true });
+    return res.status(200).json({ success: true });
   } catch (err) {
     console.error('Failed to send mail', err);
-    res.status(500).json({ success: false });
+    return res.status(500).json({ success: false });
   }
 });
 

@@ -20,22 +20,22 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
 cards = [
   {
-    image: '/images/phone-repair-new.png',
+    image: '/images/phone-repair-new.jpg',
     alt: 'HOME.SERVICE_CARD_PHONE',
     text: 'HOME.SERVICE_CARD_PHONE'
   },
   {
-    image: '/images/laptop-repair-new.png',
+    image: '/images/laptop-repair-new.jpg',
     alt: 'HOME.SERVICE_CARD_LAPTOP',
     text: 'HOME.SERVICE_CARD_LAPTOP'
   },
   {
-    image: '/images/data-recovery-new.png',
+    image: '/images/data-recovery-new.jpg',
     alt: 'HOME.SERVICE_CARD_RECOVERY',
     text: 'HOME.SERVICE_CARD_RECOVERY'
   },
   {
-    image: '/images/plug-replacement-new.png',
+    image: '/images/plug-replacement-new.jpg',
     alt: 'HOME.SERVICE_CARD_PLUG',
     text: 'HOME.SERVICE_CARD_PLUG'
   },

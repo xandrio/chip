@@ -16,7 +16,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 export class ContactsComponent implements OnInit {
   requestForm: FormGroup;
   captchaToken = '';
-  siteKey = 'YOUR_RECAPTCHA_SITE_KEY';
+  siteKey = '6LdQrI8rAAAAAKsPo4JjiwpbkGxlW_8SZ3Qd7VXu';
   captchaError = false;
 
   constructor(private fb: FormBuilder, private contact: ContactService) {
@@ -30,7 +30,11 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit() {}
 
-  onCaptchaResolved(token: string) {
+  onCaptchaResolved(token: string | null) {
+    if (!token) {
+      this.captchaError = true;
+      return;
+    }
     this.captchaToken = token;
   }
 
