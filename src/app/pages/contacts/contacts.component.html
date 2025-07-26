@@ -27,26 +27,26 @@
       <h3 class="text-[32px] leading-[48px] font-semibold mb-6">{{ 'CONTACTS.FORM_TITLE' | translate }}</h3>
       <form [formGroup]="requestForm" (ngSubmit)="submitRequest()" class="space-y-4 flex-1">
         <div>
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.NAME' | translate }}</label>
-          <input formControlName="name" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+          <label for="contact-name" class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.NAME' | translate }}</label>
+          <input id="contact-name" formControlName="name" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
           @if (requestForm.get('name')?.touched && requestForm.get('name')?.invalid) {
             <div class="text-red-200 text-sm">*</div>
           }
         </div>
         <div>
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.PHONE' | translate }}</label>
-          <input formControlName="phone" type="tel" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+          <label for="contact-phone" class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.PHONE' | translate }}</label>
+          <input id="contact-phone" formControlName="phone" type="tel" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
           @if (requestForm.get('phone')?.touched && requestForm.get('phone')?.invalid) {
             <div class="text-red-200 text-sm">*</div>
           }
         </div>
         <div>
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.MODEL' | translate }}</label>
-          <input formControlName="model" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+          <label for="contact-model" class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.MODEL' | translate }}</label>
+          <input id="contact-model" formControlName="model" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
         </div>
         <div class="flex-1">
-          <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.DESCRIPTION' | translate }}</label>
-          <textarea formControlName="description" rows="4" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2"></textarea>
+          <label for="contact-description" class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.DESCRIPTION' | translate }}</label>
+          <textarea id="contact-description" formControlName="description" rows="4" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2"></textarea>
         </div>
         <div>
           <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.CAPTCHA' | translate }}</label>
