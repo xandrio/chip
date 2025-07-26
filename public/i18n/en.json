@@ -73,8 +73,8 @@
     "DESCRIPTION": "Brief problem description",
     "SUBMIT": "Submit request",
     "SORRY_TOOLTIP": "Sorry, this feature is not available right now",
-    "CAPTCHA": "Verification question",
-    "CAPTCHA_ERROR": "Incorrect answer"
+    "CAPTCHA": "Please verify that you are not a robot",
+    "CAPTCHA_ERROR": "Captcha verification failed"
   },
   "FAQ": {
     "PAGE_TITLE": "Frequently Asked Questions",

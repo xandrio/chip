@@ -73,8 +73,8 @@
     "DESCRIPTION": "Breve descripción del problema",
     "SUBMIT": "Enviar solicitud",
     "SORRY_TOOLTIP": "Lo sentimos, esta función no está disponible ahora",
-    "CAPTCHA": "Pregunta de verificación",
-    "CAPTCHA_ERROR": "Respuesta incorrecta"
+    "CAPTCHA": "Confirma que no eres un robot",
+    "CAPTCHA_ERROR": "La verificación falló"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntas frecuentes",

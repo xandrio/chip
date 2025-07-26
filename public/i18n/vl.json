@@ -73,8 +73,8 @@
     "DESCRIPTION": "Breu descripció del problema",
     "SUBMIT": "Enviar sol·licitud",
     "SORRY_TOOLTIP": "Disculpeu, aquesta funció no està disponible ara",
-    "CAPTCHA": "Pregunta de verificació",
-    "CAPTCHA_ERROR": "Resposta incorrecta"
+    "CAPTCHA": "Confirma que no ets un robot",
+    "CAPTCHA_ERROR": "La verificació ha fallat"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntes freqüents",
