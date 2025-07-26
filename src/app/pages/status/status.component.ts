@@ -1,12 +1,13 @@
 import { Component, Inject, PLATFORM_ID, OnDestroy, AfterViewInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule, isPlatformBrowser, ViewportScroller } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-status',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, TranslateModule],
   standalone: true,
   templateUrl: './status.component.html',
   styleUrl: './status.component.scss'

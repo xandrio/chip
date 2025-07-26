@@ -109,5 +109,31 @@
     "DENY": "Rebutjar",
     "LINK": "Més informació",
     "POLICY": "Política de Cookies"
+  },
+  "ADMIN": {
+    "WORKS": "admin funciona!"
+  },
+  "LOGIN": {
+    "WORKS": "login funciona!"
+  },
+  "LANGUAGE": {
+    "DETECTING": "Detectant idioma..."
+  },
+  "STATUS_PAGE": {
+    "TITLE": "Comprovar l'estat de la comanda",
+    "SR_TITLE": "Formulari d'estat",
+    "ORDER_ID_LABEL": "Número de comanda",
+    "ORDER_ID_PLACEHOLDER": "Ex: 123456",
+    "ORDER_ID_ERROR": "Introdueix el número de comanda",
+    "PIN_LABEL": "Codi de client",
+    "PIN_PLACEHOLDER": "Codi de 4 dígits",
+    "PIN_ERROR": "Introdueix el codi",
+    "SUBMIT": "Comprovar estat",
+    "INFO_TITLE": "Informació de la comanda",
+    "INFO_ORDER": "Número:",
+    "INFO_DEVICE": "Dispositiu:",
+    "INFO_STATUS": "Estat:",
+    "INFO_DATE": "Data de recepció:",
+    "NOT_FOUND": "Comanda no trobada. Comprova les dades i torna-ho a provar."
   }
 }

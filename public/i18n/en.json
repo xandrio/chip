@@ -109,5 +109,31 @@
     "DENY": "Decline",
     "LINK": "Learn more",
     "POLICY": "Cookie Policy"
+  },
+  "ADMIN": {
+    "WORKS": "admin works!"
+  },
+  "LOGIN": {
+    "WORKS": "login works!"
+  },
+  "LANGUAGE": {
+    "DETECTING": "Detecting language..."
+  },
+  "STATUS_PAGE": {
+    "TITLE": "Order Status Check",
+    "SR_TITLE": "Status Check Form",
+    "ORDER_ID_LABEL": "Order number",
+    "ORDER_ID_PLACEHOLDER": "e.g., 123456",
+    "ORDER_ID_ERROR": "Enter order number",
+    "PIN_LABEL": "Customer code",
+    "PIN_PLACEHOLDER": "4-digit code",
+    "PIN_ERROR": "Enter code",
+    "SUBMIT": "Check status",
+    "INFO_TITLE": "Order information",
+    "INFO_ORDER": "Number:",
+    "INFO_DEVICE": "Device:",
+    "INFO_STATUS": "Status:",
+    "INFO_DATE": "Date received:",
+    "NOT_FOUND": "Order not found. Check the details and try again."
   }
 }

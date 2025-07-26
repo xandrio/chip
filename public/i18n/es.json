@@ -109,5 +109,31 @@
     "DENY": "Rechazar",
     "LINK": "Más información",
     "POLICY": "Política de Cookies"
+  },
+  "ADMIN": {
+    "WORKS": "¡admin funciona!"
+  },
+  "LOGIN": {
+    "WORKS": "¡inicio de sesión funciona!"
+  },
+  "LANGUAGE": {
+    "DETECTING": "Detectando idioma..."
+  },
+  "STATUS_PAGE": {
+    "TITLE": "Comprobar estado del pedido",
+    "SR_TITLE": "Formulario de estado",
+    "ORDER_ID_LABEL": "Número de pedido",
+    "ORDER_ID_PLACEHOLDER": "Ej: 123456",
+    "ORDER_ID_ERROR": "Introduce el número de pedido",
+    "PIN_LABEL": "Código de cliente",
+    "PIN_PLACEHOLDER": "Código de 4 dígitos",
+    "PIN_ERROR": "Introduce el código",
+    "SUBMIT": "Comprobar estado",
+    "INFO_TITLE": "Información del pedido",
+    "INFO_ORDER": "Número:",
+    "INFO_DEVICE": "Dispositivo:",
+    "INFO_STATUS": "Estado:",
+    "INFO_DATE": "Fecha de entrada:",
+    "NOT_FOUND": "Pedido no encontrado. Comprueba los datos e inténtalo de nuevo."
   }
 }
