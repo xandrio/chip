@@ -4,18 +4,19 @@ import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive'
 import { TranslateModule } from '@ngx-translate/core';
 import { ContactService } from '../../shared/services/contact.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-contacts',
-  imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslateModule, ReactiveFormsModule ],
+  imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslateModule, ReactiveFormsModule, RecaptchaModule ],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.scss',
   standalone: true
 })
 export class ContactsComponent implements OnInit {
   requestForm: FormGroup;
-  captchaImage = '';
-  captchaId = '';
+  captchaToken = '';
+  siteKey = 'YOUR_RECAPTCHA_SITE_KEY';
   captchaError = false;
 
   constructor(private fb: FormBuilder, private contact: ContactService) {
@@ -24,26 +25,20 @@ export class ContactsComponent implements OnInit {
       phone: ['', [Validators.required, Validators.pattern(/^[0-9+ ()-]+$/)]],
       model: [''],
       description: [''],
-      captcha: ['', Validators.required]
     });
   }
 
-  ngOnInit() {
-    this.loadCaptcha();
-  }
+  ngOnInit() {}
 
-  loadCaptcha() {
-    this.contact.getCaptcha().subscribe(c => {
-      this.captchaImage = c.image;
-      this.captchaId = c.id;
-    });
+  onCaptchaResolved(token: string) {
+    this.captchaToken = token;
   }
 
   submitRequest() {
     if (this.requestForm.valid) {
       const payload = {
         ...this.requestForm.value,
-        captchaId: this.captchaId,
+        token: this.captchaToken,
       };
       this.contact.sendRequest(payload).subscribe({
         next: () => {
@@ -53,7 +48,6 @@ export class ContactsComponent implements OnInit {
         error: err => {
           if (err.status === 400) {
             this.captchaError = true;
-            this.loadCaptcha();
           }
           console.error('Request failed', err);
         }

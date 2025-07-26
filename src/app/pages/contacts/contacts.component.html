@@ -50,11 +50,7 @@
         </div>
         <div>
           <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.CAPTCHA' | translate }}</label>
-          <div class="flex items-center gap-2 mb-1">
-            <img [src]="captchaImage" alt="captcha" class="h-10" />
-            <button type="button" (click)="loadCaptcha()" aria-label="refresh captcha">&#x21bb;</button>
-          </div>
-          <input formControlName="captcha" type="text" class="w-full bg-[#EEEFEF] text-[#3C485B] px-3 py-2" />
+          <re-captcha (resolved)="onCaptchaResolved($event)" [siteKey]="siteKey"></re-captcha>
           @if (captchaError) {
             <div class="text-red-200 text-sm">{{ 'CONTACTS.CAPTCHA_ERROR' | translate }}</div>
           }

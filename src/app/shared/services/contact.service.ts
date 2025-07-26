@@ -7,17 +7,12 @@ export interface ContactRequest {
   phone: string;
   model: string;
   description: string;
-  captchaId: string;
-  captcha: string;
+  token: string;
 }
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
   constructor(private http: HttpClient) {}
-
-  getCaptcha(): Observable<{ id: string; image: string }> {
-    return this.http.get<{ id: string; image: string }>('/api/captcha');
-  }
 
   sendRequest(data: ContactRequest): Observable<any> {
     return this.http.post('/api/contact', data);

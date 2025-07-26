@@ -10,8 +10,6 @@ import { readFileSync } from 'node:fs';
 import compression from 'compression';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-import { createCanvas } from 'canvas';
-import crypto from 'node:crypto';
 
 dotenv.config();
 
@@ -25,9 +23,6 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 app.use(compression());
-
-type CaptchaEntry = { answer: number; timeout: NodeJS.Timeout };
-const captchaMap = new Map<string, CaptchaEntry>();
 
 const transporter = nodemailer.createTransport({
   host: process.env['SMTP_HOST'],
@@ -61,42 +56,25 @@ app.use(
   }),
 );
 
-app.get('/api/captcha', (_req, res) => {
-  const a = Math.floor(Math.random() * 10) + 1;
-  const b = Math.floor(Math.random() * 10) + 1;
-  const answer = a + b;
-
-  const canvas = createCanvas(100, 40);
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0, 0, 100, 40);
-  ctx.fillStyle = '#000000';
-  ctx.font = '24px Arial';
-  ctx.fillText(`${a} + ${b} = ?`, 10, 28);
-
-  const image = canvas.toDataURL();
-  const id = crypto.randomUUID();
-  const timeout = setTimeout(() => {
-    captchaMap.delete(id);
-  }, 5 * 60 * 1000);
-
-  captchaMap.set(id, { answer, timeout });
-  res.json({ id, image });
-});
 
 app.post('/api/contact', express.json(), async (req, res) => {
-  const { name, phone, model, description, captchaId, captcha } = req.body;
-  const entry = captchaMap.get(captchaId);
-  if (!entry || entry.answer !== Number(captcha)) {
-    if (entry) {
-      clearTimeout(entry.timeout);
-      captchaMap.delete(captchaId);
-    }
-    return res.status(400).json({ success: false, captcha: false });
-  }
+  const { name, phone, model, description, token } = req.body;
 
-  clearTimeout(entry.timeout);
-  captchaMap.delete(captchaId);
+  try {
+    const secret = process.env['RECAPTCHA_SECRET'];
+    const verify = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${secret}&response=${token}`,
+    });
+    const result = await verify.json();
+    if (!result.success) {
+      return res.status(400).json({ success: false, captcha: false });
+    }
+  } catch (verifyErr) {
+    console.error('Failed to verify captcha', verifyErr);
+    return res.status(500).json({ success: false });
+  }
 
   try {
     await transporter.sendMail({
