@@ -74,7 +74,8 @@
     "SUBMIT": "Enviar solicitud",
     "SORRY_TOOLTIP": "Lo sentimos, esta función no está disponible ahora",
     "CAPTCHA": "Confirma que no eres un robot",
-    "CAPTCHA_ERROR": "La verificación falló"
+    "CAPTCHA_ERROR": "La verificación falló",
+    "REQUEST_SENT": "Solicitud enviada"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntas frecuentes",

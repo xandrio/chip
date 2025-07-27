@@ -1,7 +1,9 @@
-import { ApplicationConfig, APP_INITIALIZER, provideZoneChangeDetection, TransferState } from '@angular/core';
+import { ApplicationConfig, APP_INITIALIZER, provideZoneChangeDetection, TransferState, importProvidersFrom } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClient, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import {
   TranslateLoader,
@@ -27,10 +29,12 @@ export function initTranslate(translate: TranslateService, doc: Document) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes, withPreloading(PreloadAllModules)), 
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideHttpClient(withInterceptorsFromDi(), withFetch()),
     provideClientHydration(withEventReplay()),
+    provideAnimations(),
+    importProvidersFrom(ToastrModule.forRoot()),
     TranslateModule.forRoot({
       defaultLanguage: 'es',
       loader: {
