@@ -14,7 +14,7 @@
       <p class="text-[#3C485B] text-base leading-6 font-normal"><mark class="bg-white">{{ 'HOME.HERO_SOCIALS' | translate }}</mark></p>
       <h1 class="text-[40px] leading-[60px] font-semibold text-[#051937] whitespace-pre-line"><mark class="bg-white">{{ 'HOME.HERO_TITLE' | translate }}</mark></h1>
       <p class="text-[#3C485B] text-[20px] leading-[32px] font-normal whitespace-pre-line"><mark class="bg-white">{{ 'HOME.HERO_SUBTITLE' | translate }}</mark></p>
-      <a href="#contacts" class="inline-block bg-[#074BCF] text-[#EEEFEF] px-6 py-3">{{ 'HOME.HERO_BUTTON' | translate }}</a>
+      <a [routerLink]="getRouterLink('home')" fragment="contacts" class="inline-block bg-[#074BCF] text-[#EEEFEF] px-6 py-3">{{ 'HOME.HERO_BUTTON' | translate }}</a>
     </div>
   </div>
 </section>
@@ -73,7 +73,7 @@
       <h3 class="text-[32px] leading-[48px] font-semibold">
         {{ 'HOME.STEPS_TITLE' | translate }}
       </h3>
-      <a href="#contacts" class="mt-4 sm:mt-0 inline-block bg-[#A8EB12] text-[#051937] px-6 py-3 font-semibold text-[16px] leading-[24px]">
+      <a [routerLink]="getRouterLink('home')" fragment="contacts" class="mt-4 sm:mt-0 inline-block bg-[#A8EB12] text-[#051937] px-6 py-3 font-semibold text-[16px] leading-[24px]">
         {{ 'HOME.HERO_BUTTON' | translate }}
       </a>
     </div>
