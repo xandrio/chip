@@ -55,7 +55,11 @@
             <div class="text-red-200 text-sm">{{ 'CONTACTS.CAPTCHA_ERROR' | translate }}</div>
           }
         </div>
-        <button type="submit" [title]="'CONTACTS.SORRY_TOOLTIP' | translate" class="mt-2 bg-[#A8EB12] hover:bg-gray-400 text-[#051937] font-semibold text-[16px] leading-[24px] px-6 py-3">{{ 'CONTACTS.SUBMIT' | translate }}</button>
+        <button type="submit" [attr.disabled]="!requestForm.valid || captchaError" 
+          class="mt-2 bg-[#A8EB12] hover:bg-[#83BB11] hover:cursor-pointer text-[#051937] font-semibold text-[16px] leading-[24px] px-6 py-3"
+          [class.opacity-50]="!requestForm.valid || captchaError">
+            {{ 'CONTACTS.SUBMIT' | translate }}
+        </button>
       </form>
     </div>
   </div>
