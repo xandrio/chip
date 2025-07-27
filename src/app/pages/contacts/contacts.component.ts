@@ -6,6 +6,7 @@ import { ContactService } from '../../shared/services/contact.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ToastrService } from 'ngx-toastr';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-contacts',
@@ -19,6 +20,7 @@ export class ContactsComponent implements OnInit {
   captchaToken = '';
   siteKey = '6LdQrI8rAAAAAKsPo4JjiwpbkGxlW_8SZ3Qd7VXu';
   captchaError = false;
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -46,11 +48,14 @@ export class ContactsComponent implements OnInit {
 
   submitRequest() {
     if (this.requestForm.valid) {
+      this.loading = true;
       const payload = {
         ...this.requestForm.value,
         token: this.captchaToken,
       };
-      this.contact.sendRequest(payload).subscribe({
+      this.contact.sendRequest(payload)
+        .pipe(finalize(() => (this.loading = false)))
+        .subscribe({
         next: () => {
           this.captchaError = false;
           const msg = this.translate.instant('CONTACTS.REQUEST_SENT');
