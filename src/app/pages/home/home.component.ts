@@ -3,20 +3,22 @@ import { FaqComponent } from '../faq/faq.component';
 import { ContactsComponent } from "../contacts/contacts.component";
 import { FeedbackCarouselComponent } from './feedback-carousel/feedback-carousel.component';
 import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-home',
-  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule, FeedbackCarouselComponent],
+  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule, FeedbackCarouselComponent, RouterLink ],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
+
+  public currentLang = 'es';
 
 cards = [
   {
@@ -78,8 +80,12 @@ logos = [
   constructor(
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object,
+    private translate: TranslateService,
   ) {
-
+    this.currentLang = this.translate.currentLang;
+    this.translate.onLangChange.subscribe(e => {
+      this.currentLang = e.lang;
+    });
   }
 
   private destroy$ = new Subject<void>();
@@ -100,6 +106,13 @@ logos = [
 
     }
 
+  }
+
+  public getRouterLink(section: string): string {
+    if (section === 'status') {
+      return `/${this.currentLang}/status`;
+    }
+    return `/${this.currentLang}/home`;
   }
 
   ngOnDestroy(): void {
