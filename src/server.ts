@@ -79,7 +79,7 @@ app.post('/api/contact', express.json(), async (req, res) => {
   try {
     await transporter.sendMail({
       from: process.env['SMTP_USER'],
-      to: process.env['SMTP_USER'],
+      to: 'chipspein@gmail.com',// process.env['SMTP_USER'],
       subject: 'Contact request',
       text: `Name: ${name}\nPhone: ${phone}\nModel: ${model}\nDescription: ${description}`,
     });
