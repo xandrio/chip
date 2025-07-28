@@ -70,6 +70,9 @@ export class ContactsComponent implements OnInit {
           console.error('Request failed', err);
         }
       });
+    } else {
+      this.toastr.error(this.translate.instant('CONTACTS.FORM_INVALID'));
+      this.captchaError = true;
     }
   }
 }
