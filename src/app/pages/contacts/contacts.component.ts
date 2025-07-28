@@ -18,7 +18,8 @@ import { finalize } from 'rxjs';
 export class ContactsComponent implements OnInit {
   requestForm: FormGroup;
   captchaToken = '';
-  siteKey = '6LdQrI8rAAAAAKsPo4JjiwpbkGxlW_8SZ3Qd7VXu';
+  // Using Google's test site key for reCAPTCHA v2
+  siteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
   captchaError = false;
   loading = false;
 
