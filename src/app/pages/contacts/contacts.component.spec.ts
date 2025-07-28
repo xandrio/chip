@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { PLATFORM_ID } from '@angular/core';
 
 import { ContactsComponent } from './contacts.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -25,7 +26,8 @@ describe('ContactsComponent', () => {
         HttpClientTestingModule,
         ToastrModule.forRoot(),
         NoopAnimationsModule
-      ]
+      ],
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }]
     })
     .compileComponents();
 

@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -30,7 +31,8 @@ export class ContactsComponent implements OnInit, AfterViewInit {
     private fb: FormBuilder,
     private contact: ContactService,
     private toastr: ToastrService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.requestForm = this.fb.group({
       name: ['', Validators.required],
@@ -43,11 +45,18 @@ export class ContactsComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    if (typeof grecaptcha !== 'undefined' && this.captchaElem) {
-      this.recaptchaWidgetId = grecaptcha.render(this.captchaElem.nativeElement, {
-        sitekey: this.siteKey,
-        callback: (token: string) => this.onCaptchaResolved(token),
-      });
+    if (
+      isPlatformBrowser(this.platformId) &&
+      typeof grecaptcha !== 'undefined' &&
+      this.captchaElem
+    ) {
+      this.recaptchaWidgetId = grecaptcha.render(
+        this.captchaElem.nativeElement,
+        {
+          sitekey: this.siteKey,
+          callback: (token: string) => this.onCaptchaResolved(token),
+        }
+      );
     }
   }
 
