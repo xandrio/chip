@@ -50,7 +50,7 @@
         </div>
         <div>
           <label class="block mb-1 text-[14px] leading-[20px] font-normal">{{ 'CONTACTS.CAPTCHA' | translate }}</label>
-          <re-captcha (resolved)="onCaptchaResolved($event)" [siteKey]="siteKey"></re-captcha>
+          <div #captchaRef></div>
           @if (captchaError) {
             <div class="text-red-200 text-sm">{{ 'CONTACTS.CAPTCHA_ERROR' | translate }}</div>
           }

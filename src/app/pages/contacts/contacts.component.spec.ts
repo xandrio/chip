@@ -14,6 +14,9 @@ describe('ContactsComponent', () => {
   let fixture: ComponentFixture<ContactsComponent>;
 
   beforeEach(async () => {
+    (window as any).grecaptcha = {
+      render: () => 0,
+    };
     await TestBed.configureTestingModule({
       imports: [
         ContactsComponent,
