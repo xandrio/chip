@@ -1,27 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactService } from '../../shared/services/contact.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RecaptchaModule } from 'ng-recaptcha';
 import { ToastrService } from 'ngx-toastr';
 import { finalize } from 'rxjs';
 
+declare const grecaptcha: any;
+
 @Component({
   selector: 'app-contacts',
-  imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslateModule, ReactiveFormsModule, RecaptchaModule ],
+  imports: [ NgbScrollSpyModule, ScrollspyDirective, TranslateModule, ReactiveFormsModule ],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.scss',
   standalone: true
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, AfterViewInit {
   requestForm: FormGroup;
   captchaToken = '';
   // Using Google's test site key for reCAPTCHA v2
   siteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
   captchaError = false;
   loading = false;
+  recaptchaWidgetId?: number;
+  @ViewChild('captchaRef') captchaElem?: ElementRef;
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +41,15 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  ngAfterViewInit(): void {
+    if (typeof grecaptcha !== 'undefined' && this.captchaElem) {
+      this.recaptchaWidgetId = grecaptcha.render(this.captchaElem.nativeElement, {
+        sitekey: this.siteKey,
+        callback: (token: string) => this.onCaptchaResolved(token),
+      });
+    }
+  }
 
   onCaptchaResolved(token: string | null) {
     if (!token) {
@@ -63,12 +75,18 @@ export class ContactsComponent implements OnInit {
           this.toastr.success(msg);
           this.requestForm.reset();
           this.captchaToken = '';
+          if (this.recaptchaWidgetId !== undefined) {
+            grecaptcha.reset(this.recaptchaWidgetId);
+          }
         },
         error: err => {
           if (err.status === 400) {
             this.captchaError = true;
           }
           console.error('Request failed', err);
+          if (this.recaptchaWidgetId !== undefined) {
+            grecaptcha.reset(this.recaptchaWidgetId);
+          }
         }
       });
     }
