@@ -4,6 +4,7 @@ import {
   isMainModule
 } from '@angular/ssr/node';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
@@ -23,6 +24,14 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 app.use(compression());
+
+const contactLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  limit: 3,
+  message: { success: false, limit: true },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 const transporter = nodemailer.createTransport({
   host: process.env['SMTP_HOST'],
@@ -57,7 +66,7 @@ app.use(
 );
 
 
-app.post('/api/contact', express.json(), async (req, res) => {
+app.post('/api/contact', contactLimiter, express.json(), async (req, res) => {
   const { name, phone, model, description, token } = req.body;
 
   if (token) {
