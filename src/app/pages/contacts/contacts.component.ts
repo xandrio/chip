@@ -22,6 +22,7 @@ export class ContactsComponent implements OnInit, AfterViewInit {
   captchaToken = '';
   // Using Google's test site key for reCAPTCHA v2
   siteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+  captchaRequired = false;
   captchaError = false;
   loading = false;
   recaptchaWidgetId?: number;
@@ -50,6 +51,7 @@ export class ContactsComponent implements OnInit, AfterViewInit {
       typeof grecaptcha !== 'undefined' &&
       this.captchaElem
     ) {
+      this.captchaRequired = true;
       this.recaptchaWidgetId = grecaptcha.render(
         this.captchaElem.nativeElement,
         {
@@ -70,11 +72,17 @@ export class ContactsComponent implements OnInit, AfterViewInit {
 
   submitRequest() {
     if (this.requestForm.valid) {
+      if (this.captchaRequired && !this.captchaToken) {
+        this.captchaError = true;
+        return;
+      }
       this.loading = true;
-      const payload = {
+      const payload: any = {
         ...this.requestForm.value,
-        token: this.captchaToken,
       };
+      if (this.captchaRequired) {
+        payload.token = this.captchaToken;
+      }
       this.contact.sendRequest(payload)
         .pipe(finalize(() => (this.loading = false)))
         .subscribe({
@@ -84,7 +92,7 @@ export class ContactsComponent implements OnInit, AfterViewInit {
           this.toastr.success(msg);
           this.requestForm.reset();
           this.captchaToken = '';
-          if (this.recaptchaWidgetId !== undefined) {
+          if (this.captchaRequired && this.recaptchaWidgetId !== undefined) {
             grecaptcha.reset(this.recaptchaWidgetId);
           }
         },
@@ -93,14 +101,14 @@ export class ContactsComponent implements OnInit, AfterViewInit {
             this.captchaError = true;
           }
           console.error('Request failed', err);
-          if (this.recaptchaWidgetId !== undefined) {
+          if (this.captchaRequired && this.recaptchaWidgetId !== undefined) {
             grecaptcha.reset(this.recaptchaWidgetId);
           }
         }
       });
     } else {
       this.toastr.error(this.translate.instant('CONTACTS.FORM_INVALID'));
-      this.captchaError = true;
+      this.captchaError = this.captchaRequired;
     }
   }
 }

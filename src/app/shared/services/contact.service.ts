@@ -7,7 +7,7 @@ export interface ContactRequest {
   phone: string;
   model: string;
   description: string;
-  token: string;
+  token?: string;
 }
 
 @Injectable({ providedIn: 'root' })

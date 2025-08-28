@@ -60,20 +60,22 @@ app.use(
 app.post('/api/contact', express.json(), async (req, res) => {
   const { name, phone, model, description, token } = req.body;
 
-  try {
-    const secret = process.env['RECAPTCHA_SECRET'];
-    const verify = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${secret}&response=${token}`,
-    });
-    const result = await verify.json();
-    if (!result.success) {
-      return res.status(400).json({ success: false, captcha: false });
+  if (token) {
+    try {
+      const secret = process.env['RECAPTCHA_SECRET'];
+      const verify = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `secret=${secret}&response=${token}`,
+      });
+      const result = await verify.json();
+      if (!result.success) {
+        return res.status(400).json({ success: false, captcha: false });
+      }
+    } catch (verifyErr) {
+      console.error('Failed to verify captcha', verifyErr);
+      return res.status(500).json({ success: false });
     }
-  } catch (verifyErr) {
-    console.error('Failed to verify captcha', verifyErr);
-    return res.status(500).json({ success: false });
   }
 
   try {
