@@ -45,6 +45,40 @@
         </span>
       </a>
     </div>
+
+    <div class="mt-8 max-w-md mx-auto">
+      <form [formGroup]="contactForm" (ngSubmit)="submitRequest()" class="space-y-4">
+        <div>
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Имя"
+            class="w-full px-4 py-2 rounded-md text-gray-800"
+          />
+        </div>
+        <div>
+          <input
+            type="tel"
+            formControlName="phone"
+            placeholder="Телефон"
+            class="w-full px-4 py-2 rounded-md text-gray-800"
+          />
+        </div>
+        <div>
+          <textarea
+            formControlName="message"
+            placeholder="Комментарий"
+            class="w-full px-4 py-2 rounded-md text-gray-800"
+          ></textarea>
+        </div>
+        <div *ngIf="captchaRequired" class="text-center">
+          <p class="mb-2">Подтвердите, что вы не робот</p>
+          <div id="recaptcha"></div>
+        </div>
+        <button type="submit" class="w-full py-2 bg-yellow-600 text-white rounded-md">Отправить</button>
+        <p *ngIf="submitted" class="text-green-500 text-center">Заявка отправлена!</p>
+      </form>
+    </div>
   </section>
 
   
