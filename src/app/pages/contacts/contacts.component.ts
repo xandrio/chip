@@ -101,6 +101,8 @@ export class ContactsComponent implements OnInit, AfterViewInit {
             this.captchaError = true;
           }
           console.error('Request failed', err);
+          const msg = this.translate.instant('CONTACTS.REQUEST_ERROR');
+          this.toastr.error(msg);
           if (this.captchaRequired && this.recaptchaWidgetId !== undefined) {
             grecaptcha.reset(this.recaptchaWidgetId);
           }

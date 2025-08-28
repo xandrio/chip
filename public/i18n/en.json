@@ -75,7 +75,9 @@
     "SORRY_TOOLTIP": "Sorry, this feature is not available right now",
     "CAPTCHA": "Please verify that you are not a robot",
     "CAPTCHA_ERROR": "Captcha verification failed",
-    "REQUEST_SENT": "Request sent"
+    "REQUEST_SENT": "Request sent",
+    "REQUEST_ERROR": "Failed to send request",
+    "FORM_INVALID": "Please fill out the form correctly"
   },
   "FAQ": {
     "PAGE_TITLE": "Frequently Asked Questions",
