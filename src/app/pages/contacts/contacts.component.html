@@ -57,7 +57,7 @@
             }
           </div>
         }
-        <button type="submit" [attr.disabled]="!requestForm.valid || captchaError || loading"
+        <button type="submit" [disabled]="!requestForm.valid || captchaError || loading"
           class="mt-2 bg-[#A8EB12] hover:bg-[#83BB11] hover:cursor-pointer text-[#051937] font-semibold text-[16px] leading-[24px] px-6 py-3 flex items-center justify-center"
           [class.opacity-50]="!requestForm.valid || captchaError || loading">
             @if (loading) {
