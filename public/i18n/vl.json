@@ -75,7 +75,9 @@
     "SORRY_TOOLTIP": "Disculpeu, aquesta funció no està disponible ara",
     "CAPTCHA": "Confirma que no ets un robot",
     "CAPTCHA_ERROR": "La verificació ha fallat",
-    "REQUEST_SENT": "Sol·licitud enviada"
+    "REQUEST_SENT": "Sol·licitud enviada",
+    "REQUEST_ERROR": "Error en enviar la sol·licitud",
+    "FORM_INVALID": "Si us plau, ompliu el formulari correctament"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntes freqüents",
