@@ -77,7 +77,8 @@
     "CAPTCHA_ERROR": "La verificació ha fallat",
     "REQUEST_SENT": "Sol·licitud enviada",
     "REQUEST_ERROR": "Error en enviar la sol·licitud",
-    "FORM_INVALID": "Si us plau, ompliu el formulari correctament"
+    "FORM_INVALID": "Si us plau, ompliu el formulari correctament",
+    "WRITE_WHATSUP": "Escriure al WhatsUp"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntes freqüents",

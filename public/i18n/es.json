@@ -77,7 +77,8 @@
     "CAPTCHA_ERROR": "La verificación falló",
     "REQUEST_SENT": "Solicitud enviada",
     "REQUEST_ERROR": "Error al enviar la solicitud",
-    "FORM_INVALID": "Por favor, complete el formulario correctamente"
+    "FORM_INVALID": "Por favor, complete el formulario correctamente",
+    "WRITE_WHATSUP": "Escribir en WhatsUp"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntas frecuentes",
