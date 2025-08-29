@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "ngx-toastr/toastr";
 
 a.active {
     @apply text-[#0E5D7C];
