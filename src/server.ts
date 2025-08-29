@@ -90,7 +90,7 @@ app.post('/api/contact', contactLimiter, express.json(), async (req, res) => {
   try {
     await transporter.sendMail({
       from: process.env['SMTP_USER'],
-      to: 'a.xandr.q@gmail.com',// process.env['SMTP_USER'],
+      to: 'chip.service.valencia@gmail.com',// process.env['SMTP_USER'],
       subject: 'Contact request',
       text: `Name: ${name}\nPhone: ${phone}\nModel: ${model}\nDescription: ${description}`,
     });
