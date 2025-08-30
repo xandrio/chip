@@ -77,7 +77,8 @@
     "CAPTCHA_ERROR": "Captcha verification failed",
     "REQUEST_SENT": "Request sent",
     "REQUEST_ERROR": "Failed to send request",
-    "FORM_INVALID": "Please fill out the form correctly"
+    "FORM_INVALID": "Please fill out the form correctly",
+    "WRITE_WHATSUP": "Message on WhatsUp"
   },
   "FAQ": {
     "PAGE_TITLE": "Frequently Asked Questions",
