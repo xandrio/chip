@@ -4,10 +4,15 @@ import {
   isMainModule
 } from '@angular/ssr/node';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import compression from 'compression';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // До app.use(...) или app.listen(...)
 
@@ -19,6 +24,24 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 app.use(compression());
+
+const contactLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  limit: 3,
+  message: { success: false, limit: true },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const transporter = nodemailer.createTransport({
+  host: process.env['SMTP_HOST'],
+  port: Number(process.env['SMTP_PORT'] || 587),
+  secure: false,
+  auth: {
+    user: process.env['SMTP_USER'],
+    pass: process.env['SMTP_PASS'],
+  },
+});
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
@@ -41,6 +64,42 @@ app.use(
     redirect: false,
   }),
 );
+
+
+app.post('/api/contact', contactLimiter, express.json(), async (req, res) => {
+  const { name, phone, model, description, token } = req.body;
+
+  if (token) {
+    try {
+      const secret = process.env['RECAPTCHA_SECRET'];
+      const verify = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `secret=${secret}&response=${token}`,
+      });
+      const result = await verify.json();
+      if (!result.success) {
+        return res.status(400).json({ success: false, captcha: false });
+      }
+    } catch (verifyErr) {
+      console.error('Failed to verify captcha', verifyErr);
+      return res.status(500).json({ success: false });
+    }
+  }
+
+  try {
+    await transporter.sendMail({
+      from: process.env['SMTP_USER'],
+      to: 'chip.service.valencia@gmail.com',// process.env['SMTP_USER'],
+      subject: 'Contact request',
+      text: `Name: ${name}\nPhone: ${phone}\nModel: ${model}\nDescription: ${description}`,
+    });
+    return res.status(200).json({ success: true });
+  } catch (err) {
+    console.error('Failed to send mail', err);
+    return res.status(500).json({ success: false });
+  }
+});
 
 // Redirect root requests to the default language
 app.get(['/', '/index.html'], (_req, res) => {

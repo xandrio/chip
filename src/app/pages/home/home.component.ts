@@ -1,87 +1,102 @@
 import { Component, Inject, PLATFORM_ID, OnDestroy, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { FaqComponent } from '../faq/faq.component';
 import { ContactsComponent } from "../contacts/contacts.component";
+import { FeedbackCarouselComponent } from './feedback-carousel/feedback-carousel.component';
 import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbScrollSpyModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollspyDirective } from '../../shared/directives/scrollspy.directive';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-home',
-  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule],
+  imports: [ FaqComponent, ContactsComponent, NgbScrollSpyModule, ScrollspyDirective, TranslateModule, FeedbackCarouselComponent, RouterLink ],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
 
-  @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
-
-  private playListener?: () => void;
+  public currentLang = 'es';
 
 cards = [
   {
-    image: '/images/mob-r.jpg',
-    alt: 'HOME.PHONE_REP_TITLE',
-    title: 'HOME.PHONE_REP_TITLE',
-    desc: 'HOME.PHONE_REP_DESC'
+    image: '/images/phone-repair-new.jpg',
+    alt: 'HOME.SERVICE_CARD_PHONE',
+    text: 'HOME.SERVICE_CARD_PHONE'
   },
   {
-    image: '/images/lap-r.jpg',
-    alt: 'HOME.LAPTOP_REP_TITLE',
-    title: 'HOME.LAPTOP_REP_TITLE',
-    desc: 'HOME.LAPTOP_REP_DESC'
+    image: '/images/laptop-repair-new.jpg',
+    alt: 'HOME.SERVICE_CARD_LAPTOP',
+    text: 'HOME.SERVICE_CARD_LAPTOP'
   },
   {
-    image: '/images/clean.jpg',
-    alt: 'HOME.LAPTOP_CLEAN_TITLE',
-    title: 'HOME.LAPTOP_CLEAN_TITLE',
-    desc: 'HOME.LAPTOP_CLEAN_DESC'
+    image: '/images/data-recovery-new.jpg',
+    alt: 'HOME.SERVICE_CARD_RECOVERY',
+    text: 'HOME.SERVICE_CARD_RECOVERY'
   },
   {
-    image: '/images/win-i.jpg',
-    alt: 'HOME.WIN_INSTALL_TITLE',
-    title: 'HOME.WIN_INSTALL_TITLE',
-    desc: 'HOME.WIN_INSTALL_DESC'
-  },
-  {
-    image: '/images/soft-i.jpg',
-    alt: 'HOME.APP_INSTALL_TITLE',
-    title: 'HOME.APP_INSTALL_TITLE',
-    desc: 'HOME.APP_INSTALL_DESC'
-  },
-  {
-    image: '/images/pc-d.jpg',
-    alt: 'HOME.DIAG_TITLE',
-    title: 'HOME.DIAG_TITLE',
-    desc: 'HOME.DIAG_DESC'
+    image: '/images/plug-replacement-new.jpg',
+    alt: 'HOME.SERVICE_CARD_PLUG',
+    text: 'HOME.SERVICE_CARD_PLUG'
   },
 ];
+
+logos = [
+  '/images/svg/huawei.svg',
+  '/images/svg/asus.svg',
+  '/images/svg/apple.svg',
+  '/images/svg/samsung.svg',
+  '/images/svg/xaomi.svg',
+  '/images/svg/oppo.svg',
+];
+
+  logosRow = [...this.logos];
+
+  steps = [
+    {
+      image: '/images/request.png',
+      number: '1',
+      text: 'HOME.STEPS_REQUEST'
+    },
+    {
+      image: '/images/diagnostics.png',
+      number: '2',
+      text: 'HOME.STEPS_DIAGNOSTICS'
+    },
+    {
+      image: '/images/repair.png',
+      number: '3',
+      text: 'HOME.STEPS_REPAIR'
+    },
+    {
+      image: '/images/finish.png',
+      number: '4',
+      text: 'HOME.STEPS_FINISH'
+    },
+  ];
 
   constructor(
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object,
+    private translate: TranslateService,
   ) {
-
+    this.currentLang = this.translate.currentLang;
+    this.translate.onLangChange.subscribe(e => {
+      this.currentLang = e.lang;
+    });
   }
 
   private destroy$ = new Subject<void>();
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-        const videoEl = this.heroVideo?.nativeElement;
-        this.playListener = () => videoEl?.play().catch(() => {});
-        if (videoEl) {
-          videoEl.addEventListener('canplay', this.playListener);
-          setTimeout(this.playListener);
-        }
         this.route.fragment.pipe(takeUntil(this.destroy$)).subscribe((fragment) => {
           if(fragment) {
             const container = document.getElementById('mainContent');
             const target = document.getElementById(fragment);
-            
+
             if (container && target) {
               const top = target.offsetTop - 64; // учёт внутреннего отступа
               container.scrollTo({ top, behavior: 'smooth' });
@@ -93,13 +108,14 @@ cards = [
 
   }
 
-  ngOnDestroy(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const videoEl = this.heroVideo?.nativeElement;
-      if (videoEl && this.playListener) {
-        videoEl.removeEventListener('canplay', this.playListener);
-      }
+  public getRouterLink(section: string): string {
+    if (section === 'status') {
+      return `/${this.currentLang}/status`;
     }
+    return `/${this.currentLang}/home`;
+  }
+
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

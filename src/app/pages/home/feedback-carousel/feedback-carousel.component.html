@@ -1,0 +1,24 @@
+<section class="max-w-7xl px-2 sm:px-6 lg:px-8 mx-auto my-12 sm:my-24">
+  <div class="relative">
+    <button type="button" (click)="prev()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white text-[#051937] text-[28px] rounded-full z-10">&#8249;</button>
+    <button type="button" (click)="next()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white text-[#051937] text-[28px] rounded-full z-10">&#8250;</button>
+      <div class="overflow-hidden">
+        <div class="flex transition-transform duration-300" [style.transform]="'translateX(-' + (index * (100 / visible)) + '%)'">
+          <div *ngFor="let t of testimonials" class="box-border p-4" [style.flex]="'0 0 ' + (100 / visible) + '%'">
+          <div class="bg-white p-4 h-full flex flex-col">
+            <div class="flex items-center mb-3">
+              <img [src]="t.image || '/images/feedback-user-placeholder.jpg'" alt="user" class="w-12 h-12 rounded-full mr-3" />
+              <div>
+                <div class="font-semibold text-[#051937]">{{ t.name }}</div>
+                <div class="flex">
+                  <img src="/images/star_rate.png" alt="star" width="16" height="16" class="w-4 h-4 mr-1" *ngFor="let s of [1,2,3,4,5]" />
+                </div>
+              </div>
+            </div>
+            <p class="text-[#3C485B] text-sm">{{ t.text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

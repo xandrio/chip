@@ -1,8 +1,8 @@
 @import "tailwindcss";
-
+@import "ngx-toastr/toastr";
 
 a.active {
-    @apply bg-[#3b3966] text-white; /* если ты используешь Tailwind через PostCSS */
+    @apply text-[#0E5D7C];
 }
 
 html {

@@ -1,7 +1,11 @@
 {
   "HOME": {
-    "TITLE": "Reparació de telèfons i ordinadors",
-    "DESCRIPTION": "Servei de reparació ràpid i de qualitat amb garantia a la teua ciutat.",
+    "TITLE": "Serveis de reparació de dispositius",
+    "DESCRIPTION": "Reparem professionalment smartphones, portàtils, tauletes i altra electrònica",
+    "SERVICE_CARD_PHONE": "Reparació de telèfons (canvi de pantalla, bateria, firmware, etc.)",
+    "SERVICE_CARD_LAPTOP": "Reparació de portàtils (neteja, canvi de teclat, SSD, ports)",
+    "SERVICE_CARD_RECOVERY": "Recuperació de dades",
+    "SERVICE_CARD_PLUG": "Substitució de connectors, botons, càmeres",
     "PHONE_REP_TITLE": "Reparació de telèfons",
     "PHONE_REP_DESC": "Canvi de pantalles, bateries, ports de càrrega i altres components per a totes les marques.",
     "LAPTOP_REP_TITLE": "Reparació de portàtils",
@@ -14,6 +18,11 @@
     "APP_INSTALL_DESC": "Instal·lació de programes ofimàtics, gràfics, antivirus i altres.",
     "DIAG_TITLE": "Diagnòstic",
     "DIAG_DESC": "Diagnòstic ràpid de fallades i assessorament professional.",
+    "WHY_CLIENTS_TITLE": "Per què els clients trien",
+    "WHY_CLIENTS_FREE_DIAGNOSTIC": "Diagnòstic gratuït",
+    "WHY_CLIENTS_GUARANTEE": "Garantia de fins a 12 mesos",
+    "WHY_CLIENTS_FAIR_PRICES": "Preus honestos",
+    "WHY_CLIENTS_EXPERIENCED_MASTER": "Tècnic experimentat",
     "WHY_US": "Per què triar-nos",
     "WHY_US_EXP_TITLE": "Tècnics amb experiència",
     "WHY_US_EXP_DESC": "Els nostres especialistes tenen més de 5 anys d'experiència i treballen de manera ràpida i eficient.",
@@ -27,8 +36,16 @@
     "WHY_US_LOCATION_DESC": "Estem al centre de València, amb fàcil accés i aparcament.",
     "WHY_US_CONSULT_BY_PHONE_TITLE": "Consulta telefònica",
     "WHY_US_CONSULT_BY_PHONE_DESC": "Truca’ns — t’informarem del preu i el temps estimat de reparació.",
-    "HERO_TITLE": "Et podem ajudar",
-    "HERO_SUBTITLE": "Reparació ràpida i de qualitat de qualsevol dispositiu"
+    "HERO_SOCIALS": "Segueix-nos a les nostres xarxes socials",
+    "HERO_TITLE": "Reparació de telèfons i portàtils a València — ràpida, de qualitat, amb garantia",
+    "HERO_SUBTITLE": "Diagnòstic gratuït.\nRecanvis originals.\nTècnic amb experiència.",
+    "HERO_BUTTON": "Enviar sol·licitud",
+    "STEPS_TITLE": "4 passos senzills fins a la teva tècnica en funcionament",
+    "STEPS_REQUEST": "<b>Sol·licitud</b> - deixa la teua sol·licitud al web o per telèfon",
+    "STEPS_DIAGNOSTICS": "<b>Diagnosi</b> - identifiquem ràpidament l'avaria",
+    "STEPS_REPAIR": "<b>Reparació</b> - acordem el preu i comencem",
+    "STEPS_FINISH": "<b>Fet</b> - rep el dispositiu amb garantia",
+    "FEEDBACK_TITLE": "Opinions dels nostres clients"
   },
   "NAVIGATION": {
     "HOME": "Inici",
@@ -48,7 +65,20 @@
     "WORKING_HOURS_VALUE": "Dl–Dv: 11:00–19:00, Ds: 11:00–17:00",
     "ADDRESS_PARKING_DESCRIPTION": "Estem al centre de València, prop d'aparcaments i transport públic.",
     "WELCOME_TEXT": "Estarem encantats d’ajudar-te amb qualsevol dubte o problema. No dubtes a contactar-nos!",
-    "GET_DIRECTIONS": "Com arribar"
+    "GET_DIRECTIONS": "Com arribar",
+    "FORM_TITLE": "Formulari de sol·licitud",
+    "NAME": "Nom",
+    "PHONE": "Telèfon",
+    "MODEL": "Model del dispositiu",
+    "DESCRIPTION": "Breu descripció del problema",
+    "SUBMIT": "Enviar sol·licitud",
+    "SORRY_TOOLTIP": "Disculpeu, aquesta funció no està disponible ara",
+    "CAPTCHA": "Confirma que no ets un robot",
+    "CAPTCHA_ERROR": "La verificació ha fallat",
+    "REQUEST_SENT": "Sol·licitud enviada",
+    "REQUEST_ERROR": "Error en enviar la sol·licitud",
+    "FORM_INVALID": "Si us plau, ompliu el formulari correctament",
+    "WRITE_WHATSUP": "Escriure al WhatsUp"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntes freqüents",
@@ -83,5 +113,31 @@
     "DENY": "Rebutjar",
     "LINK": "Més informació",
     "POLICY": "Política de Cookies"
+  },
+  "ADMIN": {
+    "WORKS": "admin funciona!"
+  },
+  "LOGIN": {
+    "WORKS": "login funciona!"
+  },
+  "LANGUAGE": {
+    "DETECTING": "Detectant idioma..."
+  },
+  "STATUS_PAGE": {
+    "TITLE": "Comprovar l'estat de la comanda",
+    "SR_TITLE": "Formulari d'estat",
+    "ORDER_ID_LABEL": "Número de comanda",
+    "ORDER_ID_PLACEHOLDER": "Ex: 123456",
+    "ORDER_ID_ERROR": "Introdueix el número de comanda",
+    "PIN_LABEL": "Codi de client",
+    "PIN_PLACEHOLDER": "Codi de 4 dígits",
+    "PIN_ERROR": "Introdueix el codi",
+    "SUBMIT": "Comprovar estat",
+    "INFO_TITLE": "Informació de la comanda",
+    "INFO_ORDER": "Número:",
+    "INFO_DEVICE": "Dispositiu:",
+    "INFO_STATUS": "Estat:",
+    "INFO_DATE": "Data de recepció:",
+    "NOT_FOUND": "Comanda no trobada. Comprova les dades i torna-ho a provar."
   }
 }

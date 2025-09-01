@@ -1,7 +1,11 @@
 {
   "HOME": {
-    "TITLE": "Reparación de teléfonos y ordenadores",
-    "DESCRIPTION": "Servicio de reparación rápido y de calidad con garantía en tu ciudad.",
+    "TITLE": "Servicios de reparación de dispositivos",
+    "DESCRIPTION": "Reparamos profesionalmente smartphones, portátiles, tablets y otros equipos electrónicos",
+    "SERVICE_CARD_PHONE": "Reparación de teléfonos (cambio de pantalla, batería, software, etc.)",
+    "SERVICE_CARD_LAPTOP": "Reparación de portátiles (limpieza, cambio de teclado, SSD, puertos)",
+    "SERVICE_CARD_RECOVERY": "Recuperación de datos",
+    "SERVICE_CARD_PLUG": "Sustitución de conectores, botones, cámaras",
     "PHONE_REP_TITLE": "Reparación de teléfonos",
     "PHONE_REP_DESC": "Sustitución de pantallas, baterías, puertos de carga y más para todas las marcas.",
     "LAPTOP_REP_TITLE": "Reparación de portátiles",
@@ -14,6 +18,11 @@
     "APP_INSTALL_DESC": "Instalación de programas de oficina, gráficos, antivirus y otros esenciales.",
     "DIAG_TITLE": "Diagnóstico",
     "DIAG_DESC": "Diagnóstico rápido de fallos y consulta profesional.",
+    "WHY_CLIENTS_TITLE": "¿Por qué los clientes eligen",
+    "WHY_CLIENTS_FREE_DIAGNOSTIC": "Diagnóstico gratuito",
+    "WHY_CLIENTS_GUARANTEE": "Garantía de hasta 12 meses",
+    "WHY_CLIENTS_FAIR_PRICES": "Precios honestos",
+    "WHY_CLIENTS_EXPERIENCED_MASTER": "Técnico experimentado",
     "WHY_US": "Por qué elegirnos",
     "WHY_US_EXP_TITLE": "Técnicos con experiencia",
     "WHY_US_EXP_DESC": "Nuestros especialistas con más de 5 años de experiencia resuelven cualquier problema de forma eficaz.",
@@ -27,8 +36,16 @@
     "WHY_US_LOCATION_DESC": "Estamos en el centro de la ciudad con aparcamiento accesible.",
     "WHY_US_CONSULT_BY_PHONE_TITLE": "Consulta telefónica",
     "WHY_US_CONSULT_BY_PHONE_DESC": "Llámanos — te diremos el coste y tiempo estimado de la reparación.",
-    "HERO_TITLE": "Podemos ayudarte",
-    "HERO_SUBTITLE": "Reparación rápida y de calidad de cualquier dispositivo"
+    "HERO_SOCIALS": "Síguenos en nuestras redes sociales",
+    "HERO_TITLE": "Reparación de teléfonos y portátiles en Valencia — rápida, de calidad, con garantía",
+    "HERO_SUBTITLE": "Diagnóstico gratuito.\nRepuestos originales.\nTécnico experimentado.",
+    "HERO_BUTTON": "Enviar solicitud",
+    "STEPS_TITLE": "4 pasos simples para un dispositivo funcionando",
+    "STEPS_REQUEST": "<b>Solicitud</b> - deje su solicitud en el sitio o por teléfono",
+    "STEPS_DIAGNOSTICS": "<b>Diagnóstico</b> - determinamos rápidamente la falla",
+    "STEPS_REPAIR": "<b>Reparación</b> - acordamos el costo y comenzamos",
+    "STEPS_FINISH": "<b>Listo</b> - reciba el dispositivo con garantía",
+    "FEEDBACK_TITLE": "Opiniones de nuestros clientes"
   },
   "NAVIGATION": {
     "HOME": "Inicio",
@@ -48,7 +65,20 @@
     "WORKING_HOURS_VALUE": "Lun–Vie: 11:00–19:00, Sáb: 11:00–17:00",
     "ADDRESS_PARKING_DESCRIPTION": "Estamos en el centro de Valencia, con aparcamiento y transporte accesibles.",
     "WELCOME_TEXT": "Siempre estamos encantados de ayudarte. ¡No dudes en contactarnos!",
-    "GET_DIRECTIONS": "Cómo llegar"
+    "GET_DIRECTIONS": "Cómo llegar",
+    "FORM_TITLE": "Formulario de solicitud",
+    "NAME": "Nombre",
+    "PHONE": "Teléfono",
+    "MODEL": "Modelo del dispositivo",
+    "DESCRIPTION": "Breve descripción del problema",
+    "SUBMIT": "Enviar solicitud",
+    "SORRY_TOOLTIP": "Lo sentimos, esta función no está disponible ahora",
+    "CAPTCHA": "Confirma que no eres un robot",
+    "CAPTCHA_ERROR": "La verificación falló",
+    "REQUEST_SENT": "Solicitud enviada",
+    "REQUEST_ERROR": "Error al enviar la solicitud",
+    "FORM_INVALID": "Por favor, complete el formulario correctamente",
+    "WRITE_WHATSUP": "Escribir en WhatsUp"
   },
   "FAQ": {
     "PAGE_TITLE": "Preguntas frecuentes",
@@ -83,5 +113,31 @@
     "DENY": "Rechazar",
     "LINK": "Más información",
     "POLICY": "Política de Cookies"
+  },
+  "ADMIN": {
+    "WORKS": "¡admin funciona!"
+  },
+  "LOGIN": {
+    "WORKS": "¡inicio de sesión funciona!"
+  },
+  "LANGUAGE": {
+    "DETECTING": "Detectando idioma..."
+  },
+  "STATUS_PAGE": {
+    "TITLE": "Comprobar estado del pedido",
+    "SR_TITLE": "Formulario de estado",
+    "ORDER_ID_LABEL": "Número de pedido",
+    "ORDER_ID_PLACEHOLDER": "Ej: 123456",
+    "ORDER_ID_ERROR": "Introduce el número de pedido",
+    "PIN_LABEL": "Código de cliente",
+    "PIN_PLACEHOLDER": "Código de 4 dígitos",
+    "PIN_ERROR": "Introduce el código",
+    "SUBMIT": "Comprobar estado",
+    "INFO_TITLE": "Información del pedido",
+    "INFO_ORDER": "Número:",
+    "INFO_DEVICE": "Dispositivo:",
+    "INFO_STATUS": "Estado:",
+    "INFO_DATE": "Fecha de entrada:",
+    "NOT_FOUND": "Pedido no encontrado. Comprueba los datos e inténtalo de nuevo."
   }
 }

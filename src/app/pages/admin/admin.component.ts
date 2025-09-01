@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-admin',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })

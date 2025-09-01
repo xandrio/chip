@@ -1,7 +1,11 @@
 {
   "HOME": {
-    "TITLE": "Phone and Computer Repair",
-    "DESCRIPTION": "High-quality and fast repair services with warranty in your city.",
+    "TITLE": "Repair Services",
+    "DESCRIPTION": "We professionally repair smartphones, laptops, tablets and other electronics",
+    "SERVICE_CARD_PHONE": "Phone repair (screen replacement, battery, firmware, etc.)",
+    "SERVICE_CARD_LAPTOP": "Laptop repair (cleaning, keyboard, SSD, ports replacement)",
+    "SERVICE_CARD_RECOVERY": "Data recovery",
+    "SERVICE_CARD_PLUG": "Connector, button, camera replacement",
     "PHONE_REP_TITLE": "Phone Repair",
     "PHONE_REP_DESC": "Screen, battery, charging port replacements and more for all phone brands.",
     "LAPTOP_REP_TITLE": "Laptop Repair",
@@ -14,6 +18,11 @@
     "APP_INSTALL_DESC": "Installing office, graphics, antivirus, and other essential software.",
     "DIAG_TITLE": "Diagnostics",
     "DIAG_DESC": "Quick issue diagnostics and expert consultation.",
+    "WHY_CLIENTS_TITLE": "Why do clients choose",
+    "WHY_CLIENTS_FREE_DIAGNOSTIC": "Free diagnostics",
+    "WHY_CLIENTS_GUARANTEE": "Up to 12 months warranty",
+    "WHY_CLIENTS_FAIR_PRICES": "Honest prices",
+    "WHY_CLIENTS_EXPERIENCED_MASTER": "Experienced technician",
     "WHY_US": "Why Choose Us",
     "WHY_US_EXP_TITLE": "Experienced Technicians",
     "WHY_US_EXP_DESC": "Our specialists with 5+ years of experience handle any task efficiently and professionally.",
@@ -27,8 +36,16 @@
     "WHY_US_LOCATION_DESC": "Located in the city center with easy parking access.",
     "WHY_US_CONSULT_BY_PHONE_TITLE": "Phone Consultation",
     "WHY_US_CONSULT_BY_PHONE_DESC": "Call us — we’ll tell you the repair cost and estimated time.",
-    "HERO_TITLE": "We Can Help You",
-    "HERO_SUBTITLE": "Fast and quality repair for any device"
+    "HERO_SOCIALS": "Follow us on our social media",
+    "HERO_TITLE": "Phone and laptop repair in Valencia — fast, high-quality, guaranteed",
+    "HERO_SUBTITLE": "Free diagnostics.\nOriginal parts.\nExperienced technician.",
+    "HERO_BUTTON": "Leave a request",
+    "STEPS_TITLE": "4 simple steps to working tech",
+    "STEPS_REQUEST": "<b>Request</b> - leave a request on the site or by phone",
+    "STEPS_DIAGNOSTICS": "<b>Diagnostics</b> - quickly determine the issue",
+    "STEPS_REPAIR": "<b>Repair</b> - agree on the price and start",
+    "STEPS_FINISH": "<b>Done</b> - receive your device with a warranty",
+    "FEEDBACK_TITLE": "What our clients say"
   },
   "NAVIGATION": {
     "HOME": "Home",
@@ -48,7 +65,20 @@
     "WORKING_HOURS_VALUE": "Mon–Fri: 11:00–19:00, Sat: 11:00–17:00",
     "ADDRESS_PARKING_DESCRIPTION": "We're located in the center of Valencia with convenient parking and transport access.",
     "WELCOME_TEXT": "We're always happy to help with any questions or issues. Don’t hesitate to contact us!",
-    "GET_DIRECTIONS": "Get Directions"
+    "GET_DIRECTIONS": "Get Directions",
+    "FORM_TITLE": "Request Form",
+    "NAME": "Name",
+    "PHONE": "Phone number",
+    "MODEL": "Device model",
+    "DESCRIPTION": "Brief problem description",
+    "SUBMIT": "Submit request",
+    "SORRY_TOOLTIP": "Sorry, this feature is not available right now",
+    "CAPTCHA": "Please verify that you are not a robot",
+    "CAPTCHA_ERROR": "Captcha verification failed",
+    "REQUEST_SENT": "Request sent",
+    "REQUEST_ERROR": "Failed to send request",
+    "FORM_INVALID": "Please fill out the form correctly",
+    "WRITE_WHATSUP": "Message on WhatsUp"
   },
   "FAQ": {
     "PAGE_TITLE": "Frequently Asked Questions",
@@ -83,5 +113,31 @@
     "DENY": "Decline",
     "LINK": "Learn more",
     "POLICY": "Cookie Policy"
+  },
+  "ADMIN": {
+    "WORKS": "admin works!"
+  },
+  "LOGIN": {
+    "WORKS": "login works!"
+  },
+  "LANGUAGE": {
+    "DETECTING": "Detecting language..."
+  },
+  "STATUS_PAGE": {
+    "TITLE": "Order Status Check",
+    "SR_TITLE": "Status Check Form",
+    "ORDER_ID_LABEL": "Order number",
+    "ORDER_ID_PLACEHOLDER": "e.g., 123456",
+    "ORDER_ID_ERROR": "Enter order number",
+    "PIN_LABEL": "Customer code",
+    "PIN_PLACEHOLDER": "4-digit code",
+    "PIN_ERROR": "Enter code",
+    "SUBMIT": "Check status",
+    "INFO_TITLE": "Order information",
+    "INFO_ORDER": "Number:",
+    "INFO_DEVICE": "Device:",
+    "INFO_STATUS": "Status:",
+    "INFO_DATE": "Date received:",
+    "NOT_FOUND": "Order not found. Check the details and try again."
   }
 }
